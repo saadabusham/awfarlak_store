@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel" />
@@ -11,5 +14,92 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvAdd"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            app:cardBackgroundColor="@color/button_color"
+            app:cardCornerRadius="@dimen/_30sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/imgAdd"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:src="@{viewModel.addSelected ? @drawable/ic_circular_back : @drawable/ic_add}"
+                tools:src="@drawable/ic_add" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvAddOptions"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_180sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            app:cardBackgroundColor="@color/button_color"
+            app:cardCornerRadius="@dimen/_8sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/cvAdd"
+            app:layout_constraintEnd_toStartOf="@id/cvAdd">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                    android:id="@+id/tvAddMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:gravity="center|start"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:text="@string/add_mobile_for_sale"
+                    android:textColor="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?selectableItemBackground"
+                    android:textSize="@dimen/_15ssp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/white" />
+
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                    android:id="@+id/tvAddServices"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_55sdp"
+                    android:gravity="center|start"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:text="@string/add_services"
+                    android:textColor="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?selectableItemBackground"
+                    android:textSize="@dimen/_15ssp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/white" />
+
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                    android:id="@+id/tvAddAccessories"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:gravity="center|start"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:text="@string/add_accessories"
+                    android:textColor="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?selectableItemBackground"
+                    android:textSize="@dimen/_15ssp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

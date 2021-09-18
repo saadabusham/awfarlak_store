@@ -39,6 +39,8 @@ class GeneralViewModel @Inject constructor(
         private val mobileCartRepo: MobileCartRepo
 ) : BaseViewModel() {
 
+    val addSelected = MutableLiveData(false)
+
     val cartCount: MutableLiveData<String> = MutableLiveData("0")
     var serviceToView: Service? = null
     var mobileToView: MobilesItem? = null

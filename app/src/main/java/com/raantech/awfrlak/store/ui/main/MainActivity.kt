@@ -48,7 +48,7 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>(),
                 hasToolbar = true,
                 toolbarView = toolbar,
                 hasTitle = true,
-                title = R.string.app_name
+                title = R.string.nav_home
         )
         setUpBinding()
         setupNavigation()
@@ -57,13 +57,6 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>(),
     }
 
     private fun setUpListeners() {
-        binding?.appBarMain?.layoutToolbar?.imgCart?.setOnClickListener {
-            if (!viewModel.cartCount.value.equals("0"))
-                CartActivity.start(this)
-        }
-        binding?.appBarMain?.layoutToolbar?.imgSearch?.setOnClickListener {
-//            FiltersActivity.start(this)
-        }
     }
 
     private fun setUpBinding() {

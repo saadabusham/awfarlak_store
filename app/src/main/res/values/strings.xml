@@ -190,5 +190,8 @@
     <string name="nav_statistics">Statistics</string>
     <string name="nav_products">Products</string>
     <string name="nav_orders">Orders</string>
+    <string name="add_mobile_for_sale">Add Mobile For Sale</string>
+    <string name="add_services">Add Services</string>
+    <string name="add_accessories">Add Accessories</string>
 
 </resources>

@@ -34,6 +34,7 @@
             android:layout_height="@dimen/_50sdp"
             android:layout_gravity="center"
             app:elevation="0dp"
+            android:background="@color/button_color"
             android:layout_alignParentBottom="true"
             app:itemIconSize="@dimen/_18sdp"
             app:itemIconTint="@color/color_activity_main_navigation_view_item"
