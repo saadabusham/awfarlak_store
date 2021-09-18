@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Awfrlak</string>
+    <string name="app_name">Awfrlak Store</string>
     <string name="app_license">Copyright@Raantech Company</string>
 
     <!-- SelectLanguageFragment-->
@@ -19,7 +19,7 @@
     <string name="camera_permission_denied">Grant camera permission to take the 3 seconds video</string>
     <string name="screen_shot">take screenshot</string>
 
-    <string name="alert_dialog_title">Fly US VIP</string>
+    <string name="alert_dialog_title">Awfrlak Store</string>
     <string name="alert_dialog_all_info_in_english">All information entered must be in English</string>
     <string name="not_available_yet">This feature is coming soon to Al Alami app!</string>
     <!-- General -->
@@ -186,5 +186,9 @@
     <string name="search_here">Search here</string>
     <string name="location">Location</string>
     <string name="please_pick_location">Please pick location</string>
+    <string name="store_name">Store Name</string>
+    <string name="nav_statistics">Statistics</string>
+    <string name="nav_products">Products</string>
+    <string name="nav_orders">Orders</string>
 
 </resources>

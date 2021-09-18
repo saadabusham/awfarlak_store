@@ -77,7 +77,7 @@ class AccessoriesFragment : BaseBindingFragment<LayoutAccessoriesGridBinding>(),
     }
 
     private fun loadAccessories() {
-        viewModel.getAccessories(accessoriesGridRecyclerAdapter.itemCount, viewModel.storeToView?.id)
+        viewModel.getAccessories(accessoriesGridRecyclerAdapter.itemCount)
                 .observe(this, accessoriesObserver())
     }
 

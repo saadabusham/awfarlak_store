@@ -58,7 +58,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/white"
-                            android:hint="@string/username"
+                            android:hint="@string/store_name"
                             android:text="@={viewModel.username}"
                             android:textAlignment="viewStart"
                             android:textColor="@color/text_gray_color"

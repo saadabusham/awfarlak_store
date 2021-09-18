@@ -21,16 +21,12 @@ class AccessoriesRepoImp @Inject constructor(
     }
 
     override suspend fun getMobiles(
-        skip: Int,
-        store_id: Int?,
-        search_text: String?
+        skip: Int
     ): APIResource<ResponseWrapper<List<MobilesItem>>> {
         return try {
             responseHandle.handleSuccess(
                 accessoriesRemoteDao.getMobiles(
-                    skip,
-                    store_id,
-                    search_text
+                    skip
                 )
             )
         } catch (e: Exception) {
@@ -39,16 +35,12 @@ class AccessoriesRepoImp @Inject constructor(
     }
 
     override suspend fun getAccessories(
-        skip: Int,
-        store_id: Int?,
-        search_text: String?
+        skip: Int
     ): APIResource<ResponseWrapper<List<AccessoriesItem>>> {
         return try {
             responseHandle.handleSuccess(
                 accessoriesRemoteDao.getAccessories(
-                    skip,
-                    store_id,
-                    search_text
+                    skip
                 )
             )
         } catch (e: Exception) {
@@ -57,27 +49,22 @@ class AccessoriesRepoImp @Inject constructor(
     }
 
     override suspend fun getStores(
-        skip: Int,
-        search_text: String?
+        skip: Int
     ): APIResource<ResponseWrapper<List<Store>>> {
         return try {
-            responseHandle.handleSuccess(accessoriesRemoteDao.getStores(skip,search_text))
+            responseHandle.handleSuccess(accessoriesRemoteDao.getStores(skip))
         } catch (e: Exception) {
             responseHandle.handleException(e)
         }
     }
 
     override suspend fun getServices(
-        skip: Int,
-        store_id: Int?,
-        search_text: String?
+        skip: Int
     ): APIResource<ResponseWrapper<List<Service>>> {
         return try {
             responseHandle.handleSuccess(
                 accessoriesRemoteDao.getServices(
-                    skip,
-                    store_id,
-                    search_text
+                    skip
                 )
             )
         } catch (e: Exception) {

@@ -13,26 +13,26 @@ interface UserRemoteDao {
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:true")
     @FormUrlEncoded
-    @POST("auth/login")
+    @POST("merchant/auth/login")
     suspend fun login(
         @Field("phone_number") phoneNumber: String
     ): ResponseWrapper<TokenModel>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
-    @POST("auth/logout")
+    @POST("merchant/auth/logout")
     suspend fun logout(
     ): ResponseWrapper<Any>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:true")
     @FormUrlEncoded
-    @POST("auth/resend")
+    @POST("merchant/auth/resend")
     suspend fun resendCode(
         @Field("token") token: String
     ): ResponseWrapper<TokenModel>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:true")
     @FormUrlEncoded
-    @POST("auth/verify")
+    @POST("merchant/auth/verify")
     suspend fun verify(
         @Field("token") token: String,
         @Field("code") code: Int,
@@ -42,7 +42,7 @@ interface UserRemoteDao {
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:true")
     @FormUrlEncoded
-    @POST("auth/register")
+    @POST("merchant/auth/register")
     suspend fun register(
         @Field("token") token: String,
         @Field("name") name: String,

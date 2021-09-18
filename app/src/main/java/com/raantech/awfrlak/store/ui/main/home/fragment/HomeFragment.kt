@@ -23,7 +23,6 @@ import com.raantech.awfrlak.store.ui.main.home.adapters.*
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
 import com.raantech.awfrlak.store.ui.mobile.MobileDetailsActivity
 import com.raantech.awfrlak.store.ui.service.ServiceDetailsActivity
-import com.raantech.awfrlak.store.ui.store.StoreActivity
 import com.raantech.awfrlak.store.utils.extensions.gone
 import com.raantech.awfrlak.store.utils.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
@@ -651,7 +650,6 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding>(),
                 AccessoryDetailsActivity.start(requireActivity(),item)
             }
             is Store -> {
-                StoreActivity.start(requireActivity(), item)
             }
             is SlidesItem -> {
 

@@ -10,6 +10,7 @@ import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
 import com.raantech.awfrlak.store.data.models.home.Service
 import com.raantech.awfrlak.databinding.LayoutPhonesGridBinding
+import com.raantech.awfrlak.databinding.LayoutServicesGridBinding
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
@@ -21,7 +22,7 @@ import com.raantech.awfrlak.store.utils.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ServicesFragment : BaseBindingFragment<LayoutPhonesGridBinding>(),
+class ServicesFragment : BaseBindingFragment<LayoutServicesGridBinding>(),
         BaseBindingRecyclerViewAdapter.OnItemClickListener {
 
     private val viewModel: GeneralViewModel by activityViewModels()
@@ -30,13 +31,12 @@ class ServicesFragment : BaseBindingFragment<LayoutPhonesGridBinding>(),
     private var isServicesFinished = false
     lateinit var servicesGridRecyclerAdapter: ServicesGridRecyclerAdapter
     override fun getLayoutId(): Int {
-        return R.layout.layout_phones_grid
+        return R.layout.layout_services_grid
     }
 
 
     override fun onViewVisible() {
         super.onViewVisible()
-        binding?.linearPhonesGrid?.visible()
         loadingServicesObserver()
         setUpRvServicesGrid()
         loadServices()
@@ -78,7 +78,7 @@ class ServicesFragment : BaseBindingFragment<LayoutPhonesGridBinding>(),
     }
 
     private fun loadServices() {
-        viewModel.getServices(servicesGridRecyclerAdapter.itemCount, viewModel.storeToView?.id)
+        viewModel.getServices(servicesGridRecyclerAdapter.itemCount)
                 .observe(this, servicesObserver())
     }
 

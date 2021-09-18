@@ -16,38 +16,31 @@ interface AccessoriesRemoteDao {
     ): ResponseWrapper<HomeResponse>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
-    @GET("mobiles")
+    @GET("merchant/mobiles")
     suspend fun getMobiles(
-        @Query("skip") skip: Int,
-        @Query("store_id") store_id: Int?,
-        @Query("search_text") search_text: String?
+        @Query("skip") skip: Int
     ): ResponseWrapper<List<MobilesItem>>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
-    @GET("accessories")
+    @GET("merchant/accessories")
     suspend fun getAccessories(
-        @Query("skip") skip: Int,
-        @Query("store_id") store_id: Int?,
-        @Query("search_text") search_text: String?
+        @Query("skip") skip: Int
     ): ResponseWrapper<List<AccessoriesItem>>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
     @GET("stores")
     suspend fun getStores(
-        @Query("skip") skip: Int,
-        @Query("search_text") search_text: String?
+        @Query("skip") skip: Int
     ): ResponseWrapper<List<Store>>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
-    @GET("services")
+    @GET("merchant/services")
     suspend fun getServices(
-        @Query("skip") skip: Int,
-        @Query("store_id") store_id: Int?,
-        @Query("search_text") search_text: String?
+        @Query("skip") skip: Int
     ): ResponseWrapper<List<Service>>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
-    @GET("accessories/{id}/show")
+    @GET("merchant/accessories/{id}/show")
     suspend fun getAccessory(
         @Path("id") id: Int
     ): ResponseWrapper<AccessoriesItem>

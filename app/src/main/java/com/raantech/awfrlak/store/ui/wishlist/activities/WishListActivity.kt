@@ -29,7 +29,6 @@ import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapte
 import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
 import com.raantech.awfrlak.store.ui.mobile.MobileDetailsActivity
 import com.raantech.awfrlak.store.ui.service.ServiceDetailsActivity
-import com.raantech.awfrlak.store.ui.store.StoreActivity
 import com.raantech.awfrlak.store.ui.wishlist.adapter.WishListRecyclerAdapter
 import com.raantech.awfrlak.store.ui.wishlist.viewmodels.WishListViewModel
 import com.raantech.awfrlak.store.utils.extensions.gone
@@ -225,7 +224,6 @@ class WishListActivity : BaseBindingActivity<ActivityWishlistBinding>(),
                     AccessoryDetailsActivity.start(this, item)
                 }
                 is Store -> {
-                    StoreActivity.start(this, item)
                 }
                 is Service -> {
                     ServiceDetailsActivity.start(this, item)

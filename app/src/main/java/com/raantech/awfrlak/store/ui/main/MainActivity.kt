@@ -11,6 +11,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout.SimpleDrawerListener
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.raantech.awfrlak.R
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
@@ -74,14 +75,14 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>(),
 
     private fun setupNavigation() {
         val navController = findNavController(R.id.main_nav_host_fragment)
-//        NavigationUI.setupWithNavController(
-//            bnv_main,
-//            navController
-//        )
-//
-//        bnv_main?.setOnNavigationItemReselectedListener {
-//            // Do Nothing To Disable ReLunch fragment when reClick on nav icon
-//        }
+        NavigationUI.setupWithNavController(
+            bnv_main,
+            navController
+        )
+
+        bnv_main?.setOnNavigationItemReselectedListener {
+            // Do Nothing To Disable ReLunch fragment when reClick on nav icon
+        }
 
     }
 

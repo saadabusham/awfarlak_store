@@ -100,11 +100,10 @@ class GeneralViewModel @Inject constructor(
     }
 
     fun getAccessories(
-            skip: Int,
-            storeId: Int? = null
+            skip: Int
     ) = liveData {
         emit(APIResource.loading())
-        val response = accessoriesRepo.getAccessories(skip, storeId)
+        val response = accessoriesRepo.getAccessories(skip)
         emit(response)
     }
 
@@ -117,11 +116,10 @@ class GeneralViewModel @Inject constructor(
     }
 
     fun getServices(
-            skip: Int,
-            storeId: Int? = null
+            skip: Int
     ) = liveData {
         emit(APIResource.loading())
-        val response = accessoriesRepo.getServices(skip, storeId)
+        val response = accessoriesRepo.getServices(skip)
         emit(response)
     }
 
@@ -132,11 +130,10 @@ class GeneralViewModel @Inject constructor(
     }
 
     fun getMobiles(
-            skip: Int,
-            storeId: Int? = null
+            skip: Int
     ) = liveData {
         emit(APIResource.loading())
-        val response = accessoriesRepo.getMobiles(skip, storeId)
+        val response = accessoriesRepo.getMobiles(skip)
         emit(response)
     }
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/layouts_margin_start"
+            android:layout_marginEnd="@dimen/layouts_margin_end"
+            app:cardCornerRadius="@dimen/_7sdp">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@color/white"
+                app:tabBackground="@drawable/tab_color_selector"
+                app:tabTextAppearance="@style/tablayout_item" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.raantech.awfrlak.store.ui.base.views.NonSwipeViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+</layout>

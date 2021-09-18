@@ -10,27 +10,20 @@ interface AccessoriesRepo {
     ): APIResource<ResponseWrapper<HomeResponse>>
 
     suspend fun getMobiles(
-        skip: Int,
-        store_id: Int?= null,
-        search_text: String?= null
+        skip: Int
     ): APIResource<ResponseWrapper<List<MobilesItem>>>
 
 
     suspend fun getAccessories(
-        skip: Int,
-        store_id: Int?= null,
-        search_text: String?= null
+        skip: Int
     ): APIResource<ResponseWrapper<List<AccessoriesItem>>>
 
     suspend fun getStores(
-        skip: Int,
-        search_text: String? = null
+        skip: Int
     ): APIResource<ResponseWrapper<List<Store>>>
 
     suspend fun getServices(
-        skip: Int,
-        store_id: Int?= null,
-        search_text: String?= null
+        skip: Int
     ): APIResource<ResponseWrapper<List<Service>>>
 
     suspend fun getAccessory(

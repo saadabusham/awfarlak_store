@@ -78,7 +78,7 @@ class MobilesFragment : BaseBindingFragment<LayoutPhonesGridBinding>(),
     }
 
     private fun loadMobiles() {
-        viewModel.getMobiles(phonesGridRecyclerAdapter.itemCount, viewModel.storeToView?.id)
+        viewModel.getMobiles(phonesGridRecyclerAdapter.itemCount)
                 .observe(this, mobilesObserver())
     }
 

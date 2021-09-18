@@ -3,10 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/nav_statistics">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.raantech.awfrlak.store.ui.main.home.fragment.HomeFragment"
-        android:label="HomeFragment" />
+        android:id="@+id/nav_statistics"
+        android:name="com.raantech.awfrlak.store.ui.main.statistics.StatisticsFragment"
+        android:label="StatisticsFragment"
+        tools:layout="@layout/fragment_statistics" />
+
+    <fragment
+        android:id="@+id/nav_products"
+        android:name="com.raantech.awfrlak.store.ui.main.products.ProductsFragment"
+        android:label="ProductsFragment"
+        tools:layout="@layout/fragment_products" />
+
+    <fragment
+        android:id="@+id/nav_services"
+        android:name="com.raantech.awfrlak.store.ui.store.fragment.ServicesFragment"
+        android:label="ServicesFragment"
+        tools:layout="@layout/layout_services_grid" />
 </navigation>
