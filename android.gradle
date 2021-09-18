@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         if (project.name == "app") {
-            applicationId "com.raantech.awfrlak"
+            applicationId "com.raantech.awfrlak.store"
         }
 
         minSdkVersion 23

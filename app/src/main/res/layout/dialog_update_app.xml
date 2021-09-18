@@ -10,7 +10,7 @@
 
         <variable
             name="viewModel"
-            type="com.raantech.awfrlak.ui.base.dialogs.appupdate.UpdateAppDialog" />
+            type="com.raantech.awfrlak.store.ui.base.dialogs.appupdate.UpdateAppDialog" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

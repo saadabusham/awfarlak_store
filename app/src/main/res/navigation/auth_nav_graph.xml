@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/languageFragment"
-        android:name="com.raantech.awfrlak.ui.auth.language.LanguageFragment"
+        android:name="com.raantech.awfrlak.store.ui.auth.language.LanguageFragment"
         android:label="LanguageFragment"
         tools:layout="@layout/fragment_language">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.raantech.awfrlak.ui.auth.login.fragments.LoginFragment"
+        android:name="com.raantech.awfrlak.store.ui.auth.login.fragments.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/verificationLoginFragment"
-        android:name="com.raantech.awfrlak.ui.auth.login.fragments.VerificationLoginFragment"
+        android:name="com.raantech.awfrlak.store.ui.auth.login.fragments.VerificationLoginFragment"
         android:label="VerificationLoginFragment"
         tools:layout="@layout/fragment_verification_login">
         <action
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.raantech.awfrlak.ui.auth.login.fragments.RegisterFragment"
+        android:name="com.raantech.awfrlak.store.ui.auth.login.fragments.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register" />
 

@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.raantech.awfrlak.data.models.notification.Notification" />
+            type="com.raantech.awfrlak.store.data.models.notification.Notification" />
     </data>
 
     <LinearLayout
@@ -27,7 +27,7 @@
             app:cardCornerRadius="@dimen/_7sdp"
             app:cardElevation="0dp" />
 
-        <com.raantech.awfrlak.ui.base.views.AppTextView
+        <com.raantech.awfrlak.store.ui.base.views.AppTextView
             android:id="@+id/tvName"
             style="@style/textview_normal_regular"
             android:layout_width="wrap_content"

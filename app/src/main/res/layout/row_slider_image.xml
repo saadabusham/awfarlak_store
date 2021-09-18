@@ -9,7 +9,7 @@
 
         <variable
             name="blog"
-            type="com.raantech.awfrlak.data.models.home.SlidesItem" />
+            type="com.raantech.awfrlak.store.data.models.home.SlidesItem" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

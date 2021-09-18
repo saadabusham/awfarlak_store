@@ -10,7 +10,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:orientation="vertical">
 
-        <com.raantech.awfrlak.ui.base.views.AppTextView
+        <com.raantech.awfrlak.store.ui.base.views.AppTextView
             android:id="@+id/tvAll"
             style="@style/textview_normal_regular"
             android:layout_width="match_parent"

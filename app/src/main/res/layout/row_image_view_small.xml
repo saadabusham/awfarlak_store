@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.raantech.awfrlak.data.models.media.Media" />
+            type="com.raantech.awfrlak.store.data.models.media.Media" />
     </data>
 
     <RelativeLayout

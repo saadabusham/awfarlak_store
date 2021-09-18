@@ -9,7 +9,7 @@
 
         <variable
             name="item"
-            type="com.raantech.awfrlak.data.models.home.Store" />
+            type="com.raantech.awfrlak.store.data.models.home.Store" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -40,7 +40,7 @@
                 android:transitionName="blog_image_transition"
                 tools:src="@drawable/mobile_sample" />
 
-            <com.raantech.awfrlak.ui.base.views.AppTextView
+            <com.raantech.awfrlak.store.ui.base.views.AppTextView
                 style="@style/textview_normal_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

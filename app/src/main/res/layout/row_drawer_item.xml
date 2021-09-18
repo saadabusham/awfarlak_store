@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.raantech.awfrlak.data.models.more.More" />
+            type="com.raantech.awfrlak.store.data.models.more.More" />
     </data>
 
     <RelativeLayout
@@ -18,7 +18,7 @@
         android:focusable="true"
         android:orientation="horizontal">
 
-        <com.raantech.awfrlak.ui.base.views.AppTextView
+        <com.raantech.awfrlak.store.ui.base.views.AppTextView
             android:id="@+id/tvTitle"
             style="@style/textview_normal_regular"
             android:layout_width="wrap_content"

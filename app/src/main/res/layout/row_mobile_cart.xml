@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="com.raantech.awfrlak.utils.extensions.DataTimeExtensionsKt" />
+        <import type="com.raantech.awfrlak.store.utils.extensions.DataTimeExtensionsKt" />
 
         <import type="android.view.View" />
 
@@ -15,7 +15,7 @@
 
         <variable
             name="item"
-            type="com.raantech.awfrlak.data.models.home.MobilesItem" />
+            type="com.raantech.awfrlak.store.data.models.home.MobilesItem" />
     </data>
 
     <RelativeLayout
@@ -88,7 +88,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:orientation="horizontal">
 
-                        <com.raantech.awfrlak.ui.base.views.AppTextView
+                        <com.raantech.awfrlak.store.ui.base.views.AppTextView
                             style="@style/textview_normal_bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/ic_minus" />
 
-                            <com.raantech.awfrlak.ui.base.views.AppTextView
+                            <com.raantech.awfrlak.store.ui.base.views.AppTextView
                                 style="@style/textview_normal_bold"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

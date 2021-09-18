@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30sdp"
         android:gravity="center">
-        <com.raantech.awfrlak.ui.base.views.AppTextView
+        <com.raantech.awfrlak.store.ui.base.views.AppTextView
             android:id="@+id/spinnerTarget"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

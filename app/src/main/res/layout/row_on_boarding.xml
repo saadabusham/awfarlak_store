@@ -4,7 +4,7 @@
     <data>
         <variable
             name="data"
-            type="com.raantech.awfrlak.data.models.auth.onboarding.OnBoardingItem" />
+            type="com.raantech.awfrlak.store.data.models.auth.onboarding.OnBoardingItem" />
     </data>
 
     <LinearLayout

@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.raantech.awfrlak.data.models.Purchase" />
+            type="com.raantech.awfrlak.store.data.models.Purchase" />
     </data>
 
     <LinearLayout
@@ -38,7 +38,7 @@
                 android:gravity="center|start|top"
                 android:orientation="vertical">
 
-                <com.raantech.awfrlak.ui.base.views.AppTextView
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                     android:textSize="@dimen/_13ssp"
                     tools:text="#22123" />
 
-                <com.raantech.awfrlak.ui.base.views.AppTextView
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:gravity="center|end|top"
                 android:orientation="vertical">
 
-                <com.raantech.awfrlak.ui.base.views.AppTextView
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
                     style="@style/textview_normal_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                     android:textSize="@dimen/_13ssp"
                     tools:text="2000 ر.س" />
 
-                <com.raantech.awfrlak.ui.base.views.AppTextView
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

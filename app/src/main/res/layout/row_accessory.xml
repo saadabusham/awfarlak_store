@@ -9,7 +9,7 @@
 
         <variable
             name="item"
-            type="com.raantech.awfrlak.data.models.home.AccessoriesItem" />
+            type="com.raantech.awfrlak.store.data.models.home.AccessoriesItem" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -39,7 +39,7 @@
                 android:transitionName="blog_image_transition"
                 tools:src="@drawable/mobile_sample" />
 
-            <com.raantech.awfrlak.ui.base.views.AppTextView
+            <com.raantech.awfrlak.store.ui.base.views.AppTextView
                 style="@style/textview_normal_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_55sdp"
@@ -53,7 +53,7 @@
                 android:textSize="@dimen/_13ssp"
                 tools:text="سامسونج جالاكسي\nS20 FE 5G\nS20 FE 5G " />
 
-            <com.raantech.awfrlak.ui.base.views.AppTextView
+            <com.raantech.awfrlak.store.ui.base.views.AppTextView
                 style="@style/textview_normal_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.raantech.awfrlak.data.models.DataView" />
+            type="com.raantech.awfrlak.store.data.models.DataView" />
 
         <import type="android.view.View" />
     </data>

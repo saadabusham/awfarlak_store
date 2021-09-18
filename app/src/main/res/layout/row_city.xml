@@ -6,7 +6,7 @@
 
         <variable
             name="city"
-            type="com.raantech.awfrlak.data.models.City" />
+            type="com.raantech.awfrlak.store.data.models.City" />
 
         <import type="android.view.View" />
     </data>

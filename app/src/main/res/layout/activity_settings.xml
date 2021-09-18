@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.raantech.awfrlak.ui.more.settings.SettingsViewModel" />
+            type="com.raantech.awfrlak.store.ui.more.settings.SettingsViewModel" />
     </data>
 
     <LinearLayout
@@ -51,7 +51,7 @@
                         android:layout_toStartOf="@id/switchNotifications"
                         android:orientation="vertical">
 
-                        <com.raantech.awfrlak.ui.base.views.AppTextView
+                        <com.raantech.awfrlak.store.ui.base.views.AppTextView
                             style="@style/textview_normal_regular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_13ssp" />
 
-                        <com.raantech.awfrlak.ui.base.views.AppTextView
+                        <com.raantech.awfrlak.store.ui.base.views.AppTextView
                             style="@style/textview_normal_regular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                         android:layout_toStartOf="@id/imgArrow"
                         android:orientation="vertical">
 
-                        <com.raantech.awfrlak.ui.base.views.AppTextView
+                        <com.raantech.awfrlak.store.ui.base.views.AppTextView
                             style="@style/textview_normal_regular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_13ssp" />
 
-                        <com.raantech.awfrlak.ui.base.views.AppTextView
+                        <com.raantech.awfrlak.store.ui.base.views.AppTextView
                             style="@style/normalRegularFontStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

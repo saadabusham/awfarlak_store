@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.raantech.awfrlak.ui.auth.login.viewmodels.LoginViewModel" />
+            type="com.raantech.awfrlak.store.ui.auth.login.viewmodels.LoginViewModel" />
     </data>
 
     <LinearLayout
@@ -52,7 +52,7 @@
                         android:minHeight="@dimen/Edittext_height"
                         app:cardCornerRadius="@dimen/_10sdp">
 
-                        <com.raantech.awfrlak.ui.base.views.AppEditText
+                        <com.raantech.awfrlak.store.ui.base.views.AppEditText
                             android:id="@+id/edUserName"
                             style="@style/textview_normal_regular"
                             android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                         android:minHeight="@dimen/Edittext_height"
                         app:cardCornerRadius="@dimen/_10sdp">
 
-                        <com.raantech.awfrlak.ui.base.views.AppEditText
+                        <com.raantech.awfrlak.store.ui.base.views.AppEditText
                             android:id="@+id/edEmail"
                             style="@style/textview_normal_regular"
                             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                         android:minHeight="@dimen/Edittext_height"
                         app:cardCornerRadius="@dimen/_10sdp">
 
-                        <com.raantech.awfrlak.ui.base.views.AppEditText
+                        <com.raantech.awfrlak.store.ui.base.views.AppEditText
                             android:id="@+id/tvAddress"
                             style="@style/textview_normal_regular"
                             android:layout_width="match_parent"

@@ -7,6 +7,6 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.raantech.awfrlak.ui.main.home.fragment.HomeFragment"
+        android:name="com.raantech.awfrlak.store.ui.main.home.fragment.HomeFragment"
         android:label="HomeFragment" />
 </navigation>

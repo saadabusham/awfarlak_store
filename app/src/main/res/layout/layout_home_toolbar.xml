@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.raantech.awfrlak.ui.main.viewmodels.GeneralViewModel" />
+            type="com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel" />
     </data>
 
     <com.google.android.material.appbar.AppBarLayout
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_10sdp">
 
-                <com.raantech.awfrlak.ui.base.views.AppTextView
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
                     android:id="@+id/tvTitle"
                     style="@style/textview_normal_bold"
                     android:layout_width="wrap_content"

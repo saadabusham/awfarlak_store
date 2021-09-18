@@ -96,7 +96,7 @@
 
                             </com.google.android.material.card.MaterialCardView>
 
-                            <com.raantech.awfrlak.ui.base.views.NonSwipeViewPager
+                            <com.raantech.awfrlak.store.ui.base.views.NonSwipeViewPager
                                 android:id="@+id/viewPager"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent" />

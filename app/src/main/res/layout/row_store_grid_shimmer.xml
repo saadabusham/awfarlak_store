@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="com.raantech.awfrlak.data.models.home.Store" />
+            type="com.raantech.awfrlak.store.data.models.home.Store" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
