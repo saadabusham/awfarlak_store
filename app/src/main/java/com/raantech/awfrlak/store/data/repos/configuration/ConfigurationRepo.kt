@@ -28,4 +28,10 @@ interface ConfigurationRepo {
     suspend fun getColor(): APIResource<ResponseWrapper<List<GeneralLookup>>>
 
     suspend fun getStorage(): APIResource<ResponseWrapper<List<GeneralLookup>>>
+
+    suspend fun getAccessoryDedicated():
+            APIResource<ResponseWrapper<List<GeneralLookup>>>
+
+    suspend fun getAccessoryTypes():
+            APIResource<ResponseWrapper<List<GeneralLookup>>>
 }

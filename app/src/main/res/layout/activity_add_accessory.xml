@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.raantech.awfrlak.store.ui.mobile.viewmodels.MobileViewModel" />
+            type="com.raantech.awfrlak.store.ui.accessory.viewmodels.AccessoryViewModel" />
     </data>
 
     <LinearLayout
@@ -48,7 +48,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|start"
                         android:background="@color/white"
-                        android:hint="@string/mobile_name"
+                        android:hint="@string/accessory_name"
                         android:maxLines="1"
                         android:singleLine="true"
                         android:text="@={viewModel.name}"
@@ -58,6 +58,7 @@
                         android:textSize="@dimen/_13ssp" />
                 </com.google.android.material.card.MaterialCardView>
 
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -67,12 +68,12 @@
                     app:cardCornerRadius="@dimen/_7sdp">
 
                     <com.skydoves.powerspinner.PowerSpinnerView
-                        android:id="@+id/spinnerMobileType"
+                        android:id="@+id/spinnerAccessoryType"
                         style="@style/normalRegularFontStyle"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_45sdp"
                         android:gravity="center|start"
-                        android:hint="@string/add_mobile_type"
+                        android:hint="@string/add_accessory_type"
                         android:padding="10dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/black"
@@ -100,12 +101,12 @@
                     app:cardCornerRadius="@dimen/_7sdp">
 
                     <com.skydoves.powerspinner.PowerSpinnerView
-                        android:id="@+id/spinnerMobileStorage"
+                        android:id="@+id/spinnerAccessoryDedicated"
                         style="@style/normalRegularFontStyle"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_45sdp"
                         android:gravity="center|start"
-                        android:hint="@string/add_mobile_storage_size"
+                        android:hint="@string/add_accessory_dedicated_to"
                         android:padding="10dp"
                         android:textAlignment="viewStart"
                         android:textColor="@color/black"
@@ -125,106 +126,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    app:cardCornerRadius="@dimen/_7sdp">
-
-                    <com.skydoves.powerspinner.PowerSpinnerView
-                        android:id="@+id/spinnerMobileColors"
-                        style="@style/normalRegularFontStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_45sdp"
-                        android:gravity="center|start"
-                        android:hint="@string/add_mobile_colors"
-                        android:padding="10dp"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/defaultTextColor"
-                        android:textSize="@dimen/_12ssp"
-                        app:arrow_gravity="@{true}"
-                        app:spinner_arrow_drawable="@drawable/ic_arrow_drop_down_black_24dp"
-                        app:spinner_arrow_gravity="end"
-                        app:spinner_arrow_padding="8dp"
-                        app:spinner_arrow_tint="@color/black"
-                        app:spinner_divider_show="false"
-                        app:spinner_divider_size="0.4dp"
-                        app:spinner_popup_animation="dropdown"
-                        app:spinner_popup_background="@color/white"
-                        app:spinner_popup_elevation="14dp" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    app:cardCornerRadius="@dimen/_7sdp">
-
-                    <com.skydoves.powerspinner.PowerSpinnerView
-                        android:id="@+id/spinnerMobileSims"
-                        style="@style/normalRegularFontStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_45sdp"
-                        android:gravity="center|start"
-                        android:hint="@string/add_mobile_sim_number"
-                        android:padding="10dp"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/defaultTextColor"
-                        android:textSize="@dimen/_12ssp"
-                        app:arrow_gravity="@{true}"
-                        app:spinner_arrow_drawable="@drawable/ic_arrow_drop_down_black_24dp"
-                        app:spinner_arrow_gravity="end"
-                        app:spinner_arrow_padding="8dp"
-                        app:spinner_arrow_tint="@color/black"
-                        app:spinner_divider_show="false"
-                        app:spinner_divider_size="0.4dp"
-                        app:spinner_popup_animation="dropdown"
-                        app:spinner_popup_background="@color/white"
-                        app:spinner_popup_elevation="14dp" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    app:cardCornerRadius="@dimen/_7sdp">
-
-                    <com.skydoves.powerspinner.PowerSpinnerView
-                        android:id="@+id/spinnerMobileStatus"
-                        style="@style/normalRegularFontStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_45sdp"
-                        android:gravity="center|start"
-                        android:hint="@string/add_mobile_status"
-                        android:padding="10dp"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/defaultTextColor"
-                        android:textSize="@dimen/_12ssp"
-                        app:arrow_gravity="@{true}"
-                        app:spinner_arrow_drawable="@drawable/ic_arrow_drop_down_black_24dp"
-                        app:spinner_arrow_gravity="end"
-                        app:spinner_arrow_padding="8dp"
-                        app:spinner_arrow_tint="@color/black"
-                        app:spinner_divider_show="false"
-                        app:spinner_divider_size="0.4dp"
-                        app:spinner_popup_animation="dropdown"
-                        app:spinner_popup_background="@color/white"
-                        app:spinner_popup_elevation="14dp" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvMobileInfo"
+                    android:id="@+id/cvAccessoryInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_12sdp"
@@ -234,13 +136,13 @@
                     app:cardCornerRadius="@dimen/_7sdp">
 
                     <com.raantech.awfrlak.store.ui.base.views.AppEditText
-                        android:id="@+id/edMobileInfo"
+                        android:id="@+id/edAccessoryInfo"
                         style="@style/textview_normal_regular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:gravity="center|start|top"
-                        android:hint="@string/add_mobile_info"
+                        android:hint="@string/add_accessory_info"
                         android:maxLines="1000"
                         android:minHeight="@dimen/_100sdp"
                         android:text="@={viewModel.mobileInfo}"
@@ -257,7 +159,7 @@
                     android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_12sdp"
-                    android:text="@string/add_mobile_images"
+                    android:text="@string/add_accessory_images"
                     android:textColor="@color/text_gray_color"
                     android:textSize="@dimen/_14ssp" />
 
@@ -302,9 +204,8 @@
                         android:src="@drawable/ic_upload" />
                 </LinearLayout>
 
-
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvMobilePrice"
+                    android:id="@+id/cvAccessoryPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_12sdp"

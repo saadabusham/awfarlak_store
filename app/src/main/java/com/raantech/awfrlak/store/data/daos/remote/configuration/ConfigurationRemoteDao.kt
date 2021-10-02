@@ -35,4 +35,12 @@ interface ConfigurationRemoteDao {
     @GET("meta-data/mobiles/storages")
     suspend fun getStorage(): ResponseWrapper<List<GeneralLookup>>
 
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @GET("meta-data/accessories/accessory-dedicated")
+    suspend fun getAccessoryDedicated(): ResponseWrapper<List<GeneralLookup>>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @GET("meta-data/accessories/types")
+    suspend fun getAccessoryTypes(): ResponseWrapper<List<GeneralLookup>>
+
 }

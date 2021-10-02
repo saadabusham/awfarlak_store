@@ -14,9 +14,9 @@ import com.raantech.awfrlak.store.data.repos.base.BaseRepo
 import javax.inject.Inject
 
 class ConfigurationRepoImp @Inject constructor(
-    responseHandler: ResponseHandler,
-    private val configurationRemoteDao: ConfigurationRemoteDao,
-    private val configurationPref: ConfigurationPref
+        responseHandler: ResponseHandler,
+        private val configurationRemoteDao: ConfigurationRemoteDao,
+        private val configurationPref: ConfigurationPref
 ) : BaseRepo(responseHandler), ConfigurationRepo {
 
     override fun setAppLanguage(selectedLanguage: CommonEnums.Languages) {
@@ -35,6 +35,7 @@ class ConfigurationRepoImp @Inject constructor(
             responseHandle.handleException(e)
         }
     }
+
     override suspend fun getCities(): APIResource<ResponseWrapper<List<City>>> {
         return try {
             responseHandle.handleSuccess(configurationRemoteDao.getCities())
@@ -70,6 +71,22 @@ class ConfigurationRepoImp @Inject constructor(
     override suspend fun getStorage(): APIResource<ResponseWrapper<List<GeneralLookup>>> {
         return try {
             responseHandle.handleSuccess(configurationRemoteDao.getStorage())
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
+    override suspend fun getAccessoryDedicated(): APIResource<ResponseWrapper<List<GeneralLookup>>> {
+        return try {
+            responseHandle.handleSuccess(configurationRemoteDao.getAccessoryDedicated())
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
+    override suspend fun getAccessoryTypes(): APIResource<ResponseWrapper<List<GeneralLookup>>> {
+        return try {
+            responseHandle.handleSuccess(configurationRemoteDao.getAccessoryTypes())
         } catch (e: Exception) {
             responseHandle.handleException(e)
         }

@@ -329,7 +329,7 @@ class AddMobileActivity : BaseBindingActivity<ActivityAddMobileBinding>(),
             .let {
                 if (!it.isValid) {
                     showValidationErrorAlert(
-                        title = resources.getString(R.string.add_mobile_info),
+                        title = resources.getString(R.string.price),
                         message = it.errorMessage
                     )
                     return false

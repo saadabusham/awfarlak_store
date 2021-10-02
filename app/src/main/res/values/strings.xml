@@ -231,4 +231,18 @@
     <string name="please_select_the_mobile_status">Please select the mobile status</string>
     <string name="product_images">Products images</string>
     <string name="please_select_the_product_images">Please select the product images</string>
+
+    <!--    Add Accessories-->
+    <string name="add_accessory_for_sale">Add Accessory For Sale</string>
+    <string name="accessory_name">Accessory Name</string>
+    <string name="add_accessory_type">Accessory Type</string>
+    <string name="add_accessory_dedicated_to">dedicated to</string>
+    <string name="add_accessory_info">Accessory More Information</string>
+    <string name="add_accessory_images">Add Accessory Images</string>
+
+
+    <!--    Add Accessory Validation-->
+    <string name="please_select_the_accessory_type">Please select accessory type</string>
+    <string name="please_select_the_accessory_dedicated">Please select the accessory dedicated for</string>
+    <string name="add_accessory_info">Accessory More Information</string>
 </resources>

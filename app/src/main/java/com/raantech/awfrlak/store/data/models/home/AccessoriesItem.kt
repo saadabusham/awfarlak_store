@@ -3,6 +3,7 @@ package com.raantech.awfrlak.store.data.models.home
 import androidx.room.ColumnInfo
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import com.raantech.awfrlak.store.data.models.GeneralLookup
 import com.raantech.awfrlak.store.data.models.Price
 import com.raantech.awfrlak.store.data.models.media.Media
 import java.io.Serializable
@@ -22,7 +23,7 @@ data class AccessoriesItem(
 		val isActive: Boolean? = null,
 
 		@field:SerializedName("accessory_type")
-		val accessoryType: AccessoryType? = null,
+		val accessoryType: GeneralLookup? = null,
 
 		@field:SerializedName("price")
 		val price: Price? = null,
@@ -43,5 +44,5 @@ data class AccessoriesItem(
 		var isWishlist: Boolean? = null,
 
 		@field:SerializedName("accessory_dedicated")
-		val accessoryDedicated: AccessoryDedicated? = null
+		val accessoryDedicated: GeneralLookup? = null
 ) : Serializable
