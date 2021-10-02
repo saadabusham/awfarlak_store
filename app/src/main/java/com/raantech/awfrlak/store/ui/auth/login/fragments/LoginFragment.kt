@@ -99,6 +99,9 @@ class LoginFragment : BaseBindingFragment<FragmentLoginBinding>() {
             if (validateInput())
                 viewModel.loginUser().observe(this, loginResultObserver())
         }
+        binding?.tvRegister?.setOnClickListener {
+            navigationController.navigate(R.id.action_loginFragment_to_registerFragment)
+        }
     }
 
     private fun validateInput(): Boolean {

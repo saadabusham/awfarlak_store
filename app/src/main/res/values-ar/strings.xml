@@ -178,6 +178,16 @@
     <string name="accessory_dedicated">ملحق</string>
     <string name="username">اسم المستخدم</string>
     <string name="address">العنوان</string>
+    <string name="city">المدينة</string>
+    <string name="registration_certificate">شهادة التسجيل</string>
+    <string name="store_information">معلومات عن المتجر</string>
+    <string name="logo">الشعار</string>
+    <string name="add_photos_to_the_store_optional">اضافة صور للمتجر ( اختياري )</string>
+    <string name="please_select_logo">يرجى اختيار الشعار</string>
+    <string name="store_images">صور المتجر</string>
+    <string name="please_select_store_images">يرجى اختيار صور المتجر</string>
+    <string name="responsible_person">الشخص المسؤول</string>
+
     <string name="register">انشاء حساب</string>
     <string name="buy_now">اشتري الان</string>
     <string name="delivery">خدمة التوصيل</string>
@@ -193,5 +203,7 @@
     <string name="add_mobile_for_sale">Add mobile for sale</string>
     <string name="add_services">Add Services</string>
     <string name="add_accessories">Add Accessories</string>
+    <string name="cities">المدن</string>
+    <string name="please_select_city">يرجى اختيار المدينة</string>
 
 </resources>

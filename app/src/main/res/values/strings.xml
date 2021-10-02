@@ -178,6 +178,17 @@
     <string name="accessory_dedicated">Dedicated</string>
     <string name="username">Username</string>
     <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="registration_certificate">Registration Certificate</string>
+    <string name="store_information">Store Information</string>
+    <string name="logo">Logo</string>
+    <string name="add_photos_to_the_store_optional">Add photos to the store (optional)</string>
+    <string name="please_select_logo">Please select logo</string>
+    <string name="store_images">Store Images</string>
+    <string name="please_select_store_images">Please select store images</string>
+    <string name="responsible_person">Responsible Person</string>
+
+
     <string name="register">Register</string>
     <string name="buy_now">Buy Now</string>
     <string name="delivery">Delivery</string>
@@ -193,5 +204,7 @@
     <string name="add_mobile_for_sale">Add Mobile For Sale</string>
     <string name="add_services">Add Services</string>
     <string name="add_accessories">Add Accessories</string>
+    <string name="cities">Cities</string>
+    <string name="please_select_city">Please select city</string>
 
 </resources>

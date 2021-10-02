@@ -226,12 +226,6 @@ class Validator() {
                 errorTitle = context.resources.getString(R.string.text),
                 errorMessage = context.resources.getString(R.string.must_not_be_empty)
             )
-        } else if (!textToValidate.matches(Regex(VALID_TEXT_REGEX))) {
-            ValidatedData(
-                isValid = false,
-                errorTitle = context.resources.getString(R.string.text),
-                errorMessage = context.resources.getString(R.string.text_not_valid_err)
-            )
         } else ValidatedData(true, "", "")
     }
 

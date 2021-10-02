@@ -5,9 +5,9 @@ import com.raantech.awfrlak.R
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
 import com.raantech.awfrlak.store.data.models.auth.login.TokenModel
-import com.raantech.awfrlak.store.data.models.auth.login.UserDetailsResponseModel
 import com.raantech.awfrlak.store.data.pref.user.UserPref
 import com.raantech.awfrlak.databinding.FragmentVerificationLoginBinding
+import com.raantech.awfrlak.store.data.models.auth.login2.UserDetailsResponseModel
 import com.raantech.awfrlak.store.ui.auth.login.viewmodels.LoginViewModel
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
 import com.raantech.awfrlak.store.ui.main.MainActivity
@@ -57,11 +57,9 @@ class VerificationLoginFragment : BaseBindingFragment<FragmentVerificationLoginB
                             data: UserDetailsResponseModel?
                     ) {
                         data?.let {
-                            if (data.is_registered == true) {
+                            if (data.isRegistered == true) {
                                 viewModel.storeUser(it)
                                 MainActivity.start(requireContext())
-                            }else{
-                                navigationController.navigate(R.id.action_verificationLoginFragment_to_registerFragment)
                             }
                         }
                     }

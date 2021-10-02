@@ -2,7 +2,7 @@ package com.raantech.awfrlak.store.data.pref.user
 
 import com.google.gson.Gson
 import com.raantech.awfrlak.store.data.enums.UserEnums
-import com.raantech.awfrlak.store.data.models.auth.login.UserDetailsResponseModel
+import com.raantech.awfrlak.store.data.models.auth.login2.UserDetailsResponseModel
 import com.raantech.awfrlak.store.utils.pref.PrefConstants.ACCESS_TOKEN_VALUE
 import com.raantech.awfrlak.store.utils.pref.PrefConstants.NOTIFICATION_SWITCH_VALUE
 import com.raantech.awfrlak.store.utils.pref.PrefConstants.TOUCH_ID_SWITCH_VALUE

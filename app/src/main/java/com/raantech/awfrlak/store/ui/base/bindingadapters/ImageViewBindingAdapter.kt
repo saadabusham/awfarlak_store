@@ -104,11 +104,11 @@ fun getLoadingUrl(imageUrl: String): Any {
 
     if (imageUrl.startsWith("http") || imageUrl.startsWith("https")) {
         return imageUrl
-    }else if (imageUrl.contains("/storage/")) {
-        return "$IMAGES_BASE_URL$imageUrl"
-    }else if (imageUrl.contains("storage")) {
+    } else if (imageUrl.contains("/storage/emulated/")) {
         return Uri.fromFile(File(imageUrl))
-    } else if (imageUrl.startsWith("content", true)) {
+    } else if (imageUrl.contains("/storage/")) {
+        return "$IMAGES_BASE_URL$imageUrl"
+    }else if (imageUrl.startsWith("content", true)) {
         return Uri.parse(imageUrl)
     }
     return imageUrl

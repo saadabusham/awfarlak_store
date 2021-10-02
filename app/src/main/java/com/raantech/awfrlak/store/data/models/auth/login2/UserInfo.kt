@@ -1,15 +1,8 @@
-package com.raantech.awfrlak.store.data.models.auth.login
+package com.raantech.awfrlak.store.data.models.auth.login2
 
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 
 data class UserInfo(
-
-	@field:SerializedName("is_blocked")
-	val isBlocked: Boolean? = null,
-
-	@field:SerializedName("is_active")
-	val isActive: Boolean? = null,
 
 	@field:SerializedName("last_login")
 	val lastLogin: String? = null,
@@ -23,6 +16,9 @@ data class UserInfo(
 	@field:SerializedName("id")
 	val id: Int? = null,
 
+	@field:SerializedName("store")
+	val store: Store? = null,
+
 	@field:SerializedName("email")
 	val email: String? = null
-): Serializable
+)

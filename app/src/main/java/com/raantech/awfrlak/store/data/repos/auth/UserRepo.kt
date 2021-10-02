@@ -2,14 +2,12 @@ package com.raantech.awfrlak.store.data.repos.auth
 
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
-import com.raantech.awfrlak.store.data.common.NetworkConstants
 import com.raantech.awfrlak.store.data.enums.UserEnums
 import com.raantech.awfrlak.store.data.models.auth.login.TokenModel
-import com.raantech.awfrlak.store.data.models.auth.login.UserDetailsResponseModel
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import com.raantech.awfrlak.store.data.models.auth.login2.UserDetailsResponseModel
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.http.*
 
 
 interface UserRepo {
@@ -34,10 +32,16 @@ interface UserRepo {
     ): APIResource<ResponseWrapper<UserDetailsResponseModel>>
 
     suspend fun register(
-            token: String,
-            name: String,
-            address: String,
-            email: String
+        storeName: RequestBody,
+        city: RequestBody,
+        longitude: RequestBody,
+        latitude: RequestBody,
+        commercialRegister: MultipartBody.Part,
+        responsible_person: RequestBody,
+        logo: MultipartBody.Part,
+        description: RequestBody,
+        phone_number: RequestBody,
+        additionalImages: List<MultipartBody.Part>
     ): APIResource<ResponseWrapper<UserDetailsResponseModel>>
 
     fun saveNotificationStatus(flag: Boolean)

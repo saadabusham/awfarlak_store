@@ -8,21 +8,26 @@ import com.raantech.awfrlak.R
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.common.Constants
 import com.raantech.awfrlak.store.data.enums.UserEnums
-import com.raantech.awfrlak.store.data.models.auth.login.UserDetailsResponseModel
+import com.raantech.awfrlak.store.data.models.auth.login2.UserDetailsResponseModel
+import com.raantech.awfrlak.store.data.models.map.Address
 import com.raantech.awfrlak.store.data.repos.auth.UserRepo
+import com.raantech.awfrlak.store.data.repos.configuration.ConfigurationRepo
 import com.raantech.awfrlak.store.ui.base.viewmodel.BaseViewModel
 import com.raantech.awfrlak.store.utils.DateTimeUtil
 import com.raantech.awfrlak.store.utils.extensions.*
 import com.raantech.awfrlak.store.utils.pref.SharedPreferencesUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-        private val userRepo: UserRepo,
-        private val sharedPreferencesUtil: SharedPreferencesUtil,
-        @ApplicationContext context: Context
+    private val userRepo: UserRepo,
+    private val sharedPreferencesUtil: SharedPreferencesUtil,
+    private val configurationRepo: ConfigurationRepo,
+    @ApplicationContext context: Context
 ) : BaseViewModel() {
 
     companion object {
@@ -36,9 +41,13 @@ class LoginViewModel @Inject constructor(
     }
 
     //    register
-    val username: MutableLiveData<String> = MutableLiveData()
-    val email: MutableLiveData<String> = MutableLiveData()
-    val address: MutableLiveData<String> = MutableLiveData()
+    val storeName: MutableLiveData<String> = MutableLiveData()
+    val responsiblePerson: MutableLiveData<String> = MutableLiveData()
+    val address: MutableLiveData<Address> = MutableLiveData()
+    val addressString: MutableLiveData<String> = MutableLiveData()
+    val city: MutableLiveData<String> = MutableLiveData()
+    val registrationCertificate: MutableLiveData<String> = MutableLiveData("")
+    val storeDescription: MutableLiveData<String> = MutableLiveData("")
 
     //    login
     val phoneNumberWithoutCountryCode: MutableLiveData<String> by lazy { MutableLiveData<String>() }
@@ -53,12 +62,12 @@ class LoginViewModel @Inject constructor(
     val userTokenMutableLiveData: MutableLiveData<String> by lazy { MutableLiveData<String>("") }
     private val forgetCountDownTimer: CountDownTimer by lazy {
         object : CountDownTimer(
-                RESEND_ENABLE_TIME_IN_MIN.minToMillisecond(),
-                RESEND_ENABLE_TIME_UPDATE_TIMER_IN_SECOND.secondToMillisecond()
+            RESEND_ENABLE_TIME_IN_MIN.minToMillisecond(),
+            RESEND_ENABLE_TIME_UPDATE_TIMER_IN_SECOND.secondToMillisecond()
         ) {
             override fun onTick(millisUntilFinished: Long) {
                 signUpResendTimer.value =
-                        millisUntilFinished.millisecondFormatting(DateTimeUtil.TIME_FORMATTING_MIN_AND_SECOND)
+                    millisUntilFinished.millisecondFormatting(DateTimeUtil.TIME_FORMATTING_MIN_AND_SECOND)
             }
 
             override fun onFinish() {
@@ -71,19 +80,28 @@ class LoginViewModel @Inject constructor(
     fun loginUser() = liveData {
         emit(APIResource.loading())
         val response = userRepo.login(
-                phoneNumberWithoutCountryCode.value.toString().checkPhoneNumberFormat()
-                        .concatStrings(selectedCountryCode.value.toString())
+            phoneNumberWithoutCountryCode.value.toString().checkPhoneNumberFormat()
+                .concatStrings(selectedCountryCode.value.toString())
         )
         emit(response)
     }
 
-    fun registerUser() = liveData {
+    fun registerUser(
+        logo: String,
+        additionalImages: List<String>
+    ) = liveData {
         emit(APIResource.loading())
         val response = userRepo.register(
-                token = userTokenMutableLiveData.value.toString(),
-                name = username.value.toString(),
-                address = address.value.toString(),
-                email = email.value.toString()
+            storeName.value.toString().getRequestBody(),
+            city.value.toString().getRequestBody(),
+            address.value?.lat.toString().getRequestBody(),
+            address.value?.lon.toString().getRequestBody(),
+            registrationCertificate.value.toString().createImageMultipart("commercial_register"),
+            responsiblePerson.value.toString().getRequestBody(),
+            logo.createImageMultipart("logo"),
+            storeDescription.value.toString().getRequestBody(),
+            phoneNumberWithoutCountryCode.value.toString().getRequestBody(),
+            additionalImages.createImageMultipart("additional_images[]")
         )
         emit(response)
     }
@@ -105,10 +123,10 @@ class LoginViewModel @Inject constructor(
     fun verifyCode() = liveData {
         emit(APIResource.loading())
         val response = userRepo.verify(
-                userTokenMutableLiveData.value.toString(),
-                signUpVerificationCode.value.toString().toInt(),
-                "",
-                Constants.AppPlatform
+            userTokenMutableLiveData.value.toString(),
+            signUpVerificationCode.value.toString().toInt(),
+            "",
+            Constants.AppPlatform
         )
         emit(response)
     }
@@ -116,8 +134,15 @@ class LoginViewModel @Inject constructor(
     fun resendVerificationCode() = liveData {
         emit(APIResource.loading())
         val response = userRepo.resendCode(
-                userTokenMutableLiveData.value.toString()
+            userTokenMutableLiveData.value.toString()
         )
+        emit(response)
+    }
+
+
+    fun getCities() = liveData {
+        emit(APIResource.loading())
+        val response = configurationRepo.getCities()
         emit(response)
     }
 }

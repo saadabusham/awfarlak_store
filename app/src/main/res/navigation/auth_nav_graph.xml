@@ -30,15 +30,27 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/verificationLoginFragment"
         android:name="com.raantech.awfrlak.store.ui.auth.login.fragments.VerificationLoginFragment"
         android:label="VerificationLoginFragment"
-        tools:layout="@layout/fragment_verification_login">
+        tools:layout="@layout/fragment_verification_login"/>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.raantech.awfrlak.store.ui.auth.login.fragments.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_verificationLoginFragment_to_registerFragment"
-            app:destination="@id/registerFragment"
+            android:id="@+id/action_registerFragment_to_verificationLoginFragment"
+            app:destination="@id/verificationLoginFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -46,10 +58,5 @@
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
-    <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.raantech.awfrlak.store.ui.auth.login.fragments.RegisterFragment"
-        android:label="RegisterFragment"
-        tools:layout="@layout/fragment_register" />
 
 </navigation>

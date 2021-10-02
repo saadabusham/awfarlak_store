@@ -1,6 +1,6 @@
 package com.raantech.awfrlak.store.data.pref.user
 
-import com.raantech.awfrlak.store.data.models.auth.login.UserDetailsResponseModel
+import com.raantech.awfrlak.store.data.models.auth.login2.UserDetailsResponseModel
 
 interface UserPref {
 

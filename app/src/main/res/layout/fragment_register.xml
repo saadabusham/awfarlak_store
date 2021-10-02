@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -50,16 +51,17 @@
                         android:layout_marginStart="@dimen/layouts_margin_start"
                         android:layout_marginEnd="@dimen/layouts_margin_end"
                         android:minHeight="@dimen/Edittext_height"
-                        app:cardCornerRadius="@dimen/_10sdp">
+                        app:cardCornerRadius="@dimen/_7sdp">
 
                         <com.raantech.awfrlak.store.ui.base.views.AppEditText
-                            android:id="@+id/edUserName"
+                            android:id="@+id/edStoreName"
                             style="@style/textview_normal_regular"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center|start"
                             android:background="@color/white"
                             android:hint="@string/store_name"
-                            android:text="@={viewModel.username}"
+                            android:text="@={viewModel.storeName}"
                             android:textAlignment="viewStart"
                             android:textColor="@color/text_gray_color"
                             android:textColorHint="@color/text_gray_color"
@@ -67,23 +69,24 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cvCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/layouts_margin_start"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/layouts_margin_end"
                         android:minHeight="@dimen/Edittext_height"
-                        app:cardCornerRadius="@dimen/_10sdp">
+                        app:cardCornerRadius="@dimen/_7sdp">
 
                         <com.raantech.awfrlak.store.ui.base.views.AppEditText
-                            android:id="@+id/edEmail"
+                            android:id="@+id/tvCity"
                             style="@style/textview_normal_regular"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/white"
-                            android:hint="@string/email"
-                            android:inputType="textEmailAddress"
-                            android:text="@={viewModel.email}"
+                            android:layout_gravity="center|start"
+                            android:hint="@string/city"
+                            android:text="@={viewModel.city}"
                             android:textAlignment="viewStart"
                             android:textColor="@color/text_gray_color"
                             android:textColorHint="@color/text_gray_color"
@@ -98,22 +101,288 @@
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/layouts_margin_end"
                         android:minHeight="@dimen/Edittext_height"
-                        app:cardCornerRadius="@dimen/_10sdp">
+                        app:cardCornerRadius="@dimen/_7sdp">
 
-                        <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        <com.raantech.awfrlak.store.ui.base.views.AppTextView
                             android:id="@+id/tvAddress"
                             style="@style/textview_normal_regular"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_7sdp"
+                            android:layout_marginEnd="@dimen/_7sdp"
                             android:background="@color/white"
                             android:drawableEnd="@drawable/ic_location"
+                            android:layout_gravity="center|start"
                             android:hint="@string/address"
-                            android:text="@={viewModel.address}"
+                            android:text="@={viewModel.addressString}"
                             android:textAlignment="viewStart"
                             android:textColor="@color/text_gray_color"
                             android:textColorHint="@color/text_gray_color"
                             android:textSize="@dimen/_15ssp" />
                     </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cvCertificate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:minHeight="@dimen/Edittext_height"
+                        app:cardCornerRadius="@dimen/_7sdp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                            android:id="@+id/edCertificate"
+                            android:layout_marginStart="@dimen/_7sdp"
+                            android:layout_marginEnd="@dimen/_7sdp"
+                            style="@style/textview_normal_regular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:layout_gravity="center|start"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:text="@string/registration_certificate"
+                            android:textAlignment="viewStart"
+                            android:textColor="@{viewModel.registrationCertificate.empty ? @color/text_gray_color : @color/colorAccent}"
+                            android:textColorHint="@color/text_gray_color"
+                            android:textSize="@dimen/_15ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:minHeight="@dimen/Edittext_height"
+                        app:cardCornerRadius="@dimen/_7sdp">
+
+                        <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                            android:id="@+id/edResponsiblePerson"
+                            style="@style/textview_normal_regular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|start"
+                            android:background="@color/white"
+                            android:hint="@string/responsible_person"
+                            android:text="@={viewModel.responsiblePerson}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/text_gray_color"
+                            android:textColorHint="@color/text_gray_color"
+                            android:textSize="@dimen/_15ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:minHeight="@dimen/Edittext_height"
+                        app:cardCornerRadius="@dimen/_7sdp">
+
+                        <LinearLayout
+                            android:id="@+id/linearMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+                                android:id="@+id/country_code_picker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/Edittext_height"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:gravity="center"
+                                android:layoutDirection="ltr"
+                                app:ccp_arrowSize="0dp"
+                                app:ccp_clickable="false"
+                                app:ccp_defaultNameCode="JO"
+                                app:ccp_dialogTextColor="@color/text_default_color"
+                                app:ccp_enablePhoneAutoFormatter="true"
+                                app:ccp_hideNameCode="true"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                app:ccp_hidePhoneCode="false"
+                                app:ccp_keyboardAutoPopOnSearch="false"
+                                app:ccp_selectionDialogShowSearch="true"
+                                app:ccp_setCountryByTimeZone="false"
+                                app:ccp_showFlag="false"
+                                app:ccp_showFullName="false"
+                                app:ccp_textColor="@color/text_default_color"
+                                app:ccp_textSize="@dimen/_17ssp" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/et_phone_number"
+                                style="@style/textview_normal_regular"
+                                android:layout_width="match_parent"
+                                android:layout_weight="1"
+                                android:layout_height="@dimen/Edittext_height"
+                                android:background="@android:color/transparent"
+                                android:hint="XXXXXXXXX"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                android:textAlignment="viewStart"
+                                android:padding="0dp"
+                                android:gravity="center|start"
+                                android:layout_gravity="center"
+                                android:includeFontPadding="false"
+                                android:inputType="phone"
+                                android:text="@={viewModel.phoneNumberWithoutCountryCode}"
+                                android:textColorHint="@color/gray_btn_bg_color"
+                                android:textSize="@dimen/_16ssp" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        style="@style/textview_normal_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:text="@string/logo"
+                        android:textColor="@color/text_gray_color"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:minHeight="@dimen/Edittext_height"
+                        app:cardCornerRadius="@dimen/_7sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_6sdp"
+                                android:layout_marginStart="@dimen/_7sdp"
+                                android:layout_marginTop="@dimen/_13sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/logoRecyclerView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:clipToPadding="false"
+                                    android:nestedScrollingEnabled="false"
+                                    android:orientation="horizontal"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                    app:spanCount="3"
+                                    tools:itemCount="5"
+                                    tools:listitem="@layout/row_image_view_small" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/imgLogoUpload"
+                                android:layout_width="@dimen/_23sdp"
+                                android:layout_height="@dimen/_23sdp"
+                                android:layout_marginEnd="@dimen/_7sdp"
+                                android:layout_marginBottom="@dimen/_13sdp"
+                                android:src="@drawable/ic_upload" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:minHeight="@dimen/Edittext_height"
+                        app:cardCornerRadius="@dimen/_7sdp">
+
+                        <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                            android:id="@+id/edStoreInfo"
+                            style="@style/textview_normal_regular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:layout_gravity="center|start"
+                            android:hint="@string/store_information"
+                            android:text="@={viewModel.storeDescription}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/text_gray_color"
+                            android:textColorHint="@color/text_gray_color"
+                            android:textSize="@dimen/_15ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        style="@style/textview_normal_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:text="@string/add_photos_to_the_store_optional"
+                        android:textColor="@color/text_gray_color"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:layout_marginBottom="@dimen/_30sdp"
+                        android:minHeight="@dimen/Edittext_height"
+                        app:cardCornerRadius="@dimen/_7sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_6sdp"
+                                android:layout_marginStart="@dimen/_7sdp"
+                                android:layout_marginTop="@dimen/_13sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/imagesRecyclerView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:clipToPadding="false"
+                                    android:nestedScrollingEnabled="false"
+                                    android:orientation="horizontal"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                    app:spanCount="3"
+                                    tools:itemCount="5"
+                                    tools:listitem="@layout/row_image_view_small" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/imgimagesUpload"
+                                android:layout_width="@dimen/_23sdp"
+                                android:layout_height="@dimen/_23sdp"
+                                android:layout_marginEnd="@dimen/_7sdp"
+                                android:layout_marginBottom="@dimen/_13sdp"
+                                android:src="@drawable/ic_upload" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
 
