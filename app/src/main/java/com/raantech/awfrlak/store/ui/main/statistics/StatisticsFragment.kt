@@ -9,6 +9,7 @@ import com.raantech.awfrlak.store.ui.accessory.AddAccessoryActivity
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
 import com.raantech.awfrlak.store.ui.mobile.AddMobileActivity
+import com.raantech.awfrlak.store.ui.service.AddServiceActivity
 import com.raantech.awfrlak.store.utils.extensions.gone
 import com.raantech.awfrlak.store.utils.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +46,7 @@ class StatisticsFragment : BaseBindingFragment<FragmentStatisticsBinding>() {
         }
         binding?.tvAddServices?.setOnClickListener {
             binding?.cvAdd?.callOnClick()
+            AddServiceActivity.start(requireContext(),null,false)
         }
         binding?.tvAddAccessories?.setOnClickListener {
             binding?.cvAdd?.callOnClick()

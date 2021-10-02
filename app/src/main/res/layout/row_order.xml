@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.raantech.awfrlak.store.data.models.Order" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/_15sdp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_7sdp"
+                android:layout_weight="1"
+                android:gravity="center|start|top"
+                android:orientation="vertical">
+
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                    style="@style/textview_normal_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.productName}"
+                    android:textColor="@color/text_gray_color"
+                    android:textSize="@dimen/_13ssp"
+                    tools:text="طلب شراء سامسونج 10" />
+
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                    style="@style/textview_normal_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.clientName}"
+                    android:textColor="@color/text_gray_color"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_13ssp"
+                    tools:text="اسم العميل" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center|end|top"
+                android:orientation="vertical">
+
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                    style="@style/textview_normal_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.date}"
+                    android:textColor="@color/text_gray_color"
+                    android:textSize="@dimen/_13ssp"
+                    tools:text="2 يونيو 2021" />
+
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                    style="@style/textview_normal_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="@dimen/_9ssp"
+                    tools:text="في الطريق" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/divider_color" />
+    </LinearLayout>
+
+</layout>

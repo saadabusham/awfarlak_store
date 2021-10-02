@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel" />
+            type="com.raantech.awfrlak.store.ui.service.viewmodels.ServiceViewModel" />
     </data>
 
     <LinearLayout
@@ -28,7 +28,7 @@
             app:layout_anchorGravity="bottom|right|end">
 
             <include
-                android:id="@+id/toolbar"
+                android:id="@+id/layout_toolbar"
                 layout="@layout/layout_toolbar" />
 
             <androidx.core.widget.NestedScrollView
@@ -49,7 +49,6 @@
                     <include
                         android:id="@+id/layout_service_slider"
                         layout="@layout/layout_service_slider" />
-
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
@@ -153,7 +152,7 @@
                         android:layout_marginTop="@dimen/_25sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:gravity="center|start"
-                        android:text="@string/product_information"
+                        android:text="@string/add_service_info"
                         android:textAlignment="viewStart"
                         android:textColor="@color/text_gray_color"
                         android:textSize="@dimen/_15ssp" />
@@ -175,17 +174,42 @@
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAsk"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_48sdp"
             android:layout_marginStart="@dimen/layouts_margin_start"
+            android:layout_marginTop="@dimen/_17sdp"
             android:layout_marginEnd="@dimen/layouts_margin_end"
             android:layout_marginBottom="@dimen/_15sdp"
             android:gravity="center"
-            android:text="@string/order_service"
-            android:textSize="@dimen/_19ssp"
-            app:cornerRadius="@dimen/_7sdp" />
+            android:minHeight="@dimen/_35sdp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEdit"
+                style="@style/AppTheme.Button.Outline"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_weight="1"
+                android:text="@string/edit" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_weight="1"
+                android:text="@string/submit" />
+        </LinearLayout>
+
     </LinearLayout>
 
 

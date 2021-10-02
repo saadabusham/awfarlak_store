@@ -8,14 +8,15 @@ import androidx.viewpager2.widget.ViewPager2
 import com.raantech.awfrlak.R
 import com.raantech.awfrlak.databinding.ActivityServiceDetailsBinding
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
-import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.common.Constants
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
 import com.raantech.awfrlak.store.data.models.home.Service
 import com.raantech.awfrlak.store.ui.auth.login.adapters.IndecatorRecyclerAdapter
 import com.raantech.awfrlak.store.ui.base.activity.BaseBindingActivity
-import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
+import com.raantech.awfrlak.store.ui.main.MainActivity
+import com.raantech.awfrlak.store.ui.service.viewmodels.ServiceViewModel
 import com.raantech.awfrlak.store.ui.store.adapters.StoreImagesAdapter
+import com.raantech.awfrlak.store.utils.extensions.gone
 import com.raantech.awfrlak.store.utils.extensions.invisible
 import com.raantech.awfrlak.store.utils.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,7 +29,7 @@ class ServiceDetailsActivity : BaseBindingActivity<ActivityServiceDetailsBinding
     private var indicatorPosition = 0
     lateinit var storeImagesAdapter: StoreImagesAdapter
 
-    val viewModel: GeneralViewModel by viewModels()
+    val viewModel: ServiceViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +37,7 @@ class ServiceDetailsActivity : BaseBindingActivity<ActivityServiceDetailsBinding
         setContentView(
                 R.layout.activity_service_details,
                 hasToolbar = true,
-                toolbarView = binding?.toolbar?.toolbar,
+                toolbarView = binding?.layoutToolbar?.toolbar,
                 hasBackButton = true,
                 showBackArrow = true,
                 hasTitle = true,
@@ -44,6 +45,8 @@ class ServiceDetailsActivity : BaseBindingActivity<ActivityServiceDetailsBinding
                 hasSubTitle = true,
                 subTitle = viewModel.serviceToView?.store?.name ?: ""
         )
+        if (!intent.getBooleanExtra(Constants.BundleData.VIEW_SUBMIT, false))
+            binding?.btnSubmit?.gone()
         setUpBinding()
         initData()
         setUpListeners()
@@ -52,15 +55,11 @@ class ServiceDetailsActivity : BaseBindingActivity<ActivityServiceDetailsBinding
 
     private fun setUpBinding() {
         binding?.viewModel = viewModel
-        updateFavorite()
     }
 
     private fun initData() {
-//        viewModel.store =
-//                intent.getSerializableExtra(Constants.BundleData.STORE) as Store
-//        binding?.layoutSpecialistInfo?.data = viewModel.store
-    }
 
+    }
 
     private fun setUpListeners() {
         binding?.layoutServiceSlider?.imgBack?.setOnClickListener {
@@ -69,18 +68,51 @@ class ServiceDetailsActivity : BaseBindingActivity<ActivityServiceDetailsBinding
         binding?.layoutServiceSlider?.imgNext?.setOnClickListener {
             binding?.layoutServiceSlider?.vpPictures?.currentItem?.plus(1)?.let { it1 -> binding?.layoutServiceSlider?.vpPictures?.setCurrentItem(it1, true) }
         }
+        binding?.btnSubmit?.setOnClickListener {
+            if (!intent.getBooleanExtra(Constants.BundleData.UPDATE, false)) {
+                viewModel.addService(viewModel.buildService())
+                        .observe(this, serviceResultObserver())
+            } else {
+                viewModel.updateService(viewModel.buildService())
+                        .observe(this, serviceResultObserver())
+            }
+        }
+        binding?.btnEdit?.setOnClickListener {
+            if (!intent.getBooleanExtra(Constants.BundleData.UPDATE, false))
+                finish()
+            else {
+                AddServiceActivity.start(
+                        this,
+                        service = viewModel.serviceToView,
+                        intent.getBooleanExtra(Constants.BundleData.UPDATE, false)
+                )
+            }
+        }
     }
 
-    private fun updateFavorite() {
-        binding?.layoutServiceSlider?.favorite = viewModel.serviceToView?.isWishlist
+
+    private fun serviceResultObserver(): CustomObserverResponse<Service> {
+        return CustomObserverResponse(
+                this,
+                object : CustomObserverResponse.APICallBack<Service> {
+                    override fun onSuccess(
+                            statusCode: Int,
+                            subErrorCode: ResponseSubErrorsCodeEnum,
+                            data: Service?
+                    ) {
+                        MainActivity.start(this@ServiceDetailsActivity)
+                    }
+                })
     }
 
     private fun setUpPager() {
         storeImagesAdapter = StoreImagesAdapter(this)
         binding?.layoutServiceSlider?.vpPictures?.adapter =
                 storeImagesAdapter.apply {
-                    submitItem(viewModel.serviceToView?.logo?.url ?: "") }
-//        binding?.layoutServiceSlider?.vpPictures?.isUserInputEnabled = false
+                    viewModel.serviceToView?.additionalImages?.map {
+                        it.url ?: ""
+                    }?.let { submitItems(it) }
+                }
         showImageNext()
         setUpIndicator()
     }
@@ -140,58 +172,19 @@ class ServiceDetailsActivity : BaseBindingActivity<ActivityServiceDetailsBinding
         }
     }
 
-    private fun wishListObserver(): CustomObserverResponse<Any> {
-        return CustomObserverResponse(
-                this,
-                object : CustomObserverResponse.APICallBack<Any> {
-                    override fun onSuccess(
-                            statusCode: Int,
-                            subErrorCode: ResponseSubErrorsCodeEnum,
-                            data: ResponseWrapper<Any>?
-                    ) {
-
-                    }
-                }, false, showError = false
-        )
-    }
-
-
     companion object {
         fun start(
                 context: Activity,
                 item: Service,
-//                profileImage: View,
-//                profileName: View,
-//                profileRate: View,
-//                profilePriceRange: View
+                update: Boolean = false,
+                viewSubmit: Boolean = false
         ) {
 
-//            val p1: androidx.core.util.Pair<View, String> = androidx.core.util.Pair(
-//                    profileImage,
-//                    profileImage.transitionName
-//            )
-//            val p2: androidx.core.util.Pair<View, String> = androidx.core.util.Pair(
-//                    profileName,
-//                    profileName.transitionName
-//            )
-//            val p3: androidx.core.util.Pair<View, String> = androidx.core.util.Pair(
-//                    profileRate,
-//                    profileRate.transitionName
-//            )
-//            val p4: androidx.core.util.Pair<View, String> = androidx.core.util.Pair(
-//                    profilePriceRange,
-//                    profilePriceRange.transitionName
-//            )
-//            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                    context,
-//                    p1,
-//                    p2,
-//                    p3,
-//                    p4
-//            )
             val intent = Intent(context, ServiceDetailsActivity::class.java)
             intent.putExtra(Constants.BundleData.SERVICE, item)
-            context.startActivity(intent /*options.toBundle()*/)
+            intent.putExtra(Constants.BundleData.UPDATE, update)
+            intent.putExtra(Constants.BundleData.VIEW_SUBMIT, viewSubmit)
+            context.startActivity(intent)
         }
 
         fun start(

@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.models.*
-import com.raantech.awfrlak.store.data.models.home.AccessoriesItem
 import com.raantech.awfrlak.store.data.models.home.Service
 import com.raantech.awfrlak.store.data.models.media.Media
 import com.raantech.awfrlak.store.data.repos.accessories.AccessoriesRepo
@@ -27,40 +26,41 @@ class ServiceViewModel @Inject constructor(
     val isAvailable: MutableLiveData<Boolean> = MutableLiveData(true)
     val deliveryAvailable: MutableLiveData<Boolean> = MutableLiveData(true)
 
-    fun addAccessory(
-            accessoryRequest: AccessoryRequest
+    fun addService(
+            serviceRequest: ServiceRequest
     ) = liveData {
         emit(APIResource.loading())
-        val response = accessoriesRepo.addAccessory(accessoryRequest)
+        val response = accessoriesRepo.addService(serviceRequest)
         emit(response)
     }
 
-    fun updateAccessory(
-            accessoryRequest: AccessoryRequest
+    fun updateService(
+            serviceRequest: ServiceRequest
     ) = liveData {
         emit(APIResource.loading())
-        val response = accessoriesRepo.updateAccessory(serviceToView?.id ?: 0, accessoryRequest)
+        val response = accessoriesRepo.updateService(serviceToView?.id ?: 0, serviceRequest)
         emit(response)
     }
 
-    fun deleteAccessory(
+    fun deleteService(
     ) = liveData {
         emit(APIResource.loading())
-        val response = accessoriesRepo.deleteAccessory(serviceToView?.id ?: 0)
+        val response = accessoriesRepo.deleteService(serviceToView?.id ?: 0)
         emit(response)
     }
 
 
-    fun buildAccessory(): ServiceRequest {
+    fun buildService(): ServiceRequest {
         return ServiceRequest(
-                isActive = serviceToView?.isActive,
+                isActive = true,
+                isAvailable = serviceToView?.isActive,
                 hasDelivery = serviceToView?.hasDelivery,
                 price = serviceToView?.price?.amount?.toDoubleOrNull(),
                 name = serviceToView?.name,
-                serviceCompletionTime = time.value,
+                serviceCompletionTime = serviceToView?.serviceCompletionTime,
                 description = serviceToView?.description,
                 files = Files(
-                        baseImage = serviceToView?.logo?.id,
+                        baseImage = serviceToView?.base_image?.id,
                         additionalImages = serviceToView?.additionalImages?.map { it.id ?: 0 }
                 )
         )
@@ -75,7 +75,7 @@ class ServiceViewModel @Inject constructor(
                 additionalImages = additionalImages,
                 isActive = isAvailable.value,
                 description = mobileInfo.value,
-                logo = baseImage,
+                base_image = baseImage,
                 price = Price(amount = price.value),
                 name = name.value,
                 hasDelivery = deliveryAvailable.value,

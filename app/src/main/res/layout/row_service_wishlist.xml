@@ -34,7 +34,7 @@
             android:paddingBottom="@dimen/_7sdp">
 
             <ImageView
-                ivImageUrl="@{item.logo.url}"
+                ivImageUrl="@{item.base_image.url}"
                 android:layout_width="@dimen/_68sdp"
                 android:layout_height="@dimen/_58sdp"
                 android:layout_gravity="center"

@@ -22,4 +22,9 @@
         android:name="com.raantech.awfrlak.store.ui.store.fragment.ServicesFragment"
         android:label="ServicesFragment"
         tools:layout="@layout/layout_services_grid" />
+    <fragment
+        android:id="@+id/nav_orders"
+        android:name="com.raantech.awfrlak.store.ui.main.orders.fragment.OrdersFragment"
+        android:label="OrdersFragment"
+        tools:layout="@layout/fragment_order"/>
 </navigation>

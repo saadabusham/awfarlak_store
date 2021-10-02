@@ -87,19 +87,19 @@ interface AccessoriesRemoteDao {
     @POST("merchant/services/store")
     suspend fun addService(
         @Body serviceRequest: ServiceRequest
-    ): ResponseWrapper<AccessoriesItem>
+    ): ResponseWrapper<Service>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
     @PUT("merchant/services/{id}/update")
     suspend fun updateService(
         @Path("id") id: Int,
         @Body serviceRequest: ServiceRequest
-    ): ResponseWrapper<AccessoriesItem>
+    ): ResponseWrapper<Service>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
     @PUT("merchant/services/{id}/destroy")
     suspend fun deleteService(
         @Path("id") id: Int
-    ): ResponseWrapper<AccessoriesItem>
+    ): ResponseWrapper<Service>
 
 }

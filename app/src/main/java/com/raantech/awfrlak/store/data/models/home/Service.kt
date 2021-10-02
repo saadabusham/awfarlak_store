@@ -49,8 +49,8 @@ data class Service(
 		@field:SerializedName("latitude")
 		val latitude: String? = null,
 
-		@field:SerializedName("logo")
-		val logo: Media? = null,
+		@field:SerializedName("base_image")
+		val base_image: Media? = null,
 
 		@field:SerializedName("longitude")
 		val longitude: String? = null,
@@ -58,3 +58,4 @@ data class Service(
 		@field:SerializedName("additional_images")
 		val additionalImages: List<Media>? = null,
 ) : Serializable
+

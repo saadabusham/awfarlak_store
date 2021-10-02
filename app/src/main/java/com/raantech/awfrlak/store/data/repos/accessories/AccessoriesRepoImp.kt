@@ -134,7 +134,7 @@ class AccessoriesRepoImp @Inject constructor(
         }
     }
 
-    override suspend fun addService(serviceRequest: ServiceRequest): APIResource<ResponseWrapper<AccessoriesItem>> {
+    override suspend fun addService(serviceRequest: ServiceRequest): APIResource<ResponseWrapper<Service>> {
         return try {
             responseHandle.handleSuccess(accessoriesRemoteDao.addService(serviceRequest))
         } catch (e: Exception) {
@@ -142,7 +142,7 @@ class AccessoriesRepoImp @Inject constructor(
         }
     }
 
-    override suspend fun updateService(id: Int, serviceRequest: ServiceRequest): APIResource<ResponseWrapper<AccessoriesItem>> {
+    override suspend fun updateService(id: Int, serviceRequest: ServiceRequest): APIResource<ResponseWrapper<Service>> {
         return try {
             responseHandle.handleSuccess(accessoriesRemoteDao.updateService(id,serviceRequest))
         } catch (e: Exception) {
@@ -150,7 +150,7 @@ class AccessoriesRepoImp @Inject constructor(
         }
     }
 
-    override suspend fun deleteService(id: Int): APIResource<ResponseWrapper<AccessoriesItem>> {
+    override suspend fun deleteService(id: Int): APIResource<ResponseWrapper<Service>> {
         return try {
             responseHandle.handleSuccess(accessoriesRemoteDao.deleteService(id))
         } catch (e: Exception) {

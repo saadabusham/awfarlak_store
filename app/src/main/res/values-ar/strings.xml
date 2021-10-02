@@ -223,12 +223,37 @@
     <string name="old_mobile">جوال مستعمل</string>
 
     <!--    Add Mobile Validation-->
-    <string name="please_select_the_mobile_type">Please select mobile type</string>
-    <string name="please_select_the_mobile_storage">Please select the mobile storage</string>
-    <string name="please_select_the_mobile_colors">Please select the mobile colors</string>
-    <string name="please_select_the_mobile_sims_number">Please select the mobile sims number</string>
-    <string name="please_select_the_mobile_status">Please select the mobile status</string>
+    <string name="please_select_the_mobile_type">يرجى اختيار نوع الجوال</string>
+    <string name="please_select_the_mobile_storage">يرجى اختيار سعة تخزين الجوال</string>
+    <string name="please_select_the_mobile_colors">يرجى اختيار لون الجهاز</string>
+    <string name="please_select_the_mobile_sims_number">يرجى اختيار عدد اشرحة الجوال</string>
+    <string name="please_select_the_mobile_status">يرجى اختيار حالة الجهاو</string>
     <string name="product_images">صور المنتج</string>
     <string name="please_select_the_product_images">يرجى اختيار صور المنتج</string>
+
+    <!--    Add Accessories-->
+    <string name="add_accessory_for_sale">اضافة اكسسوار للبيع</string>
+    <string name="accessory_name">اسم الاكسسوار</string>
+    <string name="add_accessory_type">نوع  الاكسسوار</string>
+    <string name="add_accessory_dedicated_to">مخصص لـ</string>
+    <string name="add_accessory_info">معلومات عن الاكسسوار</string>
+    <string name="add_accessory_images">اضافة صور للاكسسوار</string>
+
+    <!--    Add Accessory Validation-->
+    <string name="please_select_the_accessory_type">يرجى اختيار نوع الاكسسوار</string>
+    <string name="please_select_the_accessory_dedicated">يرجى اختيار الجوال المخصص له</string>
+
+
+    <!--    Add Accessories-->
+    <string name="add_new_service">اضافة خدمة جديدة</string>
+    <string name="service_name">اسم الخدمة</string>
+    <string name="add_service_info">معلومات عن الخدمة</string>
+    <string name="service_info">معلومات عن الخدمة</string>
+    <string name="add_service_images">اضافة صور للخدمة (اختياري)</string>
+    <string name="delivery_available">التوصيل متوفر</string>
+    <string name="add_service">أضف الخدمة</string>
+    <string name="service_price">السعر ( اختياري )</string>
+    <string name="time_to_complete_the_service_optional">الوقت المحدد لانجاز الخدمة (اختياري)</string>
+    <string name="please_select_the_service_images">يرجى اختيار صور الخدمة</string>
 
 </resources>

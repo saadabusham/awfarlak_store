@@ -67,14 +67,14 @@ interface AccessoriesRepo {
 
     suspend fun addService(
             serviceRequest: ServiceRequest
-    ): APIResource<ResponseWrapper<AccessoriesItem>>
+    ): APIResource<ResponseWrapper<Service>>
 
     suspend fun updateService(
             id: Int,
             serviceRequest: ServiceRequest
-    ): APIResource<ResponseWrapper<AccessoriesItem>>
+    ): APIResource<ResponseWrapper<Service>>
 
     suspend fun deleteService(
             id: Int
-    ): APIResource<ResponseWrapper<AccessoriesItem>>
+    ): APIResource<ResponseWrapper<Service>>
 }

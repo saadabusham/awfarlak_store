@@ -249,11 +249,12 @@
     <string name="add_new_service">Add New Service</string>
     <string name="service_name">Service Name</string>
     <string name="add_service_info">Service More Information</string>
+    <string name="service_info">Service Information</string>
     <string name="add_service_images">Add Service Images(optional)</string>
     <string name="delivery_available">Delivery Available</string>
     <string name="add_service">Add Service</string>
     <string name="service_price">Price(optional)</string>
-    <string name="service_price">Price(optional)</string>
     <string name="time_to_complete_the_service_optional">Time to complete the service(optional)</string>
+    <string name="please_select_the_service_images">Please select the service images</string>
 
 </resources>

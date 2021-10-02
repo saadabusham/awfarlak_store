@@ -5,12 +5,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import com.paginate.Paginate
 import com.raantech.awfrlak.R
+import com.raantech.awfrlak.databinding.LayoutServicesGridBinding
 import com.raantech.awfrlak.store.data.api.response.GeneralError
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
 import com.raantech.awfrlak.store.data.models.home.Service
-import com.raantech.awfrlak.databinding.LayoutPhonesGridBinding
-import com.raantech.awfrlak.databinding.LayoutServicesGridBinding
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
@@ -30,10 +29,10 @@ class ServicesFragment : BaseBindingFragment<LayoutServicesGridBinding>(),
     private val loadingServices: MutableLiveData<Boolean> = MutableLiveData(false)
     private var isServicesFinished = false
     lateinit var servicesGridRecyclerAdapter: ServicesGridRecyclerAdapter
+
     override fun getLayoutId(): Int {
         return R.layout.layout_services_grid
     }
-
 
     override fun onViewVisible() {
         super.onViewVisible()
@@ -127,7 +126,11 @@ class ServicesFragment : BaseBindingFragment<LayoutServicesGridBinding>(),
     }
 
     override fun onItemClick(view: View?, position: Int, item: Any) {
-        ServiceDetailsActivity.start(requireActivity(), item as Service)
+        ServiceDetailsActivity.start(
+                requireActivity(), item as Service,
+                update = true,
+                viewSubmit = false
+        )
     }
 
 
