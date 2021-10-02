@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.raantech.awfrlak.store.ui.mobile.viewmodels.MobileViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/layout_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:minHeight="@dimen/Edittext_height"
+                    app:cardCornerRadius="@dimen/_7sdp">
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        android:id="@+id/edName"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:background="@color/white"
+                        android:hint="@string/mobile_name"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@={viewModel.name}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/text_gray_color"
+                        android:textColorHint="@color/text_gray_color"
+                        android:textSize="@dimen/_13ssp" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_7sdp">
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/spinnerMobileType"
+                        style="@style/normalRegularFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:gravity="center|start"
+                        android:hint="@string/add_mobile_type"
+                        android:padding="10dp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/defaultTextColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:arrow_gravity="@{true}"
+                        app:spinner_arrow_drawable="@drawable/ic_arrow_drop_down_black_24dp"
+                        app:spinner_arrow_gravity="end"
+                        app:spinner_arrow_padding="8dp"
+                        app:spinner_arrow_tint="@color/black"
+                        app:spinner_divider_show="false"
+                        app:spinner_divider_size="0.4dp"
+                        app:spinner_popup_animation="dropdown"
+                        app:spinner_popup_background="@color/white"
+                        app:spinner_popup_elevation="14dp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_7sdp">
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/spinnerMobileStorage"
+                        style="@style/normalRegularFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:gravity="center|start"
+                        android:hint="@string/add_mobile_storage_size"
+                        android:padding="10dp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/defaultTextColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:arrow_gravity="@{true}"
+                        app:spinner_arrow_drawable="@drawable/ic_arrow_drop_down_black_24dp"
+                        app:spinner_arrow_gravity="end"
+                        app:spinner_arrow_padding="8dp"
+                        app:spinner_arrow_tint="@color/black"
+                        app:spinner_divider_show="false"
+                        app:spinner_divider_size="0.4dp"
+                        app:spinner_popup_animation="dropdown"
+                        app:spinner_popup_background="@color/white"
+                        app:spinner_popup_elevation="14dp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_7sdp">
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/spinnerMobileColors"
+                        style="@style/normalRegularFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:gravity="center|start"
+                        android:hint="@string/add_mobile_colors"
+                        android:padding="10dp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/defaultTextColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:arrow_gravity="@{true}"
+                        app:spinner_arrow_drawable="@drawable/ic_arrow_drop_down_black_24dp"
+                        app:spinner_arrow_gravity="end"
+                        app:spinner_arrow_padding="8dp"
+                        app:spinner_arrow_tint="@color/black"
+                        app:spinner_divider_show="false"
+                        app:spinner_divider_size="0.4dp"
+                        app:spinner_popup_animation="dropdown"
+                        app:spinner_popup_background="@color/white"
+                        app:spinner_popup_elevation="14dp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_7sdp">
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/spinnerMobileSims"
+                        style="@style/normalRegularFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:gravity="center|start"
+                        android:hint="@string/add_mobile_sim_number"
+                        android:padding="10dp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/defaultTextColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:arrow_gravity="@{true}"
+                        app:spinner_arrow_drawable="@drawable/ic_arrow_drop_down_black_24dp"
+                        app:spinner_arrow_gravity="end"
+                        app:spinner_arrow_padding="8dp"
+                        app:spinner_arrow_tint="@color/black"
+                        app:spinner_divider_show="false"
+                        app:spinner_divider_size="0.4dp"
+                        app:spinner_popup_animation="dropdown"
+                        app:spinner_popup_background="@color/white"
+                        app:spinner_popup_elevation="14dp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    app:cardCornerRadius="@dimen/_7sdp">
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/spinnerMobileStatus"
+                        style="@style/normalRegularFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:gravity="center|start"
+                        android:hint="@string/add_mobile_status"
+                        android:padding="10dp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/defaultTextColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:arrow_gravity="@{true}"
+                        app:spinner_arrow_drawable="@drawable/ic_arrow_drop_down_black_24dp"
+                        app:spinner_arrow_gravity="end"
+                        app:spinner_arrow_padding="8dp"
+                        app:spinner_arrow_tint="@color/black"
+                        app:spinner_divider_show="false"
+                        app:spinner_divider_size="0.4dp"
+                        app:spinner_popup_animation="dropdown"
+                        app:spinner_popup_background="@color/white"
+                        app:spinner_popup_elevation="14dp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvMobileInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:minHeight="@dimen/Edittext_height"
+                    app:cardCornerRadius="@dimen/_7sdp">
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        android:id="@+id/edMobileInfo"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center|start|top"
+                        android:hint="@string/add_mobile_info"
+                        android:maxLines="1000"
+                        android:minHeight="@dimen/_100sdp"
+                        android:text="@={viewModel.mobileInfo}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/text_gray_color"
+                        android:textColorHint="@color/text_gray_color"
+                        android:textSize="@dimen/_13ssp" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvMobilePrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:minHeight="@dimen/Edittext_height"
+                    app:cardCornerRadius="@dimen/_7sdp">
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        android:id="@+id/edPrice"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:digits="0123456789."
+                        android:gravity="center|start|top"
+                        android:hint="@string/price"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@={viewModel.price}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/text_gray_color"
+                        android:textColorHint="@color/text_gray_color"
+                        android:textSize="@dimen/_13ssp" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    style="@style/textview_normal_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="@string/add_mobile_images"
+                    android:textColor="@color/text_gray_color"
+                    android:textSize="@dimen/_14ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/imagesRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:nestedScrollingEnabled="false"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:spanCount="3"
+                            tools:itemCount="5"
+                            tools:listitem="@layout/row_image_view_small" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="@color/border_color" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imgUpload"
+                        android:layout_width="@dimen/_23sdp"
+                        android:layout_height="@dimen/_23sdp"
+                        android:src="@drawable/ic_upload" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/checkboxIsAvailable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:button="@drawable/checkbox_selector"
+                    android:checked="@={viewModel.isAvailable}"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_7sdp"
+                    android:text="@string/is_available" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddProduct"
+                    style="@style/AppTheme.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:text="@string/add_product" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

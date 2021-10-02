@@ -30,7 +30,7 @@
 
             <include
                 android:id="@+id/toolbar"
-                layout="@layout/layout_service_toolbar" />
+                layout="@layout/layout_toolbar" />
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/nestedScroll"

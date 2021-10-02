@@ -15,7 +15,6 @@ import com.raantech.awfrlak.store.data.enums.CategoriesEnum
 import com.raantech.awfrlak.store.data.models.home.AccessoriesItem
 import com.raantech.awfrlak.store.ui.auth.login.adapters.IndecatorRecyclerAdapter
 import com.raantech.awfrlak.store.ui.base.activity.BaseBindingActivity
-import com.raantech.awfrlak.store.ui.cart.CartActivity
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
 import com.raantech.awfrlak.store.ui.store.adapters.StoreImagesAdapter
 import com.raantech.awfrlak.store.utils.extensions.invisible
@@ -50,24 +49,11 @@ class AccessoryDetailsActivity : BaseBindingActivity<ActivityAccessoryDetailsBin
         initData()
         setUpListeners()
         setUpPager()
-        checkCart()
     }
 
-    fun checkCart() {
-        viewModel.accessoryToView?.id?.let {
-            viewModel.getAccessoryCart(it).observe(this, {
-                it?.count?.let {
-                    viewModel.accessoriesItemCount.value = (it)
-                }
-                viewModel.updateAccessoriesPrice()
-            })
-        }
-    }
 
     private fun setUpBinding() {
-        binding?.toolbar?.viewModel = viewModel
         binding?.viewModel = viewModel
-        viewModel.getCartsCount()
         updateFavorite()
     }
 
@@ -79,21 +65,6 @@ class AccessoryDetailsActivity : BaseBindingActivity<ActivityAccessoryDetailsBin
 
 
     private fun setUpListeners() {
-        binding?.toolbar?.imgCart?.setOnClickListener {
-            if (!viewModel.cartCount.value.equals("0"))
-                CartActivity.start(this)
-        }
-        binding?.layoutAccessoriesSlider?.imgFavorite?.setOnClickListener {
-            viewModel.accessoryToView?.isWishlist = viewModel.accessoryToView?.isWishlist == false
-            updateFavorite()
-            if (viewModel.accessoryToView?.isWishlist == true) {
-                viewModel.addToWishList(CategoriesEnum.ACCESSORIES.value,viewModel.accessoryToView?.id
-                        ?: 0).observe(this, wishListObserver())
-            } else {
-                viewModel.removeFromWishList(CategoriesEnum.ACCESSORIES.value,viewModel.accessoryToView?.id
-                        ?: 0).observe(this, wishListObserver())
-            }
-        }
         binding?.layoutAccessoriesSlider?.imgBack?.setOnClickListener {
             binding?.layoutAccessoriesSlider?.vpPictures?.currentItem?.minus(1)?.let { it1 -> binding?.layoutAccessoriesSlider?.vpPictures?.setCurrentItem(it1, true) }
         }

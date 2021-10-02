@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel" />
+            type="com.raantech.awfrlak.store.ui.mobile.viewmodels.MobileViewModel" />
     </data>
 
     <LinearLayout
@@ -49,8 +49,8 @@
                         android:orientation="vertical">
 
                         <include
-                            android:id="@+id/toolbar"
-                            layout="@layout/layout_service_toolbar" />
+                            android:id="@+id/layout_toolbar"
+                            layout="@layout/layout_toolbar" />
 
                     </LinearLayout>
 
@@ -313,93 +313,41 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/_37sdp"
-                android:layout_height="@dimen/_37sdp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:focusable="true"
-                android:onClick="@{()->viewModel.minusMobiles()}"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_minus" />
-
-            <com.raantech.awfrlak.store.ui.base.views.AppTextView
-                style="@style/textview_normal_bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:gravity="center"
-                android:text="@{viewModel.mobilesItemCount.toString() }"
-                android:textColor="@color/text_gray_color"
-                android:textSize="@dimen/_18ssp"
-                tools:text="1" />
-
-            <ImageView
-                android:layout_width="@dimen/_37sdp"
-                android:layout_height="@dimen/_37sdp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:focusable="true"
-                android:onClick="@{()->viewModel.plusMobiles()}"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_plus" />
-
-        </LinearLayout>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/btnAsk"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_48sdp"
             android:layout_marginStart="@dimen/layouts_margin_start"
+            android:layout_marginTop="@dimen/_17sdp"
             android:layout_marginEnd="@dimen/layouts_margin_end"
             android:layout_marginBottom="@dimen/_15sdp"
             android:gravity="center"
-            android:onClick="@{()->viewModel.onAddMobileToCartClicked()}"
-            android:text="@string/order_service"
-            android:textSize="@dimen/_19ssp"
-            app:cardBackgroundColor="@color/button_color"
-            app:cardCornerRadius="@dimen/_7sdp">
+            android:minHeight="@dimen/_35sdp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEdit"
+                style="@style/AppTheme.Button.Outline"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="@dimen/_48sdp"
-                android:padding="@dimen/_10sdp"
-                android:orientation="horizontal">
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:text="@string/edit" />
 
-                <com.raantech.awfrlak.store.ui.base.views.AppTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center|start"
-                    android:textAlignment="viewStart"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="@string/add_to_cart"
-                    android:textSize="@dimen/_19ssp"
-                    style="@style/textview_normal_bold"
-                    android:textColor="@color/white"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:text="@string/submit" />
+        </LinearLayout>
 
-                <com.raantech.awfrlak.store.ui.base.views.AppTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center|end"
-                    android:textAlignment="viewEnd"
-                    android:text="@{viewModel.mobilesItemsPrice.formatted}"
-                    android:textSize="@dimen/_19ssp"
-                    tools:text="1200 ر.س"
-                    style="@style/textview_normal_bold"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 

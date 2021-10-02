@@ -5,10 +5,6 @@ import com.raantech.awfrlak.store.data.repos.accessories.AccessoriesRepo
 import com.raantech.awfrlak.store.data.repos.accessories.AccessoriesRepoImp
 import com.raantech.awfrlak.store.data.repos.auth.UserRepo
 import com.raantech.awfrlak.store.data.repos.auth.UserRepoImp
-import com.raantech.awfrlak.store.data.repos.cart.cart.CartRepo
-import com.raantech.awfrlak.store.data.repos.cart.cart.CartRepoImp
-import com.raantech.awfrlak.store.data.repos.cart.mobilecart.MobileCartRepo
-import com.raantech.awfrlak.store.data.repos.cart.mobilecart.MobileCartRepoImp
 import com.raantech.awfrlak.store.data.repos.configuration.ConfigurationRepo
 import com.raantech.awfrlak.store.data.repos.configuration.ConfigurationRepoImp
 import com.raantech.awfrlak.store.data.repos.media.MediaRepo
@@ -40,14 +36,6 @@ abstract class RepoModule {
     @Singleton
     @Binds
     abstract fun bindAccessoryRepo(accessoriesRepoImp: AccessoriesRepoImp): AccessoriesRepo
-
-    @Singleton
-    @Binds
-    abstract fun bindCartRepo(cartRepoImp: CartRepoImp): CartRepo
-
-    @Singleton
-    @Binds
-    abstract fun bindMobileCartRepo(mobileRepoImp: MobileCartRepoImp): MobileCartRepo
 
     @Singleton
     @Binds

@@ -6,16 +6,14 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.raantech.awfrlak.R
+import com.raantech.awfrlak.databinding.ActivityServiceDetailsBinding
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.common.Constants
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
-import com.raantech.awfrlak.store.data.enums.CategoriesEnum
 import com.raantech.awfrlak.store.data.models.home.Service
-import com.raantech.awfrlak.databinding.ActivityServiceDetailsBinding
 import com.raantech.awfrlak.store.ui.auth.login.adapters.IndecatorRecyclerAdapter
 import com.raantech.awfrlak.store.ui.base.activity.BaseBindingActivity
-import com.raantech.awfrlak.store.ui.cart.CartActivity
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
 import com.raantech.awfrlak.store.ui.store.adapters.StoreImagesAdapter
 import com.raantech.awfrlak.store.utils.extensions.invisible
@@ -53,9 +51,7 @@ class ServiceDetailsActivity : BaseBindingActivity<ActivityServiceDetailsBinding
     }
 
     private fun setUpBinding() {
-        binding?.toolbar?.viewModel = viewModel
         binding?.viewModel = viewModel
-        viewModel.getCartsCount()
         updateFavorite()
     }
 
@@ -67,21 +63,6 @@ class ServiceDetailsActivity : BaseBindingActivity<ActivityServiceDetailsBinding
 
 
     private fun setUpListeners() {
-        binding?.toolbar?.imgCart?.setOnClickListener {
-            if (!viewModel.cartCount.value.equals("0"))
-                CartActivity.start(this)
-        }
-        binding?.layoutServiceSlider?.imgFavorite?.setOnClickListener {
-            viewModel.serviceToView?.isWishlist = viewModel.serviceToView?.isWishlist == false
-            updateFavorite()
-            if (viewModel.serviceToView?.isWishlist == true) {
-                viewModel.addToWishList(CategoriesEnum.SERVICES.value,viewModel.serviceToView?.id
-                        ?: 0).observe(this, wishListObserver())
-            } else {
-                viewModel.removeFromWishList(CategoriesEnum.SERVICES.value,viewModel.serviceToView?.id
-                        ?: 0).observe(this, wishListObserver())
-            }
-        }
         binding?.layoutServiceSlider?.imgBack?.setOnClickListener {
             binding?.layoutServiceSlider?.vpPictures?.currentItem?.minus(1)?.let { it1 -> binding?.layoutServiceSlider?.vpPictures?.setCurrentItem(it1, true) }
         }

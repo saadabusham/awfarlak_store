@@ -50,7 +50,7 @@
 
                         <include
                             android:id="@+id/toolbar"
-                            layout="@layout/layout_service_toolbar" />
+                            layout="@layout/layout_toolbar" />
 
                     </LinearLayout>
 
@@ -211,50 +211,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/_37sdp"
-                android:layout_height="@dimen/_37sdp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:focusable="true"
-                android:onClick="@{()->viewModel.minusAccessories()}"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_minus" />
-
-            <com.raantech.awfrlak.store.ui.base.views.AppTextView
-                style="@style/textview_normal_bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:gravity="center"
-                android:text="@{viewModel.accessoriesItemCount.toString() }"
-                android:textColor="@color/text_gray_color"
-                android:textSize="@dimen/_18ssp"
-                tools:text="1" />
-
-            <ImageView
-                android:layout_width="@dimen/_37sdp"
-                android:layout_height="@dimen/_37sdp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:focusable="true"
-                android:onClick="@{()->viewModel.plusAccessories()}"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_plus" />
-
-        </LinearLayout>
-
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnAsk"
             android:layout_width="match_parent"
@@ -263,7 +219,6 @@
             android:layout_marginEnd="@dimen/layouts_margin_end"
             android:layout_marginBottom="@dimen/_15sdp"
             android:gravity="center"
-            android:onClick="@{()->viewModel.onAddAccessoriesToCartClicked()}"
             android:text="@string/order_service"
             android:textSize="@dimen/_19ssp"
             app:cardBackgroundColor="@color/button_color"

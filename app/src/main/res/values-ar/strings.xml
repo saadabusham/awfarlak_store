@@ -61,6 +61,7 @@
     <string name="please_select_your_gender">Please select your gender</string>
     <string name="password_not_match">Password not match</string>
     <string name="text_not_valid_err">Enter a valid Text</string>
+    <string name="price_not_valid_err">يرجى ادخال سعر صحيح</string>
     <string name="date_not_valid_err">Enter a valid date</string>
     <string name="time_not_valid_err">Enter a valid time</string>
     <string name="digits">digits</string>
@@ -196,14 +197,38 @@
     <string name="search_here">ابحث هنا</string>
     <string name="location">الموقع</string>
     <string name="please_pick_location">يرجى اختيار الموقع</string>
-    <string name="store_name">Store Name</string>
-    <string name="nav_statistics">Statistics</string>
-    <string name="nav_products">Products</string>
-    <string name="nav_orders">Orders</string>
-    <string name="add_mobile_for_sale">Add mobile for sale</string>
-    <string name="add_services">Add Services</string>
-    <string name="add_accessories">Add Accessories</string>
+    <string name="store_name">اسم المتجر</string>
+    <string name="nav_statistics">الاحصائيات</string>
+    <string name="nav_products">المنتجات</string>
+    <string name="nav_orders">الطلبات</string>
+    <string name="add_mobile_for_sale">اضافة جوال للبيع</string>
+    <string name="add_services">اضافة خدمات</string>
+    <string name="add_accessories">اضافة اكسسوارات</string>
     <string name="cities">المدن</string>
     <string name="please_select_city">يرجى اختيار المدينة</string>
+
+    <!--    Add Mobile -->
+    <string name="mobile_name">اسم لجوال</string>
+    <string name="add_mobile_type">نوع الجوال</string>
+    <string name="add_mobile_storage_size">سعة التخزين</string>
+    <string name="add_mobile_colors">الالوان</string>
+    <string name="add_mobile_sim_number">عدد الشرئح</string>
+    <string name="add_mobile_status">حالة الجوال</string>
+    <string name="add_mobile_info">معلومات اخرى عن الجوال</string>
+    <string name="add_mobile_images">اضافة صور للجوال</string>
+    <string name="is_available">متوفر حاليا</string>
+    <string name="price">السعر</string>
+    <string name="add_product">أضف المنتج</string>
+    <string name="new_mobile">جوال جديد</string>
+    <string name="old_mobile">جوال مستعمل</string>
+
+    <!--    Add Mobile Validation-->
+    <string name="please_select_the_mobile_type">Please select mobile type</string>
+    <string name="please_select_the_mobile_storage">Please select the mobile storage</string>
+    <string name="please_select_the_mobile_colors">Please select the mobile colors</string>
+    <string name="please_select_the_mobile_sims_number">Please select the mobile sims number</string>
+    <string name="please_select_the_mobile_status">Please select the mobile status</string>
+    <string name="product_images">صور المنتج</string>
+    <string name="please_select_the_product_images">يرجى اختيار صور المنتج</string>
 
 </resources>

@@ -21,19 +21,6 @@
         android:paddingEnd="@dimen/layouts_margin_end">
 
         <ImageView
-            android:id="@+id/imgFavorite"
-            android:layout_width="@dimen/_32sdp"
-            android:layout_height="@dimen/_28sdp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"
-            android:scaleType="centerCrop"
-            android:src="@{favorite ? @drawable/ic_favorite_selected : @drawable/ic_favorite}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ic_favorite_selected" />
-
-        <ImageView
             android:id="@+id/imgBack"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"

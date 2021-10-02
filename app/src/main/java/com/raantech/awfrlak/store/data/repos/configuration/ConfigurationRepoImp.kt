@@ -6,6 +6,7 @@ import com.raantech.awfrlak.store.data.api.response.ResponseHandler
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.daos.remote.configuration.ConfigurationRemoteDao
 import com.raantech.awfrlak.store.data.models.City
+import com.raantech.awfrlak.store.data.models.GeneralLookup
 import com.raantech.awfrlak.store.data.models.configuration.ConfigurationWrapperResponse
 import com.raantech.awfrlak.store.data.models.more.AboutUsResponse
 import com.raantech.awfrlak.store.data.pref.configuration.ConfigurationPref
@@ -45,6 +46,30 @@ class ConfigurationRepoImp @Inject constructor(
     override suspend fun getAboutUs(): APIResource<ResponseWrapper<AboutUsResponse>> {
         return try {
             responseHandle.handleSuccess(configurationRemoteDao.getAboutUs())
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
+    override suspend fun getMobileType(): APIResource<ResponseWrapper<List<GeneralLookup>>> {
+        return try {
+            responseHandle.handleSuccess(configurationRemoteDao.getMobileType())
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
+    override suspend fun getColor(): APIResource<ResponseWrapper<List<GeneralLookup>>> {
+        return try {
+            responseHandle.handleSuccess(configurationRemoteDao.getColor())
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
+    override suspend fun getStorage(): APIResource<ResponseWrapper<List<GeneralLookup>>> {
+        return try {
+            responseHandle.handleSuccess(configurationRemoteDao.getStorage())
         } catch (e: Exception) {
             responseHandle.handleException(e)
         }

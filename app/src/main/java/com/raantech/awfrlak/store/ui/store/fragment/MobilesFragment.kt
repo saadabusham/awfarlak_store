@@ -5,11 +5,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import com.paginate.Paginate
 import com.raantech.awfrlak.R
+import com.raantech.awfrlak.databinding.LayoutPhonesGridBinding
 import com.raantech.awfrlak.store.data.api.response.GeneralError
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
 import com.raantech.awfrlak.store.data.models.home.MobilesItem
-import com.raantech.awfrlak.databinding.LayoutPhonesGridBinding
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MobilesFragment : BaseBindingFragment<LayoutPhonesGridBinding>(),
-        BaseBindingRecyclerViewAdapter.OnItemClickListener {
+    BaseBindingRecyclerViewAdapter.OnItemClickListener {
 
     private val viewModel: GeneralViewModel by activityViewModels()
 
@@ -72,47 +72,47 @@ class MobilesFragment : BaseBindingFragment<LayoutPhonesGridBinding>(),
             }
 
         })
-                .setLoadingTriggerThreshold(1)
-                .addLoadingListItem(false)
-                .build()
+            .setLoadingTriggerThreshold(1)
+            .addLoadingListItem(false)
+            .build()
     }
 
     private fun loadMobiles() {
         viewModel.getMobiles(phonesGridRecyclerAdapter.itemCount)
-                .observe(this, mobilesObserver())
+            .observe(this, mobilesObserver())
     }
 
     private fun mobilesObserver(): CustomObserverResponse<List<MobilesItem>> {
         return CustomObserverResponse(
-                requireActivity(),
-                object : CustomObserverResponse.APICallBack<List<MobilesItem>> {
-                    override fun onSuccess(
-                            statusCode: Int,
-                            subErrorCode: ResponseSubErrorsCodeEnum,
-                            data: List<MobilesItem>?
-                    ) {
-                        data?.let {
-                            phonesGridRecyclerAdapter.submitItems(it)
-                        }
-                        if (data.isNullOrEmpty())
-                            isMobilesFinished = true
-                        loadingMobiles.postValue(false)
+            requireActivity(),
+            object : CustomObserverResponse.APICallBack<List<MobilesItem>> {
+                override fun onSuccess(
+                    statusCode: Int,
+                    subErrorCode: ResponseSubErrorsCodeEnum,
+                    data: List<MobilesItem>?
+                ) {
+                    data?.let {
+                        phonesGridRecyclerAdapter.submitItems(it)
                     }
+                    if (data.isNullOrEmpty())
+                        isMobilesFinished = true
+                    loadingMobiles.postValue(false)
+                }
 
-                    override fun onError(
-                            subErrorCode: ResponseSubErrorsCodeEnum,
-                            message: String,
-                            errors: List<GeneralError>?
-                    ) {
-                        super.onError(subErrorCode, message, errors)
-                        loadingMobiles.postValue(false)
-                        hideShowNoData()
-                    }
+                override fun onError(
+                    subErrorCode: ResponseSubErrorsCodeEnum,
+                    message: String,
+                    errors: List<GeneralError>?
+                ) {
+                    super.onError(subErrorCode, message, errors)
+                    loadingMobiles.postValue(false)
+                    hideShowNoData()
+                }
 
-                    override fun onLoading() {
-                        loadingMobiles.postValue(true)
-                    }
-                }, false, showError = false
+                override fun onLoading() {
+                    loadingMobiles.postValue(true)
+                }
+            }, false, showError = false
         )
     }
 
@@ -127,7 +127,10 @@ class MobilesFragment : BaseBindingFragment<LayoutPhonesGridBinding>(),
     }
 
     override fun onItemClick(view: View?, position: Int, item: Any) {
-        MobileDetailsActivity.start(requireActivity(), item as MobilesItem)
+        MobileDetailsActivity.start(requireActivity(), item as MobilesItem,
+            update = true,
+            viewSubmit = false
+        )
     }
 
 

@@ -9,20 +9,20 @@ import retrofit2.http.*
 interface MediaRemoteDao {
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
-    @GET("user/media")
+    @GET("merchant/media")
     suspend fun getMedia(
         @Query("skip") skip: Int
     ): ResponseWrapper<List<Media>>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
     @Multipart
-    @POST("user/media/store")
+    @POST("merchant/media/store")
     suspend fun uploadMedia(
         @Part mediaFile: MultipartBody.Part
     ): ResponseWrapper<Any>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
-    @DELETE("user/media/{mediaId}/destroy")
+    @DELETE("merchant/media/{mediaId}/destroy")
     suspend fun deleteMedia(
         @Path("mediaId") mediaId: Int
     ): ResponseWrapper<Any>

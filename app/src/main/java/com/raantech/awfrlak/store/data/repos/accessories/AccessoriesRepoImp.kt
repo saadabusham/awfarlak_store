@@ -4,6 +4,7 @@ import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.api.response.ResponseHandler
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.daos.remote.accessories.AccessoriesRemoteDao
+import com.raantech.awfrlak.store.data.models.MobileRequest
 import com.raantech.awfrlak.store.data.models.home.*
 import com.raantech.awfrlak.store.data.repos.base.BaseRepo
 import javax.inject.Inject
@@ -75,6 +76,33 @@ class AccessoriesRepoImp @Inject constructor(
     override suspend fun getAccessory(id: Int): APIResource<ResponseWrapper<AccessoriesItem>> {
         return try {
             responseHandle.handleSuccess(accessoriesRemoteDao.getAccessory(id))
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
+    override suspend fun addMobile(mobileRequest: MobileRequest): APIResource<ResponseWrapper<MobilesItem>> {
+        return try {
+            responseHandle.handleSuccess(accessoriesRemoteDao.addMobile(mobileRequest))
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
+    override suspend fun updateMobile(
+        id: Int,
+        mobileRequest: MobileRequest
+    ): APIResource<ResponseWrapper<MobilesItem>> {
+        return try {
+            responseHandle.handleSuccess(accessoriesRemoteDao.updateMobile(id,mobileRequest))
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
+    override suspend fun deleteMobile(id: Int): APIResource<ResponseWrapper<MobilesItem>> {
+        return try {
+            responseHandle.handleSuccess(accessoriesRemoteDao.deleteMobile(id))
         } catch (e: Exception) {
             responseHandle.handleException(e)
         }

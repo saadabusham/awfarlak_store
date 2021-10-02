@@ -2,7 +2,10 @@ package com.raantech.awfrlak.store.data.repos.accessories
 
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
+import com.raantech.awfrlak.store.data.models.MobileRequest
 import com.raantech.awfrlak.store.data.models.home.*
+import retrofit2.http.Body
+import retrofit2.http.Path
 
 interface AccessoriesRepo {
 
@@ -29,4 +32,17 @@ interface AccessoriesRepo {
     suspend fun getAccessory(
         id: Int
     ): APIResource<ResponseWrapper<AccessoriesItem>>
+
+    suspend fun addMobile(
+        mobileRequest: MobileRequest
+    ): APIResource<ResponseWrapper<MobilesItem>>
+
+    suspend fun updateMobile(
+        id: Int,
+        mobileRequest: MobileRequest
+    ): APIResource<ResponseWrapper<MobilesItem>>
+
+    suspend fun deleteMobile(
+        id: Int
+    ): APIResource<ResponseWrapper<MobilesItem>>
 }

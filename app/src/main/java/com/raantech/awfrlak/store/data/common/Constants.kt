@@ -14,6 +14,8 @@ object Constants {
 
     object BundleData {
 
+        const val VIEW_SUBMIT: String = "viewSubmit"
+        const val UPDATE: String = "update"
         const val ADDRESS: String = "address"
         const val ACCESSORY: String = "accessory"
         const val MOBILE: String = "mobile"

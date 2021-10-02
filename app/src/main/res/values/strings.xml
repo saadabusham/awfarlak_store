@@ -61,6 +61,7 @@
     <string name="please_select_your_gender">Please select your gender</string>
     <string name="password_not_match">Password not match</string>
     <string name="text_not_valid_err">Enter a valid Text</string>
+    <string name="price_not_valid_err">Enter a valid Price</string>
     <string name="date_not_valid_err">Enter a valid date</string>
     <string name="time_not_valid_err">Enter a valid time</string>
     <string name="digits">digits</string>
@@ -207,4 +208,27 @@
     <string name="cities">Cities</string>
     <string name="please_select_city">Please select city</string>
 
+    <!--    Add Mobile -->
+    <string name="mobile_name">Mobile Name</string>
+    <string name="add_mobile_type">Mobile Type</string>
+    <string name="add_mobile_storage_size">Storage Size</string>
+    <string name="add_mobile_colors">Colors</string>
+    <string name="add_mobile_sim_number">Sim Numbers</string>
+    <string name="add_mobile_status">Mobile Status</string>
+    <string name="add_mobile_info">Mobile More Information</string>
+    <string name="add_mobile_images">Add Mobile Images</string>
+    <string name="is_available">Is Available</string>
+    <string name="price">Price</string>
+    <string name="add_product">Add Product</string>
+    <string name="new_mobile">New Mobile</string>
+    <string name="old_mobile">Old Mobile</string>
+
+    <!--    Add Mobile Validation-->
+    <string name="please_select_the_mobile_type">Please select mobile type</string>
+    <string name="please_select_the_mobile_storage">Please select the mobile storage</string>
+    <string name="please_select_the_mobile_colors">Please select the mobile colors</string>
+    <string name="please_select_the_mobile_sims_number">Please select the mobile sims number</string>
+    <string name="please_select_the_mobile_status">Please select the mobile status</string>
+    <string name="product_images">Products images</string>
+    <string name="please_select_the_product_images">Please select the product images</string>
 </resources>

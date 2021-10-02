@@ -7,14 +7,12 @@ import androidx.activity.viewModels
 import com.raantech.awfrlak.R
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
-import com.raantech.awfrlak.store.data.models.Purchase
 import com.raantech.awfrlak.store.data.models.notification.Notification
 import com.raantech.awfrlak.databinding.ActivityNotificationsBinding
 import com.raantech.awfrlak.store.ui.base.activity.BaseBindingActivity
 import com.raantech.awfrlak.store.ui.notifications.adapters.NotificationsRecyclerAdapter
 import com.raantech.awfrlak.store.ui.notifications.viewmodel.NotificationsViewModel
 import com.raantech.awfrlak.store.utils.recycleviewutils.DividerItemDecorator
-import com.raantech.awfrlak.store.utils.recycleviewutils.VerticalSpaceDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
@@ -44,21 +42,21 @@ class NotificationsActivity : BaseBindingActivity<ActivityNotificationsBinding>(
 //        viewModel.getFAQs().observe(this, faqsObserver())
     }
 
-    private fun faqsObserver(): CustomObserverResponse<List<Purchase>> {
-        return CustomObserverResponse(
-                this,
-                object : CustomObserverResponse.APICallBack<List<Purchase>> {
-
-                    override fun onSuccess(
-                            statusCode: Int,
-                            subErrorCode: ResponseSubErrorsCodeEnum,
-                            data: List<Purchase>?
-                    ) {
-//                        data?.let { adapter.submitItems(it) }
-                    }
-                }, showError = false
-        )
-    }
+//    private fun faqsObserver(): CustomObserverResponse<List<Purchase>> {
+//        return CustomObserverResponse(
+//                this,
+//                object : CustomObserverResponse.APICallBack<List<Purchase>> {
+//
+//                    override fun onSuccess(
+//                            statusCode: Int,
+//                            subErrorCode: ResponseSubErrorsCodeEnum,
+//                            data: List<Purchase>?
+//                    ) {
+////                        data?.let { adapter.submitItems(it) }
+//                    }
+//                }, showError = false
+//        )
+//    }
 
 
     private fun setUpAdapter() {

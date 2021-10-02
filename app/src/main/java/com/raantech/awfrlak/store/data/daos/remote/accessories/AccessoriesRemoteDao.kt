@@ -2,11 +2,9 @@ package com.raantech.awfrlak.store.data.daos.remote.accessories
 
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.common.NetworkConstants
+import com.raantech.awfrlak.store.data.models.MobileRequest
 import com.raantech.awfrlak.store.data.models.home.*
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface AccessoriesRemoteDao {
 
@@ -44,5 +42,24 @@ interface AccessoriesRemoteDao {
     suspend fun getAccessory(
         @Path("id") id: Int
     ): ResponseWrapper<AccessoriesItem>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @POST("merchant/mobiles/store")
+    suspend fun addMobile(
+        @Body mobileRequest: MobileRequest
+    ): ResponseWrapper<MobilesItem>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @PUT("merchant/mobiles/{id}/update")
+    suspend fun updateMobile(
+        @Path("id") id: Int,
+        @Body mobileRequest: MobileRequest
+    ): ResponseWrapper<MobilesItem>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @PUT("merchant/mobiles/{id}/destroy")
+    suspend fun deleteMobile(
+        @Path("id") id: Int
+    ): ResponseWrapper<MobilesItem>
 
 }

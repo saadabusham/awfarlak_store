@@ -95,6 +95,9 @@ class Validator() {
             ValidatorInputTypesEnums.SEARCH_TEXT -> {
                 validateSearchText()
             }
+            ValidatorInputTypesEnums.PRICE -> {
+                validatePrice()
+            }
             else -> ValidatedData(true, "", "")
         }
     }
@@ -315,6 +318,21 @@ class Validator() {
                 isValid = false,
                 errorTitle = context.resources.getString(R.string.text),
                 errorMessage = context.resources.getString(R.string.text_not_valid_err)
+            )
+        } else ValidatedData(true, "", "")
+    }
+    private fun validatePrice(): ValidatedData {
+        return if (textToValidate.isNullOrEmpty()) {
+            return ValidatedData(
+                isValid = false,
+                errorTitle = context.resources.getString(R.string.text),
+                errorMessage = context.resources.getString(R.string.must_not_be_empty)
+            )
+        } else if (textToValidate.toIntOrNull()?:0 < 0) {
+            ValidatedData(
+                isValid = false,
+                errorTitle = context.resources.getString(R.string.text),
+                errorMessage = context.resources.getString(R.string.price_not_valid_err)
             )
         } else ValidatedData(true, "", "")
     }
