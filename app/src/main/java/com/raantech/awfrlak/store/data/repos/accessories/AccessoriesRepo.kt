@@ -2,10 +2,16 @@ package com.raantech.awfrlak.store.data.repos.accessories
 
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
+import com.raantech.awfrlak.store.data.common.NetworkConstants
 import com.raantech.awfrlak.store.data.models.AccessoryRequest
 import com.raantech.awfrlak.store.data.models.GeneralLookup
 import com.raantech.awfrlak.store.data.models.MobileRequest
+import com.raantech.awfrlak.store.data.models.ServiceRequest
 import com.raantech.awfrlak.store.data.models.home.*
+import retrofit2.http.Body
+import retrofit2.http.Headers
+import retrofit2.http.PUT
+import retrofit2.http.Path
 
 interface AccessoriesRepo {
 
@@ -59,4 +65,16 @@ interface AccessoriesRepo {
             id: Int
     ): APIResource<ResponseWrapper<AccessoriesItem>>
 
+    suspend fun addService(
+            serviceRequest: ServiceRequest
+    ): APIResource<ResponseWrapper<AccessoriesItem>>
+
+    suspend fun updateService(
+            id: Int,
+            serviceRequest: ServiceRequest
+    ): APIResource<ResponseWrapper<AccessoriesItem>>
+
+    suspend fun deleteService(
+            id: Int
+    ): APIResource<ResponseWrapper<AccessoriesItem>>
 }

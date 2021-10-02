@@ -4,6 +4,7 @@ import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.common.NetworkConstants
 import com.raantech.awfrlak.store.data.models.AccessoryRequest
 import com.raantech.awfrlak.store.data.models.MobileRequest
+import com.raantech.awfrlak.store.data.models.ServiceRequest
 import com.raantech.awfrlak.store.data.models.home.*
 import retrofit2.http.*
 
@@ -79,6 +80,25 @@ interface AccessoriesRemoteDao {
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
     @PUT("merchant/accessories/{id}/destroy")
     suspend fun deleteAccessories(
+        @Path("id") id: Int
+    ): ResponseWrapper<AccessoriesItem>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @POST("merchant/services/store")
+    suspend fun addService(
+        @Body serviceRequest: ServiceRequest
+    ): ResponseWrapper<AccessoriesItem>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @PUT("merchant/services/{id}/update")
+    suspend fun updateService(
+        @Path("id") id: Int,
+        @Body serviceRequest: ServiceRequest
+    ): ResponseWrapper<AccessoriesItem>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @PUT("merchant/services/{id}/destroy")
+    suspend fun deleteService(
         @Path("id") id: Int
     ): ResponseWrapper<AccessoriesItem>
 

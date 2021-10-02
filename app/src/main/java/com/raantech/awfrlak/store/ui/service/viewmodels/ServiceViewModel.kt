@@ -1,10 +1,11 @@
-package com.raantech.awfrlak.store.ui.accessory.viewmodels
+package com.raantech.awfrlak.store.ui.service.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.models.*
 import com.raantech.awfrlak.store.data.models.home.AccessoriesItem
+import com.raantech.awfrlak.store.data.models.home.Service
 import com.raantech.awfrlak.store.data.models.media.Media
 import com.raantech.awfrlak.store.data.repos.accessories.AccessoriesRepo
 import com.raantech.awfrlak.store.data.repos.configuration.ConfigurationRepo
@@ -13,33 +14,18 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class AccessoryViewModel @Inject constructor(
+class ServiceViewModel @Inject constructor(
         private val configurationRepo: ConfigurationRepo,
         private val accessoriesRepo: AccessoriesRepo,
 ) : BaseViewModel() {
 
-    var accessoryToView: AccessoriesItem? = null
+    var serviceToView: Service? = null
     val name: MutableLiveData<String> = MutableLiveData()
     val price: MutableLiveData<String> = MutableLiveData()
     val time: MutableLiveData<String> = MutableLiveData()
     val mobileInfo: MutableLiveData<String> = MutableLiveData()
     val isAvailable: MutableLiveData<Boolean> = MutableLiveData(true)
     val deliveryAvailable: MutableLiveData<Boolean> = MutableLiveData(true)
-
-    fun getAccessoriesType(
-    ) = liveData {
-        emit(APIResource.loading())
-        val response = configurationRepo.getAccessoryTypes()
-        emit(response)
-    }
-
-    fun getAccessoryDedicated(
-    ) = liveData {
-        emit(APIResource.loading())
-        val response = configurationRepo.getAccessoryDedicated()
-        emit(response)
-    }
-
 
     fun addAccessory(
             accessoryRequest: AccessoryRequest
@@ -53,59 +39,58 @@ class AccessoryViewModel @Inject constructor(
             accessoryRequest: AccessoryRequest
     ) = liveData {
         emit(APIResource.loading())
-        val response = accessoriesRepo.updateAccessory(accessoryToView?.id ?: 0, accessoryRequest)
+        val response = accessoriesRepo.updateAccessory(serviceToView?.id ?: 0, accessoryRequest)
         emit(response)
     }
 
     fun deleteAccessory(
     ) = liveData {
         emit(APIResource.loading())
-        val response = accessoriesRepo.deleteAccessory(accessoryToView?.id ?: 0)
+        val response = accessoriesRepo.deleteAccessory(serviceToView?.id ?: 0)
         emit(response)
     }
 
 
-    fun buildAccessory(): AccessoryRequest {
-        return AccessoryRequest(
-                isInStock = true,
-                isActive = accessoryToView?.isActive,
-                price = accessoryToView?.price?.amount?.toDoubleOrNull(),
-                name = accessoryToView?.name,
-                description = accessoryToView?.description,
+    fun buildAccessory(): ServiceRequest {
+        return ServiceRequest(
+                isActive = serviceToView?.isActive,
+                hasDelivery = serviceToView?.hasDelivery,
+                price = serviceToView?.price?.amount?.toDoubleOrNull(),
+                name = serviceToView?.name,
+                serviceCompletionTime = time.value,
+                description = serviceToView?.description,
                 files = Files(
-                        baseImage = accessoryToView?.baseImage?.id,
-                        additionalImages = accessoryToView?.additionalImages?.map { it.id ?: 0 }
-                ),
-                accessoryDedicatedId = accessoryToView?.accessoryDedicated?.id,
-                accessoryTypeId = accessoryToView?.accessoryType?.id
+                        baseImage = serviceToView?.logo?.id,
+                        additionalImages = serviceToView?.additionalImages?.map { it.id ?: 0 }
+                )
         )
     }
 
-    fun buildAccessoryItem(
+    fun buildService(
             additionalImages: List<Media>,
-            type: GeneralLookup,
-            dedicatedFor: GeneralLookup,
             baseImage: Media
-    ): AccessoriesItem {
-        return AccessoriesItem(
-                id = accessoryToView?.id,
+    ): Service {
+        return Service(
+                id = serviceToView?.id,
                 additionalImages = additionalImages,
                 isActive = isAvailable.value,
                 description = mobileInfo.value,
-                baseImage = baseImage,
+                logo = baseImage,
                 price = Price(amount = price.value),
                 name = name.value,
-                accessoryType = type,
-                accessoryDedicated = dedicatedFor
+                hasDelivery = deliveryAvailable.value,
+                serviceCompletionTime = time.value
         )
     }
 
     fun fillData() {
-        accessoryToView?.let {
+        serviceToView?.let {
             name.postValue(it.name)
             mobileInfo.postValue(it.description)
             price.postValue(it.price?.amount)
             isAvailable.postValue(it.isActive)
+            deliveryAvailable.postValue(it.hasDelivery)
+            time.postValue(it.serviceCompletionTime)
         }
     }
 }
