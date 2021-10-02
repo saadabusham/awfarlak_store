@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.raantech.awfrlak.R
 import com.raantech.awfrlak.databinding.FragmentStatisticsBinding
+import com.raantech.awfrlak.store.ui.accessory.AddAccessoryActivity
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
 import com.raantech.awfrlak.store.ui.mobile.AddMobileActivity
@@ -47,6 +48,7 @@ class StatisticsFragment : BaseBindingFragment<FragmentStatisticsBinding>() {
         }
         binding?.tvAddAccessories?.setOnClickListener {
             binding?.cvAdd?.callOnClick()
+            AddAccessoryActivity.start(requireContext(),null,false)
         }
     }
 

@@ -30,7 +30,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AddAccessoryActivity : BaseBindingActivity<ActivityAddAccessoryBinding>(),
-    BaseBindingRecyclerViewAdapter.OnItemClickListener {
+        BaseBindingRecyclerViewAdapter.OnItemClickListener {
 
     lateinit var smallMediaRecyclerAdapter: SmallMediaRecyclerAdapter
     private lateinit var accessoryTypeSpinnerAdapter: GeneralLookupSpinnerAdapter
@@ -40,17 +40,17 @@ class AddAccessoryActivity : BaseBindingActivity<ActivityAddAccessoryBinding>(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.accessoriesToView =
-            intent.getSerializableExtra(Constants.BundleData.ACCESSORY) as AccessoriesItem?
+        viewModel.accessoryToView =
+                intent.getSerializableExtra(Constants.BundleData.ACCESSORY) as AccessoriesItem?
         viewModel.fillData()
         setContentView(
-            R.layout.activity_add_accessory,
-            hasToolbar = true,
-            toolbarView = binding?.layoutToolbar?.toolbar,
-            hasBackButton = true,
-            showBackArrow = true,
-            hasTitle = true,
-            title = R.string.add_accessory_for_sale
+                R.layout.activity_add_accessory,
+                hasToolbar = true,
+                toolbarView = binding?.layoutToolbar?.toolbar,
+                hasBackButton = true,
+                showBackArrow = true,
+                hasTitle = true,
+                title = R.string.add_accessory_for_sale
         )
         setUpBinding()
         initData()
@@ -70,22 +70,22 @@ class AddAccessoryActivity : BaseBindingActivity<ActivityAddAccessoryBinding>(),
 
     private fun initData() {
         intent.getSerializableExtra(Constants.BundleData.ACCESSORY)?.let {
-            viewModel.accessoriesToView = it as AccessoriesItem
+            viewModel.accessoryToView = it as AccessoriesItem
         }
     }
 
     private fun setUpListeners() {
         binding?.btnAddProduct?.setOnClickListener {
             if (isDataValidate()) {
-//                MobileDetailsActivity.start(
-//                    this, viewModel.buildMobileItem(
-//                        smallMediaRecyclerAdapter.items,
-//                        dedicatedFor = accessoryDedecatedSpinnerAdapter.getSelectedItem(),
-//                        type = accessoryTypeSpinnerAdapter.getSelectedItem(),
-//                        baseImage = smallMediaRecyclerAdapter.items[0]
-//                    ), intent.getBooleanExtra(Constants.BundleData.UPDATE, false),
-//                    true
-//                )
+                AccessoryDetailsActivity.start(
+                        this, viewModel.buildAccessoryItem(
+                        smallMediaRecyclerAdapter.items,
+                        dedicatedFor = accessoryDedecatedSpinnerAdapter.getSelectedItem(),
+                        type = accessoryTypeSpinnerAdapter.getSelectedItem(),
+                        baseImage = smallMediaRecyclerAdapter.items[0]
+                ), intent.getBooleanExtra(Constants.BundleData.UPDATE, false),
+                        true
+                )
             }
         }
         binding?.imgUpload?.setOnClickListener {
@@ -94,20 +94,20 @@ class AddAccessoryActivity : BaseBindingActivity<ActivityAddAccessoryBinding>(),
     }
 
     var resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val data: Intent? = result.data
-                smallMediaRecyclerAdapter.submitItem(data?.getSerializableExtra(Constants.BundleData.MEDIA) as Media)
-                binding?.imagesRecyclerView?.smoothScrollToPosition(smallMediaRecyclerAdapter.itemCount - 1)
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val data: Intent? = result.data
+                    smallMediaRecyclerAdapter.submitItem(data?.getSerializableExtra(Constants.BundleData.MEDIA) as Media)
+                    binding?.imagesRecyclerView?.smoothScrollToPosition(smallMediaRecyclerAdapter.itemCount - 1)
+                }
             }
-        }
 
     //Images
     private fun setUpImages() {
         smallMediaRecyclerAdapter = SmallMediaRecyclerAdapter(this)
         binding?.imagesRecyclerView?.adapter = smallMediaRecyclerAdapter
         binding?.imagesRecyclerView?.setOnItemClickListener(this)
-        viewModel.accessoriesToView?.additionalImages?.let {
+        viewModel.accessoryToView?.additionalImages?.let {
             smallMediaRecyclerAdapter.submitItems(it)
         }
     }
@@ -124,124 +124,124 @@ class AddAccessoryActivity : BaseBindingActivity<ActivityAddAccessoryBinding>(),
     //    Accessory types
     private fun setUpAccessoryType() {
         accessoryTypeSpinnerAdapter =
-            GeneralLookupSpinnerAdapter(binding!!.spinnerAccessoryType, this)
+                GeneralLookupSpinnerAdapter(binding!!.spinnerAccessoryType, this)
         accessoryTypeSpinnerAdapter.let { binding?.spinnerAccessoryType?.setSpinnerAdapter(it) }
         binding?.spinnerAccessoryType?.getSpinnerRecyclerView()?.layoutManager =
-            LinearLayoutManager(this)
+                LinearLayoutManager(this)
         binding?.spinnerAccessoryType?.setOnSpinnerItemSelectedListener<GeneralLookup> { oldIndex, oldItem, newIndex, newItem ->
             binding?.spinnerAccessoryType?.dismiss()
         }
         viewModel.getAccessoriesType()
-            .observe(this, accessoryTypeResultObserver())
+                .observe(this, accessoryTypeResultObserver())
     }
 
     private fun accessoryTypeResultObserver(): CustomObserverResponse<List<GeneralLookup>> {
         return CustomObserverResponse(
-            this,
-            object : CustomObserverResponse.APICallBack<List<GeneralLookup>> {
-                override fun onSuccess(
-                    statusCode: Int,
-                    subErrorCode: ResponseSubErrorsCodeEnum,
-                    data: List<GeneralLookup>?
-                ) {
-                    data?.let {
-                        accessoryTypeSpinnerAdapter.setItems(it)
-                        accessoryTypeSpinnerAdapter.spinnerItems.withIndex()
-                            .singleOrNull { viewModel.accessoriesToView?.id == it.value.id }
-                            ?.let {
-                                binding?.spinnerAccessoryType?.selectItemByIndex(it.index)
-                            }
+                this,
+                object : CustomObserverResponse.APICallBack<List<GeneralLookup>> {
+                    override fun onSuccess(
+                            statusCode: Int,
+                            subErrorCode: ResponseSubErrorsCodeEnum,
+                            data: List<GeneralLookup>?
+                    ) {
+                        data?.let {
+                            accessoryTypeSpinnerAdapter.setItems(it)
+                            accessoryTypeSpinnerAdapter.spinnerItems.withIndex()
+                                    .singleOrNull { viewModel.accessoryToView?.accessoryType?.id == it.value.id }
+                                    ?.let {
+                                        binding?.spinnerAccessoryType?.selectItemByIndex(it.index)
+                                    }
+                        }
                     }
-                }
-            })
+                })
     }
 
     //    Accessory storage
     private fun setUpAccessoryDedicated() {
         accessoryDedecatedSpinnerAdapter =
-            GeneralLookupSpinnerAdapter(binding!!.spinnerAccessoryDedicated, this)
+                GeneralLookupSpinnerAdapter(binding!!.spinnerAccessoryDedicated, this)
         accessoryDedecatedSpinnerAdapter.let { binding?.spinnerAccessoryDedicated?.setSpinnerAdapter(it) }
         binding?.spinnerAccessoryDedicated?.getSpinnerRecyclerView()?.layoutManager =
-            LinearLayoutManager(this)
+                LinearLayoutManager(this)
         binding?.spinnerAccessoryDedicated?.setOnSpinnerItemSelectedListener<GeneralLookup> { oldIndex, oldItem, newIndex, newItem ->
             binding?.spinnerAccessoryDedicated?.dismiss()
         }
         viewModel.getAccessoryDedicated()
-            .observe(this, accessoryDedicatedResultObserver())
+                .observe(this, accessoryDedicatedResultObserver())
     }
 
 
     private fun accessoryDedicatedResultObserver(): CustomObserverResponse<List<GeneralLookup>> {
         return CustomObserverResponse(
-            this,
-            object : CustomObserverResponse.APICallBack<List<GeneralLookup>> {
-                override fun onSuccess(
-                    statusCode: Int,
-                    subErrorCode: ResponseSubErrorsCodeEnum,
-                    data: List<GeneralLookup>?
-                ) {
-                    data?.let {
-                        accessoryDedecatedSpinnerAdapter.setItems(it)
-                        accessoryDedecatedSpinnerAdapter.spinnerItems.withIndex()
-                            .singleOrNull { viewModel.accessoriesToView?.accessoryDedicated?.id == it.value.id }
-                            ?.let {
-                                binding?.spinnerAccessoryDedicated?.selectItemByIndex(it.index)
-                            }
+                this,
+                object : CustomObserverResponse.APICallBack<List<GeneralLookup>> {
+                    override fun onSuccess(
+                            statusCode: Int,
+                            subErrorCode: ResponseSubErrorsCodeEnum,
+                            data: List<GeneralLookup>?
+                    ) {
+                        data?.let {
+                            accessoryDedecatedSpinnerAdapter.setItems(it)
+                            accessoryDedecatedSpinnerAdapter.spinnerItems.withIndex()
+                                    .singleOrNull { viewModel.accessoryToView?.accessoryDedicated?.id == it.value.id }
+                                    ?.let {
+                                        binding?.spinnerAccessoryDedicated?.selectItemByIndex(it.index)
+                                    }
+                        }
                     }
-                }
-            })
+                })
     }
 
     private fun isDataValidate(): Boolean {
         if (accessoryTypeSpinnerAdapter.index == -1) {
             showValidationErrorAlert(
-                resources.getString(R.string.app_name),
-                resources.getString(R.string.please_select_the_accessory_type)
+                    resources.getString(R.string.app_name),
+                    resources.getString(R.string.please_select_the_accessory_type)
             )
             return false
         }
         if (accessoryDedecatedSpinnerAdapter.index == -1) {
             showValidationErrorAlert(
-                resources.getString(R.string.app_name),
-                resources.getString(R.string.please_select_the_accessory_dedicated)
+                    resources.getString(R.string.app_name),
+                    resources.getString(R.string.please_select_the_accessory_dedicated)
             )
             return false
         }
         binding?.edAccessoryInfo?.text.toString().validate(
-            ValidatorInputTypesEnums.TEXT,
-            this
+                ValidatorInputTypesEnums.TEXT,
+                this
         )
-            .let {
-                if (!it.isValid) {
-                    showValidationErrorAlert(
-                        title = resources.getString(R.string.add_accessory_info),
-                        message = it.errorMessage
-                    )
-                    return false
+                .let {
+                    if (!it.isValid) {
+                        showValidationErrorAlert(
+                                title = resources.getString(R.string.add_accessory_info),
+                                message = it.errorMessage
+                        )
+                        return false
+                    }
                 }
-            }
 
         if (smallMediaRecyclerAdapter.itemCount == 0) {
             showValidationErrorAlert(
-                resources.getString(R.string.product_images),
-                resources.getString(R.string.please_select_the_product_images)
+                    resources.getString(R.string.product_images),
+                    resources.getString(R.string.please_select_the_product_images)
             )
             return false
         }
 
         binding?.edPrice?.text.toString().validate(
-            ValidatorInputTypesEnums.PRICE,
-            this
+                ValidatorInputTypesEnums.PRICE,
+                this
         )
-            .let {
-                if (!it.isValid) {
-                    showValidationErrorAlert(
-                        title = resources.getString(R.string.price),
-                        message = it.errorMessage
-                    )
-                    return false
+                .let {
+                    if (!it.isValid) {
+                        showValidationErrorAlert(
+                                title = resources.getString(R.string.price),
+                                message = it.errorMessage
+                        )
+                        return false
+                    }
                 }
-            }
         return true
     }
 

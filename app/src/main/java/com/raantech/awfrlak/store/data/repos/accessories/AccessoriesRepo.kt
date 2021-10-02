@@ -2,6 +2,7 @@ package com.raantech.awfrlak.store.data.repos.accessories
 
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
+import com.raantech.awfrlak.store.data.models.AccessoryRequest
 import com.raantech.awfrlak.store.data.models.GeneralLookup
 import com.raantech.awfrlak.store.data.models.MobileRequest
 import com.raantech.awfrlak.store.data.models.home.*
@@ -44,5 +45,18 @@ interface AccessoriesRepo {
     suspend fun deleteMobile(
             id: Int
     ): APIResource<ResponseWrapper<MobilesItem>>
+
+    suspend fun addAccessory(
+            accessoryRequest: AccessoryRequest
+    ): APIResource<ResponseWrapper<AccessoriesItem>>
+
+    suspend fun updateAccessory(
+            id: Int,
+            accessoryRequest: AccessoryRequest
+    ): APIResource<ResponseWrapper<AccessoriesItem>>
+
+    suspend fun deleteAccessory(
+            id: Int
+    ): APIResource<ResponseWrapper<AccessoriesItem>>
 
 }

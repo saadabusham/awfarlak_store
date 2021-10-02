@@ -7,15 +7,11 @@ import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayout
 import com.raantech.awfrlak.R
 import com.raantech.awfrlak.databinding.FragmentProductsBinding
-import com.raantech.awfrlak.databinding.FragmentStatisticsBinding
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
-import com.raantech.awfrlak.store.ui.store.adapters.StoreImagesAdapter
 import com.raantech.awfrlak.store.ui.store.fragment.AccessoriesFragment
 import com.raantech.awfrlak.store.ui.store.fragment.MobilesFragment
-import com.raantech.awfrlak.store.ui.store.fragment.ServicesFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_store.*
 
 @AndroidEntryPoint
 class ProductsFragment : BaseBindingFragment<FragmentProductsBinding>() {
@@ -49,7 +45,7 @@ class ProductsFragment : BaseBindingFragment<FragmentProductsBinding>() {
 
         binding?.tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                viewPager.currentItem = tab.position
+                binding?.viewPager?.currentItem = tab.position
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
@@ -72,8 +68,8 @@ class ProductsFragment : BaseBindingFragment<FragmentProductsBinding>() {
                     return mFragmentList.size
                 }
             }
-        viewPager.adapter = adapter
-        viewPager.offscreenPageLimit = 3
+        binding?.viewPager?.adapter = adapter
+        binding?.viewPager?.offscreenPageLimit = 3
     }
 
 

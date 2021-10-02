@@ -5,7 +5,6 @@ import androidx.lifecycle.liveData
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.models.*
 import com.raantech.awfrlak.store.data.models.home.AccessoriesItem
-import com.raantech.awfrlak.store.data.models.home.MobilesItem
 import com.raantech.awfrlak.store.data.models.media.Media
 import com.raantech.awfrlak.store.data.repos.accessories.AccessoriesRepo
 import com.raantech.awfrlak.store.data.repos.configuration.ConfigurationRepo
@@ -15,11 +14,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AccessoryViewModel @Inject constructor(
-    private val configurationRepo: ConfigurationRepo,
-    private val accessoriesRepo: AccessoriesRepo,
+        private val configurationRepo: ConfigurationRepo,
+        private val accessoriesRepo: AccessoriesRepo,
 ) : BaseViewModel() {
 
-    var accessoriesToView: AccessoriesItem? = null
+    var accessoryToView: AccessoriesItem? = null
     val name: MutableLiveData<String> = MutableLiveData()
     val price: MutableLiveData<String> = MutableLiveData()
     val mobileInfo: MutableLiveData<String> = MutableLiveData()
@@ -39,39 +38,68 @@ class AccessoryViewModel @Inject constructor(
         emit(response)
     }
 
+
+    fun addAccessory(
+            accessoryRequest: AccessoryRequest
+    ) = liveData {
+        emit(APIResource.loading())
+        val response = accessoriesRepo.addAccessory(accessoryRequest)
+        emit(response)
+    }
+
+    fun updateAccessory(
+            accessoryRequest: AccessoryRequest
+    ) = liveData {
+        emit(APIResource.loading())
+        val response = accessoriesRepo.updateAccessory(accessoryToView?.id ?: 0, accessoryRequest)
+        emit(response)
+    }
+
+    fun deleteAccessory(
+    ) = liveData {
+        emit(APIResource.loading())
+        val response = accessoriesRepo.deleteAccessory(accessoryToView?.id ?: 0)
+        emit(response)
+    }
+
+
     fun buildAccessory(): AccessoryRequest {
         return AccessoryRequest(
-            isInStock = true,
-            isActive = accessoriesToView?.isActive,
-            price = accessoriesToView?.price?.amount?.toDoubleOrNull(),
-            name = accessoriesToView?.name,
-            description = accessoriesToView?.description,
-            files = Files(
-                baseImage = accessoriesToView?.baseImage?.id,
-                additionalImages = accessoriesToView?.additionalImages?.map { it.id ?: 0 }
-            )
+                isInStock = true,
+                isActive = accessoryToView?.isActive,
+                price = accessoryToView?.price?.amount?.toDoubleOrNull(),
+                name = accessoryToView?.name,
+                description = accessoryToView?.description,
+                files = Files(
+                        baseImage = accessoryToView?.baseImage?.id,
+                        additionalImages = accessoryToView?.additionalImages?.map { it.id ?: 0 }
+                ),
+                accessoryDedicatedId = accessoryToView?.accessoryDedicated?.id,
+                accessoryTypeId = accessoryToView?.accessoryType?.id
         )
     }
 
-    fun buildMobileItem(
-        additionalImages: List<Media>,
-        type: GeneralLookup,
-        dedicatedFor: GeneralLookup,
-        baseImage: Media
+    fun buildAccessoryItem(
+            additionalImages: List<Media>,
+            type: GeneralLookup,
+            dedicatedFor: GeneralLookup,
+            baseImage: Media
     ): AccessoriesItem {
         return AccessoriesItem(
-            id = accessoriesToView?.id,
-            additionalImages = additionalImages,
-            isActive = isAvailable.value,
-            description = mobileInfo.value,
-            baseImage = baseImage,
-            price = Price(amount = price.value),
-            name = name.value
+                id = accessoryToView?.id,
+                additionalImages = additionalImages,
+                isActive = isAvailable.value,
+                description = mobileInfo.value,
+                baseImage = baseImage,
+                price = Price(amount = price.value),
+                name = name.value,
+                accessoryType = type,
+                accessoryDedicated = dedicatedFor
         )
     }
 
     fun fillData() {
-        accessoriesToView?.let {
+        accessoryToView?.let {
             name.postValue(it.name)
             mobileInfo.postValue(it.description)
             price.postValue(it.price?.amount)

@@ -25,7 +25,6 @@
             android:layout_weight="1"
             android:fitsSystemWindows="true"
             android:orientation="vertical"
-            app:layout_anchor="@id/linearTotal"
             app:layout_anchorGravity="bottom|right|end">
 
             <com.google.android.material.appbar.AppBarLayout

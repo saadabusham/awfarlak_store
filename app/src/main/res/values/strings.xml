@@ -244,5 +244,4 @@
     <!--    Add Accessory Validation-->
     <string name="please_select_the_accessory_type">Please select accessory type</string>
     <string name="please_select_the_accessory_dedicated">Please select the accessory dedicated for</string>
-    <string name="add_accessory_info">Accessory More Information</string>
 </resources>

@@ -19,11 +19,8 @@ import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.ui.base.dialogs.CustomDialogUtils
 import com.raantech.awfrlak.store.utils.HandleRequestFailedUtil
 import com.raantech.awfrlak.store.utils.extensions.longToast
-import com.raantech.awfrlak.store.utils.extensions.visible
 import com.raantech.awfrlak.store.utils.pref.SharedPreferencesUtil
-import kotlinx.android.synthetic.main.layout_store_toolbar.view.*
 import kotlinx.android.synthetic.main.layout_toolbar.view.*
-import kotlinx.android.synthetic.main.layout_toolbar.view.tvTitle
 import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException
@@ -121,8 +118,8 @@ abstract class BaseBindingActivity<BINDING : ViewDataBinding> : LocalizationActi
         }
 
         if (hasSubTitle) {
-            toolbar?.tvSubTitle?.text = subTitle
-            toolbar?.tvSubTitle?.visible()
+//            toolbar?.tvSubTitle?.text = subTitle
+//            toolbar?.tvSubTitle?.visible()
         }
 
         if (hasBackButton) {

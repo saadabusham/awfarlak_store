@@ -5,11 +5,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import com.paginate.Paginate
 import com.raantech.awfrlak.R
+import com.raantech.awfrlak.databinding.LayoutAccessoriesGridBinding
 import com.raantech.awfrlak.store.data.api.response.GeneralError
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
 import com.raantech.awfrlak.store.data.models.home.AccessoriesItem
-import com.raantech.awfrlak.databinding.LayoutAccessoriesGridBinding
 import com.raantech.awfrlak.store.ui.accessory.AccessoryDetailsActivity
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
@@ -126,7 +126,10 @@ class AccessoriesFragment : BaseBindingFragment<LayoutAccessoriesGridBinding>(),
     }
 
     override fun onItemClick(view: View?, position: Int, item: Any) {
-        AccessoryDetailsActivity.start(requireActivity(), item as AccessoriesItem)
+        AccessoryDetailsActivity.start(requireActivity(), item as AccessoriesItem,
+                update = true,
+                viewSubmit = false
+        )
     }
 
 
