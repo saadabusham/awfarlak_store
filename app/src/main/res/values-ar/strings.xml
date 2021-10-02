@@ -255,5 +255,6 @@
     <string name="service_price">السعر ( اختياري )</string>
     <string name="time_to_complete_the_service_optional">الوقت المحدد لانجاز الخدمة (اختياري)</string>
     <string name="please_select_the_service_images">يرجى اختيار صور الخدمة</string>
+    <string name="no_data_found_add_services_and_products">No Data Found , Add Services And Products</string>
 
 </resources>

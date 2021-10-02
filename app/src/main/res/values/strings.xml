@@ -256,5 +256,6 @@
     <string name="service_price">Price(optional)</string>
     <string name="time_to_complete_the_service_optional">Time to complete the service(optional)</string>
     <string name="please_select_the_service_images">Please select the service images</string>
+    <string name="no_data_found_add_services_and_products">No Data Found ,\nAdd Services And Products</string>
 
 </resources>

@@ -14,6 +14,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_440sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:src="@drawable/ic_static_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgEmpty"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:src="@drawable/ic_empty_static"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.raantech.awfrlak.store.ui.base.views.AppTextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/textview_normal_regular"
+            android:textSize="@dimen/_12ssp"
+            android:gravity="center"
+            android:layout_marginEnd="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_35sdp"
+            android:text="@string/no_data_found_add_services_and_products"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgEmpty" />
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvAdd"
             android:layout_width="@dimen/_60sdp"
@@ -39,9 +73,9 @@
             android:layout_width="@dimen/_180sdp"
             android:layout_height="@dimen/_180sdp"
             android:layout_marginEnd="@dimen/_15sdp"
+            android:visibility="gone"
             app:cardBackgroundColor="@color/button_color"
             app:cardCornerRadius="@dimen/_8sdp"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/cvAdd"
             app:layout_constraintEnd_toStartOf="@id/cvAdd">
 
@@ -55,13 +89,13 @@
                     android:id="@+id/tvAddMobile"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center|start"
                     android:paddingStart="@dimen/_20sdp"
                     android:text="@string/add_mobile_for_sale"
                     android:textColor="@color/white"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?selectableItemBackground"
                     android:textSize="@dimen/_15ssp" />
 
                 <View
@@ -73,13 +107,13 @@
                     android:id="@+id/tvAddServices"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_55sdp"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center|start"
                     android:paddingStart="@dimen/_20sdp"
                     android:text="@string/add_services"
                     android:textColor="@color/white"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?selectableItemBackground"
                     android:textSize="@dimen/_15ssp" />
 
                 <View
@@ -91,13 +125,13 @@
                     android:id="@+id/tvAddAccessories"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center|start"
                     android:paddingStart="@dimen/_20sdp"
                     android:text="@string/add_accessories"
                     android:textColor="@color/white"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?selectableItemBackground"
                     android:textSize="@dimen/_15ssp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
