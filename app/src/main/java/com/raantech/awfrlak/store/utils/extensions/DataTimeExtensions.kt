@@ -74,6 +74,13 @@ fun String?.toMillieSecconds(format: String = DateTimeUtil.FULL_DATE_TIME_FORMAT
     }
 }
 
+fun String?.getDateFormattedForOrder(): String {
+    if(this.isNullOrEmpty())
+        return ""
+    val dateFormat = SimpleDateFormat(MESSAGE_DATE_FORMATE, Locale.ENGLISH)
+    return dateFormat.format(this.toMillieSecconds(FULL_DATE_AT_TIME_FORMATTING))
+}
+
 fun toMillieSecconds(date: String): Long {
     return try {
         val dateFormat = SimpleDateFormat(FULL_DATE_TIME_FORMATTING, Locale.ENGLISH)

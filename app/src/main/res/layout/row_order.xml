@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.raantech.awfrlak.store.utils.extensions.DataTimeExtensionsKt"/>
         <variable
             name="item"
-            type="com.raantech.awfrlak.store.data.models.Order" />
+            type="com.raantech.awfrlak.store.data.models.orders.OrdersItem" />
     </data>
 
     <LinearLayout
@@ -36,7 +36,7 @@
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.productName}"
+                    android:text="@{item.total.formatted}"
                     android:textColor="@color/text_gray_color"
                     android:textSize="@dimen/_13ssp"
                     tools:text="طلب شراء سامسونج 10" />
@@ -45,7 +45,7 @@
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.clientName}"
+                    android:text="@{item.store.name}"
                     android:textColor="@color/text_gray_color"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:textSize="@dimen/_13ssp"
@@ -63,7 +63,7 @@
                     style="@style/textview_normal_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.date}"
+                    android:text="@{DataTimeExtensionsKt.getDateFormattedForOrder(item.createdAt)}"
                     android:textColor="@color/text_gray_color"
                     android:textSize="@dimen/_13ssp"
                     tools:text="2 يونيو 2021" />
@@ -74,6 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_7sdp"
+                    android:text="@{item.status}"
                     android:textColor="@color/text_default_color"
                     android:textSize="@dimen/_9ssp"
                     tools:text="في الطريق" />

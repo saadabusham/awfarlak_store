@@ -5,18 +5,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.raantech.awfrlak.databinding.RowOrderBinding
-import com.raantech.awfrlak.store.data.models.Order
+import com.raantech.awfrlak.store.data.models.orders.Order
+import com.raantech.awfrlak.store.data.models.orders.OrdersItem
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.adapters.BaseViewHolder
 import com.raantech.awfrlak.store.utils.extensions.setSlideAnimation
 
 class OrdersRecyclerAdapter constructor(
     context: Context
-) : BaseBindingRecyclerViewAdapter<Order>(context) {
+) : BaseBindingRecyclerViewAdapter<OrdersItem>(context) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViewHolder(
-                RowOrderBinding.inflate(
+            RowOrderBinding.inflate(
                 LayoutInflater.from(context), parent, false
             )
         )
@@ -30,9 +31,9 @@ class OrdersRecyclerAdapter constructor(
     }
 
     inner class ViewHolder(private val binding: RowOrderBinding) :
-        BaseViewHolder<Order>(binding.root) {
+        BaseViewHolder<OrdersItem>(binding.root) {
 
-        override fun bind(item: Order) {
+        override fun bind(item: OrdersItem) {
             binding.item = item
         }
     }
