@@ -9,6 +9,8 @@ import com.raantech.awfrlak.store.data.repos.configuration.ConfigurationRepo
 import com.raantech.awfrlak.store.data.repos.configuration.ConfigurationRepoImp
 import com.raantech.awfrlak.store.data.repos.media.MediaRepo
 import com.raantech.awfrlak.store.data.repos.media.MediaRepoImp
+import com.raantech.awfrlak.store.data.repos.orders.OrdersRepo
+import com.raantech.awfrlak.store.data.repos.orders.OrdersRepoImp
 import com.raantech.awfrlak.store.data.repos.wishlist.WishListRepo
 import com.raantech.awfrlak.store.data.repos.wishlist.WishListRepoImp
 import dagger.Binds
@@ -40,5 +42,9 @@ abstract class RepoModule {
     @Singleton
     @Binds
     abstract fun bindWishListRepo(wishListRepoImp: WishListRepoImp): WishListRepo
+
+    @Singleton
+    @Binds
+    abstract fun bindOrdersRepo(ordersRepoImp: OrdersRepoImp): OrdersRepo
 
 }
