@@ -36,7 +36,7 @@
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.total.formatted}"
+                    android:text="@{`#`+item.orderGroupNumber}"
                     android:textColor="@color/text_gray_color"
                     android:textSize="@dimen/_13ssp"
                     tools:text="طلب شراء سامسونج 10" />
@@ -45,7 +45,7 @@
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.store.name}"
+                    android:text="@{item.customer.name}"
                     android:textColor="@color/text_gray_color"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:textSize="@dimen/_13ssp"

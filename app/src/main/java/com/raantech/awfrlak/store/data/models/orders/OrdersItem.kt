@@ -21,8 +21,8 @@ data class OrdersItem(
     @field:SerializedName("vat_percentage")
     val vatPercentage: Int? = null,
 
-    @field:SerializedName("store")
-    val store: Store? = null,
+    @field:SerializedName("customer")
+    val customer: Customer? = null,
 
     @field:SerializedName("vat_price")
     val vatPrice: Price? = null,
