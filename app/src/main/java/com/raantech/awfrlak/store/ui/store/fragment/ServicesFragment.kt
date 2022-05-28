@@ -109,7 +109,7 @@ class ServicesFragment : BaseBindingFragment<LayoutServicesGridBinding>(),
                     }
 
                     override fun onLoading() {
-                        loadingServices.postValue(true)
+                        loadingServices.value = true
                     }
                 }, false, showError = false
         )
