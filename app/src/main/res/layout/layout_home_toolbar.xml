@@ -18,6 +18,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            android:background="@color/app_background_color"
             style="@style/AppTheme.ToolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,9 +36,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
-                    android:textColor="@color/black"
                     android:layout_marginEnd="@dimen/_40sdp"
                     android:gravity="center"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_18ssp"
                     tools:text="Title" />
 

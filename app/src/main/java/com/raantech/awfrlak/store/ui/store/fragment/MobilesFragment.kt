@@ -97,6 +97,7 @@ class MobilesFragment : BaseBindingFragment<LayoutPhonesGridBinding>(),
                     if (data.isNullOrEmpty())
                         isMobilesFinished = true
                     loadingMobiles.postValue(false)
+                    hideShowNoData()
                 }
 
                 override fun onError(
@@ -117,13 +118,13 @@ class MobilesFragment : BaseBindingFragment<LayoutPhonesGridBinding>(),
     }
 
     private fun hideShowNoData() {
-//        if (accessoriesRecyclerAdapter.itemCount == 0) {
-//            binding?.recyclerView?.gone()
-//            binding?.layoutNoData?.linearNoData?.visible()
-//        } else {
-//            binding?.layoutNoData?.linearNoData?.gone()
-//            binding?.recyclerView?.visible()
-//        }
+        if (phonesGridRecyclerAdapter.itemCount == 0) {
+            binding?.recyclerView?.gone()
+            binding?.layoutNoData?.linearNoData?.visible()
+        } else {
+            binding?.layoutNoData?.linearNoData?.gone()
+            binding?.recyclerView?.visible()
+        }
     }
 
     override fun onItemClick(view: View?, position: Int, item: Any) {

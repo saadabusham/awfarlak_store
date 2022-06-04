@@ -144,17 +144,12 @@ abstract class BaseBindingActivity<BINDING : ViewDataBinding> : LocalizationActi
         @StringRes title: Int,
         titleString: String?
     ) {
-        supportActionBar.let {
-            if (hasTitle) {
-                if (titleString == null) {
-                    supportActionBar?.title = getString(title)
-                } else {
-                    supportActionBar?.title = titleString
-                }
-            } else {
-                supportActionBar?.setDisplayShowTitleEnabled(false)
-                supportActionBar?.title = getString(R.string.empty_string)
-            }
+        if (hasTitle) {
+            supportActionBar?.title = ""
+            toolbar?.tvTitle?.text =
+                if (titleString.isNullOrEmpty()) getString(title) else titleString
+        } else {
+            supportActionBar?.setDisplayShowTitleEnabled(false)
         }
     }
 

@@ -15,6 +15,12 @@
             android:id="@+id/layout_shimmer"
             layout="@layout/layout_shimmer_grid" />
 
+        <include
+            android:id="@+id/layout_no_data"
+            layout="@layout/layout_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="wrap_content"

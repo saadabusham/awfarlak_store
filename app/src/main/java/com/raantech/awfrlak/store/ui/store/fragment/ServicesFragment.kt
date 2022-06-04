@@ -13,6 +13,7 @@ import com.raantech.awfrlak.store.data.models.home.Service
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
+import com.raantech.awfrlak.store.ui.main.MainActivity
 import com.raantech.awfrlak.store.ui.main.home.adapters.ServicesGridRecyclerAdapter
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
 import com.raantech.awfrlak.store.ui.service.ServiceDetailsActivity
@@ -36,6 +37,7 @@ class ServicesFragment : BaseBindingFragment<LayoutServicesGridBinding>(),
 
     override fun onViewVisible() {
         super.onViewVisible()
+        (requireActivity() as MainActivity).updateTitle(getString(R.string.nav_services))
         loadingServicesObserver()
         setUpRvServicesGrid()
         loadServices()
@@ -96,6 +98,7 @@ class ServicesFragment : BaseBindingFragment<LayoutServicesGridBinding>(),
                         if (data.isNullOrEmpty())
                             isServicesFinished = true
                         loadingServices.postValue(false)
+                        hideShowNoData()
                     }
 
                     override fun onError(
@@ -116,13 +119,13 @@ class ServicesFragment : BaseBindingFragment<LayoutServicesGridBinding>(),
     }
 
     private fun hideShowNoData() {
-//        if (accessoriesRecyclerAdapter.itemCount == 0) {
-//            binding?.recyclerView?.gone()
-//            binding?.layoutNoData?.linearNoData?.visible()
-//        } else {
-//            binding?.layoutNoData?.linearNoData?.gone()
-//            binding?.recyclerView?.visible()
-//        }
+        if (servicesGridRecyclerAdapter.itemCount == 0) {
+            binding?.recyclerView?.gone()
+            binding?.layoutNoData?.linearNoData?.visible()
+        } else {
+            binding?.layoutNoData?.linearNoData?.gone()
+            binding?.recyclerView?.visible()
+        }
     }
 
     override fun onItemClick(view: View?, position: Int, item: Any) {

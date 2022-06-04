@@ -7,13 +7,19 @@
         android:id="@+id/linearServicesGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_10sdp"
         android:orientation="vertical"
+        android:background="@color/tab_background_ground"
         android:visibility="visible">
 
         <include
             android:id="@+id/layout_shimmer"
             layout="@layout/layout_shimmer_grid"/>
+
+        <include
+            android:id="@+id/layout_no_data"
+            layout="@layout/layout_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

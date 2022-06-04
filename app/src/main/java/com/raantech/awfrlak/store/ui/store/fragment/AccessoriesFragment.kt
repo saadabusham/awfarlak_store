@@ -96,6 +96,7 @@ class AccessoriesFragment : BaseBindingFragment<LayoutAccessoriesGridBinding>(),
                         if (data.isNullOrEmpty())
                             isAccessoriesFinished = true
                         loadingAccessories.postValue(false)
+                        hideShowNoData()
                     }
 
                     override fun onError(
@@ -116,13 +117,13 @@ class AccessoriesFragment : BaseBindingFragment<LayoutAccessoriesGridBinding>(),
     }
 
     private fun hideShowNoData() {
-//        if (accessoriesRecyclerAdapter.itemCount == 0) {
-//            binding?.recyclerView?.gone()
-//            binding?.layoutNoData?.linearNoData?.visible()
-//        } else {
-//            binding?.layoutNoData?.linearNoData?.gone()
-//            binding?.recyclerView?.visible()
-//        }
+        if (accessoriesGridRecyclerAdapter.itemCount == 0) {
+            binding?.recyclerView?.gone()
+            binding?.layoutNoData?.linearNoData?.visible()
+        } else {
+            binding?.layoutNoData?.linearNoData?.gone()
+            binding?.recyclerView?.visible()
+        }
     }
 
     override fun onItemClick(view: View?, position: Int, item: Any) {

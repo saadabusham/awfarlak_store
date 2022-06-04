@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.raantech.awfrlak.store.ui.profile.viewmodels.UpdateProfileViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/layout_toolbar" />
+
+        <LinearLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            app:layout_anchorGravity="bottom|right|end">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:clipToPadding="false"
+                android:fillViewport="true"
+                android:paddingBottom="@dimen/_35sdp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:minHeight="@dimen/Edittext_height"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                            android:id="@+id/edUserName"
+                            style="@style/textview_normal_regular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:hint="@string/username"
+                            android:text="@={viewModel.username}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/text_gray_color"
+                            android:textColorHint="@color/text_gray_color"
+                            android:textSize="@dimen/_15ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:minHeight="@dimen/Edittext_height"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                            android:id="@+id/edPhoneNumber"
+                            style="@style/textview_normal_regular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:enabled="false"
+                            android:hint="@string/phone_number"
+                            android:text="@={viewModel.phoneNumber}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/text_gray_color"
+                            android:textColorHint="@color/text_gray_color"
+                            android:textSize="@dimen/_15ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/layouts_margin_start"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/layouts_margin_end"
+                        android:minHeight="@dimen/Edittext_height"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                            android:id="@+id/edEmail"
+                            style="@style/textview_normal_regular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:hint="@string/email"
+                            android:inputType="textEmailAddress"
+                            android:text="@={viewModel.email}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/text_gray_color"
+                            android:textColorHint="@color/text_gray_color"
+                            android:textSize="@dimen/_15ssp" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginStart="@dimen/layouts_margin_start"
+            android:layout_marginEnd="@dimen/layouts_margin_end"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:gravity="center"
+            android:text="@string/edit"
+            android:textSize="@dimen/_19ssp"
+            app:cornerRadius="@dimen/_7sdp" />
+    </LinearLayout>
+
+</layout>

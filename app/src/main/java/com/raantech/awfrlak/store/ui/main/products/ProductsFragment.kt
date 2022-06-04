@@ -8,6 +8,7 @@ import com.google.android.material.tabs.TabLayout
 import com.raantech.awfrlak.R
 import com.raantech.awfrlak.databinding.FragmentProductsBinding
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
+import com.raantech.awfrlak.store.ui.main.MainActivity
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
 import com.raantech.awfrlak.store.ui.store.fragment.AccessoriesFragment
 import com.raantech.awfrlak.store.ui.store.fragment.MobilesFragment
@@ -23,6 +24,7 @@ class ProductsFragment : BaseBindingFragment<FragmentProductsBinding>() {
 
     override fun onViewVisible() {
         super.onViewVisible()
+        (requireActivity() as MainActivity).updateTitle(getString(R.string.nav_products))
         setUpBinding()
         setUpTabLayout()
     }
@@ -30,7 +32,8 @@ class ProductsFragment : BaseBindingFragment<FragmentProductsBinding>() {
     private fun setUpBinding() {
         binding?.viewModel = viewModel
     }
-    fun setUpTabLayout() {
+
+    private fun setUpTabLayout() {
         setUpViewPager()
         binding?.tabLayout?.addTab(binding?.tabLayout!!.newTab(), 0, true)
         binding?.tabLayout?.addTab(binding?.tabLayout!!.newTab(), 1, false)
@@ -71,7 +74,6 @@ class ProductsFragment : BaseBindingFragment<FragmentProductsBinding>() {
         binding?.viewPager?.adapter = adapter
         binding?.viewPager?.offscreenPageLimit = 3
     }
-
 
 
 }

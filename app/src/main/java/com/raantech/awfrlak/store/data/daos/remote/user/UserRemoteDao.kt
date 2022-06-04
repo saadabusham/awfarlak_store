@@ -2,8 +2,11 @@ package com.raantech.awfrlak.store.data.daos.remote.user
 
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.common.NetworkConstants
+import com.raantech.awfrlak.store.data.models.StoreStatistics
 import com.raantech.awfrlak.store.data.models.auth.login.TokenModel
 import com.raantech.awfrlak.store.data.models.auth.login2.UserDetailsResponseModel
+import com.raantech.awfrlak.store.data.models.auth.login2.UserInfo
+import com.raantech.awfrlak.store.data.models.notification.Notification
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -54,5 +57,23 @@ interface UserRemoteDao {
         @Part("phone_number") phone_number: RequestBody,
         @Part additionalImages: List<MultipartBody.Part>
     ): ResponseWrapper<UserDetailsResponseModel>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @POST("merchant/profile/update")
+    suspend fun updateProfile(
+        @Query("name") name: String,
+        @Query("email") email: String
+    ): ResponseWrapper<UserInfo>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @GET("merchant/notifications")
+    suspend fun getNotifications(
+        @Query("skip") skip: Int
+    ): ResponseWrapper<List<Notification>>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @GET("merchant/statistics")
+    suspend fun getStatistics(
+    ): ResponseWrapper<StoreStatistics>
 
 }

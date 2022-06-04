@@ -8,7 +8,7 @@ data class UserDetailsResponseModel(
 	val isRegistered: Boolean? = null,
 
 	@field:SerializedName("user_info")
-	val userInfo: UserInfo? = null,
+	var userInfo: UserInfo? = null,
 
 	@field:SerializedName("auth_token")
 	val authToken: String? = null

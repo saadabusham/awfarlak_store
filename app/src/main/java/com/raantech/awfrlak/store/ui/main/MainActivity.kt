@@ -26,6 +26,7 @@ import com.raantech.awfrlak.store.ui.media.MediaActivity
 import com.raantech.awfrlak.store.ui.more.aboutus.AboutUsActivity
 import com.raantech.awfrlak.store.ui.more.settings.SettingsActivity
 import com.raantech.awfrlak.store.ui.notifications.activity.NotificationsActivity
+import com.raantech.awfrlak.store.ui.profile.activity.UpdateProfileActivity
 import com.raantech.awfrlak.store.ui.splash.SplashActivity
 import com.raantech.awfrlak.store.utils.LocaleUtil
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,6 +55,10 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>(),
         setUpListeners()
     }
 
+    fun updateTitle(title: String) {
+        updateToolbarTitle(hasTitle = true,titleString = title)
+    }
+
     private fun setUpListeners() {
     }
 
@@ -73,7 +78,6 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>(),
         bnv_main?.setOnNavigationItemReselectedListener {
             // Do Nothing To Disable ReLunch fragment when reClick on nav icon
         }
-
     }
 
     private fun setUpDrawer() {
@@ -147,7 +151,7 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>(),
             when (position) {
                 0 -> NotificationsActivity.start(this)
                 1 -> MediaActivity.start(this)
-                2 -> {}
+                2 -> UpdateProfileActivity.start(this)
                 3 -> SettingsActivity.start(this)
                 4 -> AboutUsActivity.start(this)
                 5 -> {

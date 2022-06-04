@@ -5,13 +5,15 @@ import com.raantech.awfrlak.store.data.api.response.ResponseHandler
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.daos.remote.user.UserRemoteDao
 import com.raantech.awfrlak.store.data.enums.UserEnums
+import com.raantech.awfrlak.store.data.models.StoreStatistics
 import com.raantech.awfrlak.store.data.models.auth.login.TokenModel
 import com.raantech.awfrlak.store.data.models.auth.login2.UserDetailsResponseModel
+import com.raantech.awfrlak.store.data.models.auth.login2.UserInfo
+import com.raantech.awfrlak.store.data.models.notification.Notification
 import com.raantech.awfrlak.store.data.pref.user.UserPref
 import com.raantech.awfrlak.store.data.repos.base.BaseRepo
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.http.Part
 import javax.inject.Inject
 
 class UserRepoImp @Inject constructor(
@@ -94,6 +96,35 @@ class UserRepoImp @Inject constructor(
                     storeName, city, longitude, latitude, commercialRegister, responsible_person, logo, description, phone_number, additionalImages
                 )
             )
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+    override suspend fun updateProfile(
+        name: String,
+        email: String
+    ): APIResource<ResponseWrapper<UserInfo>>{
+        return try {
+            responseHandle.handleSuccess(
+                userRemoteDao.updateProfile(
+                    name,email
+                )
+            )
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
+    override suspend fun getNotifications(skip:Int): APIResource<ResponseWrapper<List<Notification>>> {
+        return try {
+            responseHandle.handleSuccess(userRemoteDao.getNotifications(skip))
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+    override suspend fun getStatistics(): APIResource<ResponseWrapper<StoreStatistics>> {
+        return try {
+            responseHandle.handleSuccess(userRemoteDao.getStatistics())
         } catch (e: Exception) {
             responseHandle.handleException(e)
         }

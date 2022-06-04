@@ -3,11 +3,13 @@ package com.raantech.awfrlak.store.data.repos.auth
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.enums.UserEnums
+import com.raantech.awfrlak.store.data.models.StoreStatistics
 import com.raantech.awfrlak.store.data.models.auth.login.TokenModel
 import com.raantech.awfrlak.store.data.models.auth.login2.UserDetailsResponseModel
+import com.raantech.awfrlak.store.data.models.auth.login2.UserInfo
+import com.raantech.awfrlak.store.data.models.notification.Notification
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.http.*
 
 
 interface UserRepo {
@@ -43,6 +45,18 @@ interface UserRepo {
         phone_number: RequestBody,
         additionalImages: List<MultipartBody.Part>
     ): APIResource<ResponseWrapper<UserDetailsResponseModel>>
+
+    suspend fun updateProfile(
+        name: String,
+        email: String
+    ): APIResource<ResponseWrapper<UserInfo>>
+
+    suspend fun getNotifications(
+        skip:Int
+    ): APIResource<ResponseWrapper<List<Notification>>>
+
+    suspend fun getStatistics(
+    ): APIResource<ResponseWrapper<StoreStatistics>>
 
     fun saveNotificationStatus(flag: Boolean)
     fun getNotificationStatus(): Boolean

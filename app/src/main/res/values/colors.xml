@@ -6,9 +6,9 @@
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#00dcf9</color>
     <color name="colorAccentDark">#4f5b74</color>
-    <color name="color_app_background">#FFFFFF</color>
+    <color name="color_app_background">#FBFBFB</color>
     <color name="ripple_color">#0be8252e</color>
-    <color name="app_background_color">#FFFFFF</color>
+    <color name="app_background_color">#FBFBFB</color>
     <!-- Views Default colors -->
     <color name="text_default_color">#373737</color>
     <color name="text_dark_color">#3A4155</color>

@@ -7,6 +7,7 @@ import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.enums.UserEnums
 import com.raantech.awfrlak.store.data.models.Price
+import com.raantech.awfrlak.store.data.models.StoreStatistics
 import com.raantech.awfrlak.store.data.models.home.AccessoriesItem
 import com.raantech.awfrlak.store.data.models.home.MobilesItem
 import com.raantech.awfrlak.store.data.models.home.Service
@@ -25,28 +26,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GeneralViewModel @Inject constructor(
-        private val userRepo: UserRepo,
-        private val sharedPreferencesUtil: SharedPreferencesUtil,
-        private val userPref: UserPref,
-        private val configurationPref: ConfigurationPref,
-        private val configurationRepo: ConfigurationRepo,
-        private val wishListRepo: WishListRepo,
-        private val accessoriesRepo: AccessoriesRepo,
+    private val userRepo: UserRepo,
+    private val sharedPreferencesUtil: SharedPreferencesUtil,
+    private val userPref: UserPref,
+    private val configurationPref: ConfigurationPref,
+    private val configurationRepo: ConfigurationRepo,
+    private val wishListRepo: WishListRepo,
+    private val accessoriesRepo: AccessoriesRepo,
 ) : BaseViewModel() {
 
     val addSelected = MutableLiveData(false)
-
-    val cartCount: MutableLiveData<String> = MutableLiveData("0")
-    var serviceToView: Service? = null
-    var mobileToView: MobilesItem? = null
-    var accessoryToView: AccessoriesItem? = null
-    var storeToView: Store? = null
-
-    val mobilesItemCount: MutableLiveData<Int> = MutableLiveData(1)
-    val mobilesItemsPrice: MutableLiveData<Price> = MutableLiveData()
-
-    val accessoriesItemCount: MutableLiveData<Int> = MutableLiveData(1)
-    val accessoriesItemsPrice: MutableLiveData<Price> = MutableLiveData()
+    val isStatisticsEmpty = MutableLiveData(true)
+    val storeStatistics: MutableLiveData<StoreStatistics> = MutableLiveData(StoreStatistics())
 
     fun logoutRemote() = liveData {
         emit(APIResource.loading())
@@ -64,7 +55,7 @@ class GeneralViewModel @Inject constructor(
     }
 
     fun getAccessories(
-            skip: Int
+        skip: Int
     ) = liveData {
         emit(APIResource.loading())
         val response = accessoriesRepo.getAccessories(skip)
@@ -72,7 +63,7 @@ class GeneralViewModel @Inject constructor(
     }
 
     fun getStores(
-            skip: Int
+        skip: Int
     ) = liveData {
         emit(APIResource.loading())
         val response = accessoriesRepo.getStores(skip)
@@ -80,7 +71,7 @@ class GeneralViewModel @Inject constructor(
     }
 
     fun getServices(
-            skip: Int
+        skip: Int
     ) = liveData {
         emit(APIResource.loading())
         val response = accessoriesRepo.getServices(skip)
@@ -94,7 +85,7 @@ class GeneralViewModel @Inject constructor(
     }
 
     fun getMobiles(
-            skip: Int
+        skip: Int
     ) = liveData {
         emit(APIResource.loading())
         val response = accessoriesRepo.getMobiles(skip)
@@ -106,22 +97,30 @@ class GeneralViewModel @Inject constructor(
     }
 
     fun addToWishList(
-            entityType: String,
-            productId: Int
+        entityType: String,
+        productId: Int
     ) = liveData {
         emit(APIResource.loading())
         val response =
-                wishListRepo.addToWishList(entityType, productId)
+            wishListRepo.addToWishList(entityType, productId)
         emit(response)
     }
 
     fun removeFromWishList(
-            entity_type: String,
-            productId: Int
+        entity_type: String,
+        productId: Int
     ) = liveData {
         emit(APIResource.loading())
         val response =
-                wishListRepo.removeFromWishList(entity_type, productId)
+            wishListRepo.removeFromWishList(entity_type, productId)
+        emit(response)
+    }
+
+    fun getStatistics(
+    ) = liveData {
+        emit(APIResource.loading())
+        val response =
+            userRepo.getStatistics()
         emit(response)
     }
 

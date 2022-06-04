@@ -14,6 +14,7 @@ import com.raantech.awfrlak.store.data.models.orders.OrdersItem
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
+import com.raantech.awfrlak.store.ui.main.MainActivity
 import com.raantech.awfrlak.store.ui.main.orders.adapter.OrdersRecyclerAdapter
 import com.raantech.awfrlak.store.ui.main.orders.viewmodels.OrdersViewModel
 import com.raantech.awfrlak.store.utils.extensions.gone
@@ -34,6 +35,7 @@ class OrdersFragment : BaseBindingFragment<FragmentOrderBinding>(),
 
     override fun onViewVisible() {
         super.onViewVisible()
+        (requireActivity() as MainActivity).updateTitle(getString(R.string.nav_orders))
         setUpBinding()
         setUpListeners()
         setUpAdapter()

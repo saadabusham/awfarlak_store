@@ -120,12 +120,12 @@ class LoginViewModel @Inject constructor(
         forgetCountDownTimer.start()
     }
 
-    fun verifyCode() = liveData {
+    fun verifyCode(token:String) = liveData {
         emit(APIResource.loading())
         val response = userRepo.verify(
             userTokenMutableLiveData.value.toString(),
             signUpVerificationCode.value.toString().toInt(),
-            "",
+            token,
             Constants.AppPlatform
         )
         emit(response)

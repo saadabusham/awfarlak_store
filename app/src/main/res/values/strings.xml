@@ -258,4 +258,19 @@
     <string name="please_select_the_service_images">Please select the service images</string>
     <string name="no_data_found_add_services_and_products">No Data Found ,\nAdd Services And Products</string>
 
+    <!-- notifications -->
+    <string name="title_notifications">Notifications</string>
+    <string name="label_notifications_empty">No Notifications!</string>
+    <string name="notification_title_key">englishTitle</string>
+    <string name="notification_message_key">englishBody</string>
+    <string name="notification_type_key">notificationType</string>
+    <string name="notification_value_key">Data</string>
+
+    <!--    statistics-->
+    <string name="sales">Sales</string>
+    <string name="sales_amount">Sales Amount</string>
+    <string name="number_of_service_requests">Service Requests</string>
+    <string name="added_mobiles">Added Mobiles</string>
+    <string name="added_services">Added Services</string>
+    <string name="added_accessories">Added Accessories</string>
 </resources>
