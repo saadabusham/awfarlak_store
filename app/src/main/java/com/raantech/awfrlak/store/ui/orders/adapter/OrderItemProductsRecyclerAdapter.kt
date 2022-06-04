@@ -1,22 +1,22 @@
-package com.raantech.awfrlak.store.ui.main.orders.adapter
+package com.raantech.awfrlak.store.ui.orders.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.raantech.awfrlak.databinding.RowOrderBinding
-import com.raantech.awfrlak.store.data.models.orders.OrdersItem
+import com.raantech.awfrlak.databinding.RowOrderItemProductsBinding
+import com.raantech.awfrlak.store.data.models.orders.OrderProduct
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.adapters.BaseViewHolder
 import com.raantech.awfrlak.store.utils.extensions.setSlideAnimation
 
-class OrdersRecyclerAdapter constructor(
+class OrderItemProductsRecyclerAdapter constructor(
     context: Context
-) : BaseBindingRecyclerViewAdapter<OrdersItem>(context) {
+) : BaseBindingRecyclerViewAdapter<OrderProduct>(context) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViewHolder(
-            RowOrderBinding.inflate(
+            RowOrderItemProductsBinding.inflate(
                 LayoutInflater.from(context), parent, false
             )
         )
@@ -29,10 +29,10 @@ class OrdersRecyclerAdapter constructor(
         }
     }
 
-    inner class ViewHolder(private val binding: RowOrderBinding) :
-        BaseViewHolder<OrdersItem>(binding.root) {
+    inner class ViewHolder(private val binding: RowOrderItemProductsBinding) :
+        BaseViewHolder<OrderProduct>(binding.root) {
 
-        override fun bind(item: OrdersItem) {
+        override fun bind(item: OrderProduct) {
             binding.item = item
             binding.linRoot.setOnClickListener {
                 itemClickListener?.onItemClick(it,bindingAdapterPosition,item)

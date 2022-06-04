@@ -6,7 +6,7 @@
         <import type="com.raantech.awfrlak.store.utils.extensions.DataTimeExtensionsKt"/>
         <variable
             name="item"
-            type="com.raantech.awfrlak.store.data.models.orders.OrdersItem" />
+            type="com.raantech.awfrlak.store.data.models.orders.OrderProduct" />
     </data>
 
     <LinearLayout
@@ -23,6 +23,13 @@
             android:focusable="true"
             android:padding="@dimen/_15sdp">
 
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                ivImageUrl="@{item.entity.baseImage.url}"
+                tools:src="@drawable/ic_bag" />
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -30,56 +37,55 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_7sdp"
                 android:layout_weight="1"
-                android:gravity="center|start|top"
+                android:gravity="center|start"
                 android:orientation="vertical">
 
                 <com.raantech.awfrlak.store.ui.base.views.AppTextView
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{`#`+item.orderGroupNumber}"
+                    android:text="@{item.entity.name}"
                     android:textColor="@color/text_gray_color"
                     android:textSize="@dimen/_13ssp"
-                    tools:text="طلب شراء سامسونج 10" />
+                    tools:text="#22123" />
 
                 <com.raantech.awfrlak.store.ui.base.views.AppTextView
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.customer.name}"
-                    android:textColor="@color/text_gray_color"
                     android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@{`x`+item.qty}"
+                    android:textColor="@color/text_gray_color"
                     android:textSize="@dimen/_13ssp"
-                    tools:text="اسم العميل" />
+                    tools:text="2 jan 2021" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center|end|top"
+                android:layout_height="wrap_content"
+                android:gravity="center|end"
                 android:orientation="vertical">
+
+                <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                    style="@style/textview_normal_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.lineTotal.formatted}"
+                    android:textColor="@color/text_gray_color"
+                    android:textSize="@dimen/_13ssp"
+                    tools:text="2000 ر.س" />
 
                 <com.raantech.awfrlak.store.ui.base.views.AppTextView
                     style="@style/textview_normal_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
-                    android:text="@{item.status}"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:visibility="invisible"
                     android:textColor="@color/text_default_color"
                     android:textSize="@dimen/_9ssp"
                     tools:text="في الطريق" />
-
-
-                <com.raantech.awfrlak.store.ui.base.views.AppTextView
-                    style="@style/textview_normal_bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_7sdp"
-                    android:text="@{DataTimeExtensionsKt.getDateFormattedForOrder(item.createdAt)}"
-                    android:textColor="@color/text_gray_color"
-                    android:textSize="@dimen/_13ssp"
-                    tools:text="2 يونيو 2021" />
 
             </LinearLayout>
         </LinearLayout>

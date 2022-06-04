@@ -2,8 +2,6 @@ package com.raantech.awfrlak.store.data.repos.orders
 
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
-import com.raantech.awfrlak.store.data.models.orders.Order
-import com.raantech.awfrlak.store.data.models.orders.OrderDetails
 import com.raantech.awfrlak.store.data.models.orders.OrdersItem
 
 interface OrdersRepo {
@@ -13,7 +11,7 @@ interface OrdersRepo {
     ): APIResource<ResponseWrapper<List<OrdersItem>>>
 
     suspend fun getOrderDetails(
-        orderId: Int
-    ): APIResource<ResponseWrapper<OrderDetails>>
+        orderId: String
+    ): APIResource<ResponseWrapper<OrdersItem>>
 
 }

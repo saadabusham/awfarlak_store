@@ -9,7 +9,6 @@ import com.raantech.awfrlak.databinding.FragmentOrderBinding
 import com.raantech.awfrlak.store.data.api.response.GeneralError
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
-import com.raantech.awfrlak.store.data.models.orders.Order
 import com.raantech.awfrlak.store.data.models.orders.OrdersItem
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
@@ -17,6 +16,7 @@ import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
 import com.raantech.awfrlak.store.ui.main.MainActivity
 import com.raantech.awfrlak.store.ui.main.orders.adapter.OrdersRecyclerAdapter
 import com.raantech.awfrlak.store.ui.main.orders.viewmodels.OrdersViewModel
+import com.raantech.awfrlak.store.ui.orders.activtiy.OrdersActivity
 import com.raantech.awfrlak.store.utils.extensions.gone
 import com.raantech.awfrlak.store.utils.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
@@ -128,8 +128,8 @@ class OrdersFragment : BaseBindingFragment<FragmentOrderBinding>(),
 
     override fun onItemClick(view: View?, position: Int, item: Any) {
         when (item) {
-            is Order -> {
-
+            is OrdersItem -> {
+                item.orderGroupNumber?.let { OrdersActivity.start(requireContext(), it) }
             }
         }
     }

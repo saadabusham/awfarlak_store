@@ -6,20 +6,24 @@
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/drawable/tab_color_selector.xml" value="0.20833333333333334" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/activity_main.xml" value="0.10960144927536232" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/activity_main_content.xml" value="0.14628623188405798" />
+        <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/activity_orders_item_products.xml" value="0.14628623188405798" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/activity_update_profile.xml" value="0.10552536231884058" />
-        <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/app_bar_main.xml" value="0.33" />
+        <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/app_bar_main.xml" value="0.18" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/fragment_home.xml" value="0.10960144927536232" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/fragment_order.xml" value="0.22" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/fragment_products.xml" value="0.33" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/fragment_statistics.xml" value="0.2" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/layout_accessories_grid.xml" value="0.14628623188405798" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/layout_home_toolbar.xml" value="0.2" />
+        <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/layout_no_data.xml" value="0.14628623188405798" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/layout_phones.xml" value="0.14628623188405798" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/layout_phones_grid.xml" value="0.10552536231884058" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/layout_services_grid.xml" value="0.22" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/layout_shimmer_statistics.xml" value="0.14628623188405798" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/layout_toolbar.xml" value="0.2" />
+        <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/row_notification.xml" value="0.14628623188405798" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/row_order.xml" value="0.33" />
+        <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/row_order_item_products.xml" value="0.14628623188405798" />
         <entry key="..\:/freelance/phoneapp/awfarlak_store/app/src/main/res/layout/row_phones_grid_shimmer.xml" value="0.14628623188405798" />
       </map>
     </option>

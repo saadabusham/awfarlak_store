@@ -28,5 +28,7 @@ data class OrdersItem(
     val vatPrice: Price? = null,
 
     @field:SerializedName("status")
-    val status: String? = null
+    val status: String? = null,
+    @field:SerializedName("prodcuts")
+    val prodcuts: List<OrderProduct>? = null
 )
