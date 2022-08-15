@@ -56,7 +56,7 @@
     <string name="text">Text</string>
     <string name="date">Date</string>
     <string name="email_not_valid_err">Enter a valid email address (example: aaa@bbb.ccc)</string>
-    <string name="phone_not_valid_err">Enter a valid phone number (example: 07xxxxxxx)</string>
+    <string name="phone_not_valid_err">Enter a valid phone number (example: 05XXXXXXXX)</string>
     <string name="password_not_valid_err">Enter a valid password (example: P@ssw0rd)</string>
     <string name="please_select_your_gender">Please select your gender</string>
     <string name="password_not_match">Password not match</string>

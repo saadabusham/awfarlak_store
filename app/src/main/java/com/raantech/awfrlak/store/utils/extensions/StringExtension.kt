@@ -81,16 +81,16 @@ fun Double.round(digitNum : Int): String {
 }
 
 fun String.checkPhoneNumberFormat(): String {
-    val mobile = if (this.startsWith("00962"))
-        this.replaceFirst("00962", "")
-    else if (this.startsWith("962"))
-        this.replaceFirst("962", "")
-    else if (this.startsWith("+962"))
-        this.replaceFirst("+962", "")
+    val mobile =  if (this.startsWith("00966"))
+        this.replaceFirst("00966", "")
+    else if (this.startsWith("966"))
+        this.replaceFirst("966", "")
+    else if (this.startsWith("+966"))
+        this.replaceFirst("+966", "")
     else this
 
-    return if (mobile.startsWith("07")) {
-        mobile.replaceFirst("07", "7")
+    return if (mobile.startsWith("05")) {
+        mobile.replaceFirst("05", "5")
     } else {
         mobile
     }

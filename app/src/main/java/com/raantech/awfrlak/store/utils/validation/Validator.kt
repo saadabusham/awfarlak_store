@@ -18,6 +18,7 @@ class Validator() {
 
         //Phone Number
         const val JORDANIAN_PHONE_NUMBER_WITHOUT_COUNTRY_CODE_REGEX = "^(7|07)(7|8|9)([0-9]{7})\$"
+        const val SAUDI_PHONE_NUMBER_WITHOUT_COUNTRY_CODE_REGEX = "^(5|05)([0-9]{8})\$"
         const val PHONE_MIN_LENGTH = 9
 
         //Text
@@ -174,14 +175,7 @@ class Validator() {
                 errorTitle = context.resources.getString(R.string.phone_number),
                 errorMessage = context.resources.getString(R.string.must_not_be_empty)
             )
-        } else if (textToValidate.length < PHONE_MIN_LENGTH) {
-            ValidatedData(
-                isValid = false,
-                errorTitle = context.resources.getString(R.string.phone_number),
-                errorMessage = context.resources.getString(R.string.must_not_be_at_least) + " " +
-                        PHONE_MIN_LENGTH + " " + context.resources.getString(R.string.numbers)
-            )
-        } else if (!textToValidate.matches(Regex(JORDANIAN_PHONE_NUMBER_WITHOUT_COUNTRY_CODE_REGEX))) {
+        } else if (!textToValidate.matches(Regex(SAUDI_PHONE_NUMBER_WITHOUT_COUNTRY_CODE_REGEX))) {
             ValidatedData(
                 isValid = false,
                 errorTitle = context.resources.getString(R.string.phone_number),
