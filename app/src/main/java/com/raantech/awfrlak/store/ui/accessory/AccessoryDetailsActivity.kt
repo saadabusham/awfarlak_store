@@ -15,7 +15,7 @@ import com.raantech.awfrlak.store.ui.accessory.viewmodels.AccessoryViewModel
 import com.raantech.awfrlak.store.ui.auth.login.adapters.IndecatorRecyclerAdapter
 import com.raantech.awfrlak.store.ui.base.activity.BaseBindingActivity
 import com.raantech.awfrlak.store.ui.main.MainActivity
-import com.raantech.awfrlak.store.ui.store.adapters.StoreImagesAdapter
+import com.raantech.awfrlak.store.ui.main.adapters.StoreImagesAdapter
 import com.raantech.awfrlak.store.utils.extensions.gone
 import com.raantech.awfrlak.store.utils.extensions.invisible
 import com.raantech.awfrlak.store.utils.extensions.visible

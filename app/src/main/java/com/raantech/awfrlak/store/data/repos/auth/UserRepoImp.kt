@@ -115,6 +115,28 @@ class UserRepoImp @Inject constructor(
         }
     }
 
+    override suspend fun updateAddress(
+        name: String,
+        phone: String,
+        city: String,
+        district: String,
+        street: String,
+        building_number: String,
+        description: String,
+        latitude: Double,
+        longitude: Double
+    ): APIResource<ResponseWrapper<UserInfo>> {
+        return try {
+            responseHandle.handleSuccess(
+                userRemoteDao.updateAddress(
+                    name, phone, city, district, street, building_number,description, latitude, longitude
+                )
+            )
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
+
     override suspend fun getNotifications(skip:Int): APIResource<ResponseWrapper<List<Notification>>> {
         return try {
             responseHandle.handleSuccess(userRemoteDao.getNotifications(skip))

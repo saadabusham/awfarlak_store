@@ -20,4 +20,10 @@ interface OrdersRemoteDao {
         @Path("orderId") orderId: String
     ): ResponseWrapper<OrdersItem>
 
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @POST("merchant/orders/create/{orderId}/parcel")
+    suspend fun parcelOrder(
+        @Path("orderId") orderId: String
+    ): ResponseWrapper<Any>
+
 }

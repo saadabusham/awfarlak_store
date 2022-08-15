@@ -1,4 +1,4 @@
-package com.raantech.awfrlak.store.ui.store.adapters
+package com.raantech.awfrlak.store.ui.main.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,8 +10,7 @@ import com.raantech.awfrlak.store.ui.base.adapters.BaseViewHolder
 
 class StoreImagesAdapter(
         context: Context
-) :
-        BaseBindingRecyclerViewAdapter<String>(context) {
+) : BaseBindingRecyclerViewAdapter<String>(context) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViewHolder(

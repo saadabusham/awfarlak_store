@@ -3,7 +3,7 @@
     android:height="10.42dp"
     android:viewportWidth="15.114"
     android:viewportHeight="10.42"
-    android:autoMirrored="true"
+    android:autoMirrored="false"
     android:tint="@color/colorAccent">
   <path
       android:pathData="M5.4,10.42 L0,5.42 1.522,4 5.4,7.59 13.592,0l1.522,1.42Z"

@@ -1,4 +1,4 @@
-package com.raantech.awfrlak.store.ui.store.fragment
+package com.raantech.awfrlak.store.ui.main.products.fragments
 
 import android.view.View
 import androidx.fragment.app.activityViewModels
@@ -14,7 +14,7 @@ import com.raantech.awfrlak.store.ui.accessory.AccessoryDetailsActivity
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
-import com.raantech.awfrlak.store.ui.main.home.adapters.AccessoriesGridRecyclerAdapter
+import com.raantech.awfrlak.store.ui.main.adapters.AccessoriesGridRecyclerAdapter
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
 import com.raantech.awfrlak.store.utils.extensions.gone
 import com.raantech.awfrlak.store.utils.extensions.visible

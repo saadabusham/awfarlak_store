@@ -1,5 +1,6 @@
 package com.raantech.awfrlak.store.ui.orders.viewmodels
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.models.orders.OrdersItem
@@ -18,12 +19,20 @@ class OrdersViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     var orderIdToView : String? = null
-    var orderItemToView : OrdersItem? = null
+    var orderItemToView : MutableLiveData<OrdersItem> = MutableLiveData()
     fun getOrderDetails(
         orderId: String
     ) = liveData {
         emit(APIResource.loading())
         val response = ordersRepo.getOrderDetails(orderId)
+        emit(response)
+    }
+
+    fun parcelOrder(
+        orderId: String
+    ) = liveData {
+        emit(APIResource.loading())
+        val response = ordersRepo.parcelOrder(orderId)
         emit(response)
     }
 

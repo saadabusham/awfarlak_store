@@ -1,4 +1,4 @@
-package com.raantech.awfrlak.store.ui.main.products
+package com.raantech.awfrlak.store.ui.main.products.fragments
 
 import android.graphics.Color
 import androidx.fragment.app.Fragment
@@ -10,8 +10,6 @@ import com.raantech.awfrlak.databinding.FragmentProductsBinding
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
 import com.raantech.awfrlak.store.ui.main.MainActivity
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
-import com.raantech.awfrlak.store.ui.store.fragment.AccessoriesFragment
-import com.raantech.awfrlak.store.ui.store.fragment.MobilesFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

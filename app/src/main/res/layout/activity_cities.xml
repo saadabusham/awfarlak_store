@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/layout_toolbar" />
+
+        <com.raantech.awfrlak.store.ui.base.views.AppTextView
+            android:id="@+id/tvHeader"
+            style="@style/textview_normal_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/select_a_city"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/_17ssp" />
+
+        <com.raantech.awfrlak.store.ui.base.views.AppEditText
+            android:id="@+id/edTitle"
+            style="@style/textview_normal_regular"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Edittext_height"
+            android:layout_marginStart="@dimen/layouts_margin_start"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/layouts_margin_end"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/places_ic_search"
+            android:drawablePadding="@dimen/_5sdp"
+            android:hint="@string/search_hint"
+            android:includeFontPadding="false"
+            android:padding="0dp"
+            android:textAlignment="viewStart"
+            android:textColorHint="@color/gray_btn_bg_color"
+            android:textSize="@dimen/_16ssp" />
+
+        <View
+            android:id="@+id/viewName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginStart="@dimen/layouts_margin_start"
+            android:layout_marginEnd="@dimen/layouts_margin_end"
+            android:background="@color/border_color" />
+
+        <include
+            android:id="@+id/layoutShimmer"
+            layout="@layout/layout_shimmer_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/layout_no_result"
+            layout="@layout/layout_no_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/layouts_margin_start"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/layouts_margin_end"
+            android:visibility="gone"
+            app:icon="@{@drawable/ic_no_search_result}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutShimmer"
+            app:title="@{@string/no_results}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/layouts_margin_start"
+            android:paddingEnd="@dimen/layouts_margin_end"
+            android:paddingBottom="@dimen/_100sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_city" />
+
+    </LinearLayout>
+</layout>

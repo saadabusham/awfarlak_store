@@ -146,3 +146,35 @@ fun Context.getDistance(fromLocation: Location?, toLocation: Location?): String?
         null
     }
 }
+
+
+fun Context.getLocationName(latitude: Double?, longitude: Double?): String {
+    try {
+
+        val address = Geocoder(this, Locale.ENGLISH).getFromLocation(
+            latitude ?: 0.0,
+            longitude ?: 0.0,
+            1
+        )
+        var locationName = ""
+        address?.first()?.let {
+            if (it.locality != null) {
+                locationName += it.locality + ","
+            }
+            if (it.subLocality != null) {
+                locationName += it.subLocality + " "
+            }
+            if (it.thoroughfare != null) {
+                locationName += it.thoroughfare + " "
+            }
+            if (it.subThoroughfare != null) {
+                locationName += it.subThoroughfare + " "
+            }
+        }
+        return locationName
+    } catch (ex: Exception) {
+        Log.e("location name", ex.message.toString())
+    }
+
+    return ""
+}

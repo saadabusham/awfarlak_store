@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="noTitle"
+            type="Boolean" />
+
+        <variable
+            name="description"
+            type="String" />
+
+        <variable
+            name="noDescription"
+            type="Boolean" />
+
+        <variable
+            name="icon"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="noIcon"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgIcon"
+            imageDrawable="@{icon != null ? icon : @drawable/ic_no_search_result}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{noIcon ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:src="@drawable/ic_no_search_result" />
+
+        <com.raantech.awfrlak.store.ui.base.views.AppTextView
+            android:id="@+id/tvTitle"
+            style="@style/textview_normal_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center"
+            android:textColor="@color/title_color"
+            android:text="@{title != null ? title : @string/no_results}"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="@{noTitle ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgIcon"
+            tools:text="@string/no_results" />
+
+        <com.raantech.awfrlak.store.ui.base.views.AppTextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layouts_margin_start"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/layouts_margin_end"
+            android:gravity="center"
+            android:text="@{description != null ? title : @string/no_results_description}"
+            android:textColor="@color/subtitle_color"
+            android:textSize="@dimen/_13ssp"
+            android:visibility="@{noDescription ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgIcon"
+            tools:text="@string/no_results_description" />
+
+    </LinearLayout>
+</layout>

@@ -26,6 +26,8 @@ object Constants {
         const val IMAGE: String = "image"
         const val MEDIA: String = "media"
         const val SELECT_MEDIA: String = "selectMedia"
+        const val IS_ACTIVITY_RESULT: String = "isActivityResult"
+        const val CITY: String = "city"
     }
 
     object NotificationsChannels {

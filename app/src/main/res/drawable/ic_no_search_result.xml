@@ -1,0 +1,31 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="@dimen/_120sdp"
+    android:height="@dimen/_120sdp"
+    android:viewportWidth="141"
+    android:viewportHeight="140">
+  <path
+      android:pathData="M70.5,140C109.16,140 140.5,108.66 140.5,70C140.5,31.34 109.16,0 70.5,0C31.84,0 0.5,31.34 0.5,70C0.5,108.66 31.84,140 70.5,140Z"
+      android:fillColor="@color/button_color"
+      android:fillAlpha="0.1"/>
+  <path
+      android:pathData="M70.5,130C103.64,130 130.5,103.14 130.5,70C130.5,36.86 103.64,10 70.5,10C37.36,10 10.5,36.86 10.5,70C10.5,103.14 37.36,130 70.5,130Z"
+      android:fillColor="@color/button_color"
+      android:fillAlpha="0.1"/>
+  <path
+      android:pathData="M70.5,20C80.39,20 90.06,22.93 98.28,28.43C106.5,33.92 112.91,41.73 116.69,50.87C120.48,60 121.47,70.06 119.54,79.75C117.61,89.45 112.85,98.36 105.86,105.36C98.86,112.35 89.95,117.11 80.25,119.04C70.56,120.97 60.5,119.98 51.37,116.19C42.23,112.41 34.42,106 28.93,97.78C23.43,89.56 20.5,79.89 20.5,70C20.5,56.74 25.77,44.02 35.14,34.64C44.52,25.27 57.24,20 70.5,20V20Z"
+      android:fillColor="@color/button_color"/>
+  <path
+      android:pathData="M70.11,69.61m-14.98,0a14.98,14.98 0,1 1,29.96 0a14.98,14.98 0,1 1,-29.96 0"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="#ffffff"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M80.53,80.81L86.4,86.67"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="#ffffff"
+      android:strokeLineCap="round"/>
+</vector>

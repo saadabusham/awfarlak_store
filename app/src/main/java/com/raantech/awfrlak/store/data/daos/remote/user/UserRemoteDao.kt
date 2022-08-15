@@ -66,6 +66,20 @@ interface UserRemoteDao {
     ): ResponseWrapper<UserInfo>
 
     @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
+    @POST("merchant/profile/update/address")
+    suspend fun updateAddress(
+        @Query("name") name: String,
+        @Query("phone") phone: String,
+        @Query("city") city: String,
+        @Query("district") district: String,
+        @Query("street") street: String,
+        @Query("building_number") building_number: String,
+        @Query("description") description: String,
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double,
+    ): ResponseWrapper<UserInfo>
+
+    @Headers("${NetworkConstants.SKIP_AUTHORIZATION_HEADER}:false")
     @GET("merchant/notifications")
     suspend fun getNotifications(
         @Query("skip") skip: Int

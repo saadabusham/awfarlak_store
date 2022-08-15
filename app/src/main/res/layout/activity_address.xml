@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.raantech.awfrlak.store.ui.addresses.viewmodels.AddressesViewModel" />
+
+        <import type="com.raantech.awfrlak.R" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/layout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_10sdp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/layout_toolbar"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/layouts_margin_start"
+                    android:layout_marginEnd="@dimen/layouts_margin_end"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/contact_name"
+                        android:textColor="@color/subtitle_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        android:id="@+id/edContactName"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/Edittext_height"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/contact_name"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@={viewModel.name}"
+                        android:textAlignment="viewStart"
+                        android:textColorHint="@color/gray_btn_bg_color"
+                        android:textSize="@dimen/_16ssp" />
+
+                    <View
+                        android:id="@+id/viewName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/border_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvContactNameError"
+                        style="@style/textview_normal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_error_input"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:textColor="@color/input_error_color"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="gone"
+                        tools:text="Your phone number is incorrect." />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/phone_number"
+                        android:textColor="@color/subtitle_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        android:id="@+id/edPhoneNumber"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/Edittext_height"
+                        android:background="@android:color/transparent"
+                        android:hint="XXXXXXXXX"
+                        android:includeFontPadding="false"
+                        android:inputType="phone"
+                        android:padding="0dp"
+                        android:text="@={viewModel.phone}"
+                        android:textAlignment="viewStart"
+                        android:textColorHint="@color/gray_btn_bg_color"
+                        android:textSize="@dimen/_16ssp" />
+
+                    <View
+                        android:id="@+id/viewPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/border_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvPhoneError"
+                        style="@style/textview_normal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_error_input"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:textColor="@color/input_error_color"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="gone"
+                        tools:text="Your phone number is incorrect." />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/city"
+                        android:textColor="@color/subtitle_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvCity"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/Edittext_height"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/ic_more_arrow_right"
+                        android:hint="@string/city"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@{viewModel.city}"
+                        android:textAlignment="viewStart"
+                        android:textColorHint="@color/gray_btn_bg_color"
+                        android:textSize="@dimen/_16ssp" />
+
+                    <View
+                        android:id="@+id/viewCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/border_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvCityError"
+                        style="@style/textview_normal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_error_input"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:textColor="@color/input_error_color"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="gone"
+                        tools:text="Your phone number is incorrect." />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/district"
+                        android:textColor="@color/subtitle_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        android:id="@+id/edDistrict"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/Edittext_height"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/district"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@={viewModel.district}"
+                        android:textAlignment="viewStart"
+                        android:textColorHint="@color/gray_btn_bg_color"
+                        android:textSize="@dimen/_16ssp" />
+
+                    <View
+                        android:id="@+id/viewDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/border_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvDistrictError"
+                        style="@style/textview_normal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_error_input"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:textColor="@color/input_error_color"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="gone"
+                        tools:text="Your phone number is incorrect." />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/street"
+                        android:textColor="@color/subtitle_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        android:id="@+id/edStreet"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/Edittext_height"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/street"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@={viewModel.street}"
+                        android:textAlignment="viewStart"
+                        android:textColorHint="@color/gray_btn_bg_color"
+                        android:textSize="@dimen/_16ssp" />
+
+                    <View
+                        android:id="@+id/viewStreet"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/border_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvStreetError"
+                        style="@style/textview_normal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_error_input"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:textColor="@color/input_error_color"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="gone"
+                        tools:text="Your phone number is incorrect." />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/building_number"
+                        android:textColor="@color/subtitle_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        android:id="@+id/edBuildingNumber"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/Edittext_height"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/building_number"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@={viewModel.buildingNumber}"
+                        android:textAlignment="viewStart"
+                        android:textColorHint="@color/gray_btn_bg_color"
+                        android:textSize="@dimen/_16ssp" />
+
+                    <View
+                        android:id="@+id/viewBuildingNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/border_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvBuildingNumberError"
+                        style="@style/textview_normal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_error_input"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:textColor="@color/input_error_color"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="gone"
+                        tools:text="Your phone number is incorrect." />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/description"
+                        android:textColor="@color/subtitle_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppEditText
+                        android:id="@+id/edDescription"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/Edittext_height"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/description"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@={viewModel.description}"
+                        android:textAlignment="viewStart"
+                        android:textColorHint="@color/gray_btn_bg_color"
+                        android:textSize="@dimen/_16ssp" />
+
+                    <View
+                        android:id="@+id/viewDesctiption"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/border_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvDescriptionError"
+                        style="@style/textview_normal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_error_input"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:textColor="@color/input_error_color"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="gone"
+                        tools:text="Your phone number is incorrect." />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/location"
+                        android:textColor="@color/subtitle_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvLocation"
+                        style="@style/textview_normal_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/Edittext_height"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/location"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@{viewModel.addressStr}"
+                        android:textAlignment="viewStart"
+                        android:textColorHint="@color/gray_btn_bg_color"
+                        android:textSize="@dimen/_16ssp" />
+
+                    <View
+                        android:id="@+id/viewLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/border_color" />
+
+                    <com.raantech.awfrlak.store.ui.base.views.AppTextView
+                        android:id="@+id/tvLocationError"
+                        style="@style/textview_normal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_error_input"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:textColor="@color/input_error_color"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="gone"
+                        tools:text="Your phone number is incorrect." />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSave"
+                        style="@style/AppTheme.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:text="@string/save_address"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</layout>

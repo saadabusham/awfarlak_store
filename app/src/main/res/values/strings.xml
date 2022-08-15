@@ -273,4 +273,27 @@
     <string name="added_mobiles">Added Mobiles</string>
     <string name="added_services">Added Services</string>
     <string name="added_accessories">Added Accessories</string>
+
+
+    <!--    Create Address   -->
+    <string name="save_address">Save Address</string>
+    <string name="update_address">Update Address</string>
+    <string name="contact_name">Name</string>
+    <string name="district">District</string>
+    <string name="street">Street</string>
+    <string name="building_number">Building Number</string>
+    <string name="description">Description</string>
+
+    <!--    City Picker-->
+    <string name="select_a_city">Select a City</string>
+
+    <!--    Search -->
+    <string name="no_results">No search result found</string>
+    <string name="no_results_description">Your search did not match any data. please try a different keyword</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search ...</string>
+    <string name="parcel">Parcel</string>
+    <string name="trace_shipment">Trace shipment</string>
+    <string name="bill">Bill</string>
+
 </resources>

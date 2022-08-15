@@ -1,22 +1,22 @@
-package com.raantech.awfrlak.store.ui.main.home.adapters
+package com.raantech.awfrlak.store.ui.main.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.raantech.awfrlak.store.data.models.home.MobilesItem
-import com.raantech.awfrlak.databinding.RowPhoneBinding
+import com.raantech.awfrlak.databinding.RowPhoneGridBinding
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.adapters.BaseViewHolder
 import com.raantech.awfrlak.store.utils.extensions.setPopUpAnimation
 
-class PhonesRecyclerAdapter(
+class PhonesGridRecyclerAdapter(
     context: Context
 ) : BaseBindingRecyclerViewAdapter<MobilesItem>(context) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViewHolder(
-            RowPhoneBinding.inflate(
+            RowPhoneGridBinding.inflate(
                 LayoutInflater.from(context), parent, false
             )
         )
@@ -29,7 +29,7 @@ class PhonesRecyclerAdapter(
         }
     }
 
-    inner class ViewHolder(private val binding: RowPhoneBinding) :
+    inner class ViewHolder(private val binding: RowPhoneGridBinding) :
         BaseViewHolder<MobilesItem>(binding.root) {
 
         override fun bind(item: MobilesItem) {

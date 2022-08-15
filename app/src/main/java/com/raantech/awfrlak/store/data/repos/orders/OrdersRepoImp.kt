@@ -29,4 +29,11 @@ class OrdersRepoImp @Inject constructor(
         }
     }
 
+    override suspend fun parcelOrder(orderId: String): APIResource<ResponseWrapper<Any>> {
+        return try {
+            responseHandle.handleSuccess(ordersRemoteDao.parcelOrder(orderId))
+        } catch (e: Exception) {
+            responseHandle.handleException(e)
+        }
+    }
 }

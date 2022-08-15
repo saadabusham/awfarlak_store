@@ -51,6 +51,18 @@ interface UserRepo {
         email: String
     ): APIResource<ResponseWrapper<UserInfo>>
 
+    suspend fun updateAddress(
+        name: String,
+        phone: String,
+        city: String,
+        district: String,
+        street: String,
+        building_number: String,
+        description: String,
+        latitude: Double,
+        longitude: Double,
+    ): APIResource<ResponseWrapper<UserInfo>>
+
     suspend fun getNotifications(
         skip:Int
     ): APIResource<ResponseWrapper<List<Notification>>>

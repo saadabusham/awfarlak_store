@@ -11,6 +11,7 @@ import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
 import com.raantech.awfrlak.store.data.models.auth.login2.UserDetailsResponseModel
 import com.raantech.awfrlak.store.data.models.auth.login2.UserInfo
+import com.raantech.awfrlak.store.ui.addresses.activity.AddressesActivity
 import com.raantech.awfrlak.store.ui.base.activity.BaseBindingActivity
 import com.raantech.awfrlak.store.ui.main.MainActivity
 import com.raantech.awfrlak.store.ui.profile.viewmodels.UpdateProfileViewModel
@@ -45,6 +46,10 @@ class UpdateProfileActivity : BaseBindingActivity<ActivityUpdateProfileBinding>(
         binding?.btnRegister?.setOnClickListener {
             if (validateInput())
                 viewModel.updateUser().observe(this, updateResultObserver())
+        }
+
+        binding?.btnUpdateAddress?.setOnClickListener {
+            AddressesActivity.start(this)
         }
     }
 

@@ -1,6 +1,7 @@
 package com.raantech.awfrlak.store.data.models.auth.login2
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class UserInfo(
 
@@ -20,5 +21,8 @@ data class UserInfo(
 	val store: Store? = null,
 
 	@field:SerializedName("email")
-	val email: String? = null
-)
+	val email: String? = null,
+
+	@field:SerializedName("address")
+	val address: UserAddress? = null
+):Serializable

@@ -18,6 +18,7 @@ import com.raantech.awfrlak.store.ui.base.bindingadapters.setOnItemClickListener
 import com.raantech.awfrlak.store.ui.orders.viewmodels.OrdersViewModel
 import com.raantech.awfrlak.store.ui.orders.adapter.OrderItemProductsRecyclerAdapter
 import com.raantech.awfrlak.store.utils.extensions.gone
+import com.raantech.awfrlak.store.utils.extensions.openUrl
 import com.raantech.awfrlak.store.utils.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.layout_toolbar.*
@@ -41,11 +42,43 @@ class OrdersActivity : BaseBindingActivity<ActivityOrdersItemProductsBinding>(),
             hasTitle = true,
             titleString = "#${viewModel.orderIdToView}"
         )
+        binding?.viewModel = viewModel
+        setUpListeners()
         setUpAdapter()
     }
 
     private fun handleIntentData() {
         viewModel.orderIdToView = intent.getStringExtra(Constants.BundleData.ORDER_ID)
+    }
+
+    private fun setUpListeners() {
+        binding?.btnParcel?.setOnClickListener {
+            viewModel.orderIdToView?.let {
+                viewModel.parcelOrder(it).observe(this, parcelOrdersObserver())
+            }
+        }
+        binding?.btnTrace?.setOnClickListener {
+            viewModel.orderItemToView.value?.trackingUrl?.let { it1 -> openUrl(it1) }
+        }
+        binding?.btnBill?.setOnClickListener {
+            viewModel.orderItemToView.value?.waybillUrl?.let { it1 -> openUrl(it1) }
+        }
+    }
+
+    private fun parcelOrdersObserver(): CustomObserverResponse<Any> {
+        return CustomObserverResponse(
+            this,
+            object : CustomObserverResponse.APICallBack<Any> {
+
+                override fun onSuccess(
+                    statusCode: Int,
+                    subErrorCode: ResponseSubErrorsCodeEnum,
+                    data: Any?
+                ) {
+                    loadData()
+                }
+            }
+        )
     }
 
     private fun loadData() {
@@ -65,7 +98,11 @@ class OrdersActivity : BaseBindingActivity<ActivityOrdersItemProductsBinding>(),
                     data: OrdersItem?
                 ) {
                     data?.let {
-                        it.prodcuts?.let { adapter.submitItems(it) }
+                        viewModel.orderItemToView.value = it
+                        it.prodcuts?.let {
+                            adapter.clear()
+                            adapter.submitItems(it)
+                        }
                     }
                     hideShowNoData()
                 }

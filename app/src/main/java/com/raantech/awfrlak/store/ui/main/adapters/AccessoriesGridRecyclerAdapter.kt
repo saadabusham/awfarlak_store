@@ -1,22 +1,22 @@
-package com.raantech.awfrlak.store.ui.main.home.adapters
+package com.raantech.awfrlak.store.ui.main.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.raantech.awfrlak.store.data.models.home.Service
-import com.raantech.awfrlak.databinding.RowServiceGridBinding
+import com.raantech.awfrlak.store.data.models.home.AccessoriesItem
+import com.raantech.awfrlak.databinding.RowAccessoryGridBinding
 import com.raantech.awfrlak.store.ui.base.adapters.BaseBindingRecyclerViewAdapter
 import com.raantech.awfrlak.store.ui.base.adapters.BaseViewHolder
 import com.raantech.awfrlak.store.utils.extensions.setPopUpAnimation
 
-class ServicesGridRecyclerAdapter(
+class AccessoriesGridRecyclerAdapter(
     context: Context
-) : BaseBindingRecyclerViewAdapter<Service>(context) {
+) : BaseBindingRecyclerViewAdapter<AccessoriesItem>(context) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViewHolder(
-            RowServiceGridBinding.inflate(
+            RowAccessoryGridBinding.inflate(
                 LayoutInflater.from(context), parent, false
             )
         )
@@ -29,10 +29,10 @@ class ServicesGridRecyclerAdapter(
         }
     }
 
-    inner class ViewHolder(private val binding: RowServiceGridBinding) :
-        BaseViewHolder<Service>(binding.root) {
+    inner class ViewHolder(private val binding: RowAccessoryGridBinding) :
+        BaseViewHolder<AccessoriesItem>(binding.root) {
 
-        override fun bind(item: Service) {
+        override fun bind(item: AccessoriesItem) {
             binding.item = item
             binding.root.setOnClickListener {
                 itemClickListener?.onItemClick(it, adapterPosition, item)

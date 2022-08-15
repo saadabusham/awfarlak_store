@@ -255,6 +255,37 @@
     <string name="service_price">السعر ( اختياري )</string>
     <string name="time_to_complete_the_service_optional">الوقت المحدد لانجاز الخدمة (اختياري)</string>
     <string name="please_select_the_service_images">يرجى اختيار صور الخدمة</string>
-    <string name="no_data_found_add_services_and_products">No Data Found , Add Services And Products</string>
+    <string name="no_data_found_add_services_and_products">لا توجد بيانات ، أضف خدمات ومنتجات</string>
+
+
+    <!--    statistics-->
+    <string name="sales">عدد المبيعات</string>
+    <string name="sales_amount">حجم المبيعات</string>
+    <string name="number_of_service_requests">طلبات الخدمة</string>
+    <string name="added_mobiles">الجوالات المضافة للبيع</string>
+    <string name="added_services">الخدمات المضافة</string>
+    <string name="added_accessories">الاكسسوارات المضافة</string>
+
+    <!--    Create Address   -->
+    <string name="save_address">حفظ العنوان</string>
+    <string name="update_address">تعديل العنوان</string>
+    <string name="contact_name">الاسم</string>
+    <string name="district">الحي</string>
+    <string name="street">الشارع</string>
+    <string name="building_number">رقم المبنى</string>
+    <string name="description">الوصف</string>
+
+    <!--    City Picker-->
+    <string name="select_a_city">اختر المدينة</string>
+
+    <!--    Search -->
+    <string name="no_results">لم يتم العثور على نتيجة بحث</string>
+    <string name="no_results_description">بحثك لم يطابق أي بيانات. يرجى محاولة استخدام كلمة رئيسية مختلفة</string>
+    <string name="search">البحث</string>
+    <string name="search_hint">ابحث...</string>
+
+    <string name="parcel">توزيع</string>
+    <string name="trace_shipment">تتبع الشحنة</string>
+    <string name="bill">فاتورة</string>
 
 </resources>

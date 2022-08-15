@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_statistics"
-        android:name="com.raantech.awfrlak.store.ui.main.statistics.StatisticsFragment"
+        android:name="com.raantech.awfrlak.store.ui.main.statistics.fragments.StatisticsFragment"
         android:label="StatisticsFragment"
         tools:layout="@layout/fragment_statistics" />
 
     <fragment
         android:id="@+id/nav_products"
-        android:name="com.raantech.awfrlak.store.ui.main.products.ProductsFragment"
+        android:name="com.raantech.awfrlak.store.ui.main.products.fragments.ProductsFragment"
         android:label="ProductsFragment"
         tools:layout="@layout/fragment_products" />
 
     <fragment
         android:id="@+id/nav_services"
-        android:name="com.raantech.awfrlak.store.ui.store.fragment.ServicesFragment"
+        android:name="com.raantech.awfrlak.store.ui.main.servies.fragments.ServicesFragment"
         android:label="ServicesFragment"
         tools:layout="@layout/layout_services_grid" />
     <fragment

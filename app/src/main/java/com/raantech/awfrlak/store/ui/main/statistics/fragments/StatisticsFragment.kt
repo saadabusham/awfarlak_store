@@ -1,4 +1,4 @@
-package com.raantech.awfrlak.store.ui.main.statistics
+package com.raantech.awfrlak.store.ui.main.statistics.fragments
 
 import android.transition.TransitionManager
 import android.view.ViewGroup
@@ -10,7 +10,6 @@ import com.raantech.awfrlak.store.data.api.response.GeneralError
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
 import com.raantech.awfrlak.store.data.models.StoreStatistics
-import com.raantech.awfrlak.store.data.models.auth.login.TokenModel
 import com.raantech.awfrlak.store.ui.accessory.AddAccessoryActivity
 import com.raantech.awfrlak.store.ui.base.fragment.BaseBindingFragment
 import com.raantech.awfrlak.store.ui.main.viewmodels.GeneralViewModel
@@ -105,13 +104,13 @@ class StatisticsFragment : BaseBindingFragment<FragmentStatisticsBinding>() {
     }
 
     private fun loadingObserver() {
-        loading.observe(this, {
+        loading.observe(this) {
             if (it) {
                 binding?.layoutShimmer?.shimmerViewContainer?.visible()
             } else {
                 binding?.layoutShimmer?.shimmerViewContainer?.gone()
             }
-        })
+        }
     }
 
 }

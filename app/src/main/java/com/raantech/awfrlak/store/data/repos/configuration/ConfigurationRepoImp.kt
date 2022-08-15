@@ -5,6 +5,7 @@ import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.api.response.ResponseHandler
 import com.raantech.awfrlak.store.data.api.response.ResponseWrapper
 import com.raantech.awfrlak.store.data.daos.remote.configuration.ConfigurationRemoteDao
+import com.raantech.awfrlak.store.data.models.CitiesResponse
 import com.raantech.awfrlak.store.data.models.City
 import com.raantech.awfrlak.store.data.models.GeneralLookup
 import com.raantech.awfrlak.store.data.models.configuration.ConfigurationWrapperResponse
@@ -36,7 +37,7 @@ class ConfigurationRepoImp @Inject constructor(
         }
     }
 
-    override suspend fun getCities(): APIResource<ResponseWrapper<List<City>>> {
+    override suspend fun getCities(): APIResource<ResponseWrapper<CitiesResponse>> {
         return try {
             responseHandle.handleSuccess(configurationRemoteDao.getCities())
         } catch (e: Exception) {
