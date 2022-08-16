@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.raantech.awfrlak.R
 import com.raantech.awfrlak.store.common.MyApplication
 import com.raantech.awfrlak.store.data.api.response.ResponseSubErrorsCodeEnum
 import com.raantech.awfrlak.store.data.common.CustomObserverResponse
 import com.raantech.awfrlak.store.data.models.configuration.ConfigurationWrapperResponse
 import com.raantech.awfrlak.databinding.ActivitySplashBinding
+import com.raantech.awfrlak.store.common.CommonEnums
 import com.raantech.awfrlak.store.ui.auth.AuthActivity
 import com.raantech.awfrlak.store.ui.base.activity.BaseBindingActivity
 import com.raantech.awfrlak.store.ui.main.MainActivity
@@ -33,6 +35,10 @@ class SplashActivity : BaseBindingActivity<ActivitySplashBinding>() {
             layoutResID = R.layout.activity_splash,
             hasToolbar = false
         )
+
+        viewModel.saveLanguage().observe(this) {
+            setLanguage(CommonEnums.Languages.Arabic.value)
+        }
         Handler(Looper.getMainLooper()).postDelayed({
 //            viewModel.getConfigurationData().observe(this, configurationResultObserver())
             goToNextPage()

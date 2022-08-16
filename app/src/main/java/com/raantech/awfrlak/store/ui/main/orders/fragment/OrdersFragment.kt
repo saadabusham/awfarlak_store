@@ -97,6 +97,7 @@ class OrdersFragment : BaseBindingFragment<FragmentOrderBinding>(),
                     if (data.isNullOrEmpty())
                         isFinished = true
                     loading.value = false
+                    hideShowNoData()
                 }
 
                 override fun onError(

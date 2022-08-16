@@ -1,8 +1,10 @@
 package com.raantech.awfrlak.store.ui.splash
 
 import androidx.lifecycle.liveData
+import com.raantech.awfrlak.store.common.CommonEnums
 import com.raantech.awfrlak.store.data.api.response.APIResource
 import com.raantech.awfrlak.store.data.enums.UserEnums
+import com.raantech.awfrlak.store.data.pref.configuration.ConfigurationPref
 import com.raantech.awfrlak.store.data.repos.auth.UserRepo
 import com.raantech.awfrlak.store.data.repos.configuration.ConfigurationRepo
 import com.raantech.awfrlak.store.ui.base.viewmodel.BaseViewModel
@@ -14,6 +16,7 @@ import javax.inject.Inject
 class SplashViewModel @Inject constructor(
     private val userRepo: UserRepo,
     private val configurationRepo: ConfigurationRepo,
+    private val configurationpref: ConfigurationPref,
     private val sharedPreferencesUtil: SharedPreferencesUtil
 ) : BaseViewModel() {
 
@@ -66,5 +69,10 @@ class SplashViewModel @Inject constructor(
 //            sharedPreferencesUtil.clearPreference()
 //    }
 
+
+    fun saveLanguage() = liveData {
+        configurationpref.setAppLanguageValue(CommonEnums.Languages.Arabic.value)
+        emit(null)
+    }
     fun isUserLoggedIn() = userRepo.getUserStatus() == UserEnums.UserState.LoggedIn
 }
