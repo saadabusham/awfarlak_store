@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
+                android:visibility="gone"
                 android:layout_marginBottom="@dimen/_10sdp" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -38,7 +39,16 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="4"
+                android:visibility="gone"
                 tools:listitem="@layout/row_indecator" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:src="@drawable/ic_app_logo"
+                android:tint="@color/button_color"/>
 
             <com.raantech.awfrlak.store.ui.base.views.AppTextView
                 style="@style/textview_normal_regular"
@@ -130,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/button_height"
                 android:layout_marginStart="@dimen/layouts_margin_start"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_50sdp"
                 android:layout_marginEnd="@dimen/layouts_margin_end"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:text="@string/login" />

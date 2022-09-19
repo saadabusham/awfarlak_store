@@ -198,7 +198,6 @@
                                 android:clickable="false"
                                 android:focusable="false"
                                 android:gravity="center"
-                                android:layoutDirection="ltr"
                                 app:ccp_arrowSize="0dp"
                                 app:ccp_clickable="false"
                                 app:ccp_defaultNameCode="SA"
